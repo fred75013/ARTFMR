@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+  has_many :line_products, dependent: :destroy
+  
+  
   validates :title, 
   presence: true,
   length: { in: 5..140 }
