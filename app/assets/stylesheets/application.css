@@ -14,6 +14,11 @@
  *= require_self
  */
 
+body{
+  min-height: 100vh;
+}
+
+
 nav li{
     margin:0 50px;   
 }
@@ -53,7 +58,6 @@ nav li{
   .nav-link:focus:before {
     visibility: visible;
     transform: scaleX(1);
-
   }
 /* footer */
 
@@ -146,6 +150,3 @@ nav li{
   font-size:13px;
   opacity:0.6;
 }
-
-  }
-
