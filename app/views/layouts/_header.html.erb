@@ -9,11 +9,11 @@
       <li>
         <a class="logo navbar-brand" href="/">ARTFMR</a>
       </li>
-      <% if user_signed_in? %>
+      
       <li class="nav-item">
         <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
       </li>
-     
+     <% if user_signed_in? %>
       <li class="nav-item">
         <a class="nav-link" href="#">Profil</a>
       </li>
