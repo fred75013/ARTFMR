@@ -36,19 +36,19 @@ class Product < ApplicationRecord
   numericality: { only_integer: true }
 
   validates :border_product, 
-  presence: true
+  presence: false
   
   validates :authenticable_product, 
-  presence: true
+  presence: false
   
   validates :status, 
   presence: true
 
   validates :to_rent, 
-  presence: true
+  presence: false
 
   validates :to_buy, 
-  presence: true
+  presence: false
   
   validates :price, 
   presence: true,
