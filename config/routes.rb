@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "static_page#index"
+  root "products#index"
  
   get 'carts/show'
   devise_for :users
