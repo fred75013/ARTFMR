@@ -11,7 +11,7 @@ require 'faker'
 @photo = "photo"
 @dessin = "dessin"
 @style = [@toile, @photo, @dessin]
-@statut = "available"
+@statut = "Available"
 
 20.times do |product|
     Product.create!(
