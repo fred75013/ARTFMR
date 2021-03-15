@@ -12,8 +12,6 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.boolean :border_product
       t.boolean :authenticable_product
       t.string :status
-      t.boolean :to_rent
-      t.boolean :to_buy
       t.integer :price
       t.string :image_url
 
