@@ -1,9 +1,9 @@
 <h2 class="text-center">Nos produits</h2>
 
-<div class="all-product">
+<div class="all-product col-12 text-center">
   <% @products.each do |product| %>
     <a href="<%= product_path(id: product.id) %>" class="card-clic">
-      <img src="<%= product.image_url%>" alt="" class="product col-2 m-0 p-0">
+      <img src="<%= product.image_url%>" alt="" class="product m-0 p-0">
     </a>
   <% end%>
 </div>
