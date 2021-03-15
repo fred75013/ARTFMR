@@ -5,8 +5,9 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Connexion</h5>
-              <div class="form-label-group">
+              
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-label-group">
                   <div class="field">
                     <%= f.label :email %><br />
                     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
