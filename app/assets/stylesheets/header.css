@@ -1,6 +1,7 @@
 /*--------NAVBAR-------*/
 .nav-home {
   display: flex;
+  letter-spacing: 0.5px;
 }
 .logo {
   padding-left: 32px;
