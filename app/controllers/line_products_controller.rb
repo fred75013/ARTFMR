@@ -8,7 +8,7 @@ class LineProductsController < ApplicationController
         if current_cart.products.include?(chosen_product)
           # Find the line_item with the chosen_product
           @line_product = current_cart.line_products.find_by(:product_id => chosen_product)
-          # Iterate the line_item's quantity by one
+          
           redirect_to cart_path(current_cart)
           flash[:notice] = "Déja ajouté au panier"
         else

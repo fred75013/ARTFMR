@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   validates :category, 
   presence: true
   
-  validates :type, 
+  validates :style, 
   presence: true
   
   validates :height, 
@@ -39,6 +39,15 @@ class Product < ApplicationRecord
   presence: true
   
   validates :authenticable_product, 
+  presence: true
+  
+  validates :status, 
+  presence: true
+
+  validates :to_rent, 
+  presence: true
+
+  validates :to_buy, 
   presence: true
   
   validates :price, 
