@@ -1,16 +1,21 @@
 /*--------NAVBAR-------*/
-
 .nav-home {
   display: flex;
-  align-items: baseline;
+  letter-spacing: 0.5px;
 }
-
 .logo {
   padding-left: 32px;
+  margin-top: -15px;
 }
-
 .nav-padding {
   padding: 8px;
   padding-top: 20px;
   height: 55px;
+}
+.nav-right {
+  padding-top: -15px;
+  margin-top: -15px;
+}
+.nav-burger {
+  margin-top: -15px;
 }
