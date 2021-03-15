@@ -5,7 +5,7 @@ class LineProduct < ApplicationRecord
 
   
   def total_price
-    self.quantity * self.product.price
+    1 * self.product.price
   end
 
 end
