@@ -13,5 +13,6 @@
  *= require bootstrap.min
  *= require main
  *= require header
+ *= require products
  *= require footer
  */
