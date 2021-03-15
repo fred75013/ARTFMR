@@ -16,5 +16,6 @@
   <% end %>
 </ul>
 <h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+<% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-warning my-3", remote: true %> <%# # # %>
 
 <%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"} %>
