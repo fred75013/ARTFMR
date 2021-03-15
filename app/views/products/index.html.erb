@@ -1,8 +1,10 @@
-<h2>All Products</h2>
+<h2>Nos produits</h2>
 
 <% @products.each do |product| %>
-  <p>Title: <%= product.title %></p>
-  <p>Description: <%= product.description %></p>
-  <p>Price: <%= product.price %></p>
+  <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header"><%= product.title %></div>
+    <div class="card-body">
+      <p class="card-text"><%= product.description %></p>
+    </div>
+  </div>
 <% end%>
-
