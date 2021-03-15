@@ -34,8 +34,6 @@ Product.destroy_all
         border_product: false, 
         authenticable_product: false,
         status: @statut ,
-        to_rent: false, 
-        to_buy: false,
         price: rand(400..1000),
         image_url: @images.sample
     )

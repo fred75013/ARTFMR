@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2021_03_14_155051) do
   create_table "line_products", force: :cascade do |t|
     t.integer "product_id"
     t.integer "cart_id"
+    t.boolean "to_buy", default: true
+    t.integer "price"
     t.integer "quantity"
     t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
@@ -41,8 +43,6 @@ ActiveRecord::Schema.define(version: 2021_03_14_155051) do
     t.boolean "border_product"
     t.boolean "authenticable_product"
     t.string "status"
-    t.boolean "to_rent"
-    t.boolean "to_buy"
     t.integer "price"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false

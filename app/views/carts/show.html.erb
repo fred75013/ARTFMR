@@ -1,4 +1,57 @@
-        <div class="container px-4 py-5 mx-auto">
+ <h2>Cart show</h2>
+<ul>
+  <% @cart.line_products.each do |line_product| %>
+    <li>Item: <%= line_product.product.title %>/ Price: <%= line_product.price %> euros/ 
+    
+    <%=line_product.to_buy%>
+    <ul>
+      
+      <li>
+       <%= link_to "Remove item", line_product_path(line_product), method: :delete %>
+      </li>
+      <li class="nav-item dropdown show">
+
+            <%if line_product.to_buy == true%>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</a>
+              <%end%>
+            <%if line_product.to_buy == false%>
+               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</a>
+            <%end%>
+
+            <div class="dropdown-menu show">
+
+            <%if line_product.to_buy == true%>
+              <a class="dropdown-item" ><%= link_to "louer", line_product_path(line_product), method: :patch %></a>
+              <%end%>
+
+            <<%if line_product.to_buy == false%>
+              <a class="dropdown-item" ><%= link_to "Acheter", line_product_path(line_product), method: :patch %></a>
+            <%end%>
+            
+        </li>
+    </ul>
+    
+  <% end %>
+</ul>
+<h3>Sub total: <%= number_to_currency(@cart.sub_total) %></h3>
+<% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-warning my-3", remote: true %> <%# # # %>
+
+<%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"} %>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container px-4 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-5">
             <h4 class="heading">Shopping Bag</h4>
@@ -19,7 +72,8 @@
         </div>
         <% @cart.line_products.each do |line_product| %>
 
-    </div>
+
+
     <%# --------CONTROLLER CARTS - METHOD SHOW %>
     <div class="row d-flex justify-content-center border-top">
         <div class="col-5">
@@ -108,3 +162,4 @@
 </div>
 
 <%# inspired by:https://bbbootstrap.com/snippets/shopping-cart-checkout-payment-options-86973257  %>
+
