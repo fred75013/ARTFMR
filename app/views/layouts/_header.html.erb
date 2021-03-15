@@ -1,12 +1,14 @@
 
 <nav class="nav-padding navbar navbar-expand-sm navbar-dark bg-primary">
-  <a class="logo navbar-brand" href="/">ARTFMR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="nav-home collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
+      <li>
+        <a class="logo navbar-brand" href="/">ARTFMR</a>
+      </li>
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
