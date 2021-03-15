@@ -8,10 +8,16 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+            <a class="nav-item nav-link" <%= link_to "Mon panier", carts_show_path(@current_cart) %> </a>   
+                 </li>  
+
             <li class="nav-item">
                 <a class="nav-link" style="color:white;" href="#">
                 Profil</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" style="color: white;" href="#">Peinture</a>
             </li>

@@ -18,8 +18,8 @@ class Product < ApplicationRecord
   
   validates :height, 
   presence: true,
-  numericality: { only_integer: true, greater_than: 70 },
-  length: { in: 5..140 }
+  numericality: { only_integer: true, greater_than: 70 }
+  
 
   validates :width, 
   presence: true,
@@ -36,19 +36,19 @@ class Product < ApplicationRecord
   numericality: { only_integer: true }
 
   validates :border_product, 
-  presence: true
+  presence: false
   
   validates :authenticable_product, 
-  presence: true
+  presence: false
   
   validates :status, 
   presence: true
 
   validates :to_rent, 
-  presence: true
+  presence: false
 
   validates :to_buy, 
-  presence: true
+  presence: false
   
   validates :price, 
   presence: true,
