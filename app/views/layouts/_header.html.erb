@@ -22,7 +22,7 @@
       <%end%>
 
       <% if user_signed_in? %>
-        <% if current_user.artist == false %>
+        <% if current_user.artist == true %>
         <li class="nav-item">
           <%= link_to "Concept", users_owner_path, class:"nav-link"%>
         </li>
