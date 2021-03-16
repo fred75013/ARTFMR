@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :users
 
    resources :checkout, only: [:create]
+   get 'static_pages/faq'
 
 end
