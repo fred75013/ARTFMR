@@ -1,6 +1,9 @@
 class CheckoutController < ApplicationController
 
     def create
+        if current_user.first_name == nil && current_user.last_name == nil && current_user.adress == nil && current_user.city == nil && current_user.phone_number == nil && current_user.artist == nil
+            redirect_to edit_user_registration_path
+        else
         @user = current_user
         @total = params[:total].to_d
         @session = Stripe::Checkout::Session.create(
@@ -30,5 +33,5 @@ class CheckoutController < ApplicationController
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     end
-
+end
 end
