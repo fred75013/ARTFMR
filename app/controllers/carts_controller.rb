@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   def destroy
     @cart = @current_cart
     @cart.products.destroy_all
-    @cart.line_products.destroy_all
+    
     
     redirect_to root_path
   end
