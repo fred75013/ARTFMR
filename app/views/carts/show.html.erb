@@ -91,11 +91,12 @@
     <h3 class="float-right">Total: <%= number_to_currency(@cart.sub_total) %></h3>
          
      
-    <%# --------CONTROLLER CARTS - METHOD DESTROY--------------------- %>
-    <%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer le panier?"}, class:"btn btn-danger " %>
-
-   
-    <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-warning my-3", remote: true %> 
+    <% if @cart.line_products.length > 0 %>
+        <%= link_to "Vider le panier", cart_path(@current_cart),method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer le panier?"}, class:"btn btn-danger " %>
+    <% end %>
+   <% if user_signed_in? && @cart.line_products.length > 0%>
+        <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-warning my-3", remote: true %> 
+    <% end %>
 
 
 
