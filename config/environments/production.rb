@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-config.action_mailer.perform_deliveries = true
+config.action_mailer.perform_deliveries = false
 config.action_mailer.default_url_options = { :host => 'https://artfmr.herokuapp.com/' }
   # Settings specified here will take precedence over those in config/application.rb.
 
