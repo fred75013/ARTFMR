@@ -15,7 +15,7 @@
     <p>Profondeur : <%=@product.depth%></p>
     <p>Poids : <%=@product.weight%></p>
     <p>Etat : <%=@product.status%></p>
+    <p><%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn-sm btn-primary", :method => 'POST' %></p>
 
-    <p><%=link_to 'Ajouter au panier', line_products_path(product_id: @product), class:" btn-sm btn-primary "%></p>
   </div>
 </div>
