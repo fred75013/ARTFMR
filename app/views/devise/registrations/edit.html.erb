@@ -26,19 +26,23 @@
 
   <div class="field">
     <%= f.label "Numéro de téléphone *" %> <br />
-    <%= f.text_field :phone_number, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Artist *" %><br/>
-    <%= f.text_field :artist, class: "text-field" %>
+    <%= f.text_field :phone_number, class: "text-field", value:"+33" %>
   </div>
 
   <div class="field">
     <%= f.label "Mot de passe actuel *" %><br/>
     <%= f.password_field :current_password, autocomplete: "current-password", class: "text-field" %>
-  </div><br/>
+  </div>
 
+  <div class="field">
+    <div style="display: inline-block;"><p style="font-size: 0.9375rem;">Êtes vous un artist ?</p>
+      <p style="display: inline-block;">Non<%= f.radio_button :artist, false %></p>
+      
+      <p style="display: inline-block;margin-left: 5px;">Oui<%= f.radio_button :artist, true %></p>
+    </div>
+ 
+  </div><br/>
+  
   <div class="button-update" >
     <%= f.submit "Modifié", class: "btn btn-secondary"%>
   </div>
