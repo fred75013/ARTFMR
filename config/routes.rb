@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  root "products#index"
+  root "users_type#taker"
 
   get 'users/taker', to: 'users_type#taker'
   get 'users/owner', to: 'users_type#owner'
