@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
    resources :checkout, only: [:create]
    get 'static_pages/faq'
+   get 'static_pages/legal_mention'
 
 end
