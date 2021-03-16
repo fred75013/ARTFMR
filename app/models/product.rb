@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_one_attached :avatar
 
   validates :avatar,
-  presence: true
+  presence: false
   
   validates :title, 
   presence: true,
