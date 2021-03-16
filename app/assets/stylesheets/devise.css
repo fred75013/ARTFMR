@@ -1,28 +1,28 @@
-h2{
-    text-align: center; 
-    margin-top: 30px;
+h2 {
+  text-align: center;
+  margin-top: 30px;
 }
 
-.field{
-    width: 50%;
-    padding: 30px; 
-    margin-top: -30px;
-    left: 25%;
+.field {
+  width: 50%;
+  padding: 30px;
+  margin-top: -30px;
+  left: 25%;
 }
 
-.button-update{
-    padding: 30px; 
-    margin-top: -100px;
-    left: 40%;
-    width: 30%;
+.button-update {
+  padding: 30px;
+  margin-top: -100px;
+  left: 40%;
+  width: 30%;
 }
 
-.text-field{
-    background-color: #fdcfa8 ;
+.text-field {
+  background-color: #fdcfa8;
 }
 
-.actions{
-    padding: 30px; 
-    margin-top: 100px;
-    width: 20%;
+.actions {
+  padding: 30px;
+  margin-top: 100px;
+  width: 20%;
 }
