@@ -1,0 +1,21 @@
+/*-------Page Preneur-----*/
+.cont-blue{
+    background-color: #2d3960 ;
+}
+
+.material-icons{
+    transform: scale(2.5);
+    margin-bottom: 20px;
+}
+
+.text-infos h4{
+font-size: 24px;
+font-weight: 800;
+}
+
+.text-infos p{
+    font-size: 16px;
+    font-weight: 800;
+}
+
+/*-------Page Artiste-----*/
