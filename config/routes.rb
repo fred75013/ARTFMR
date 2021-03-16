@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   root "products#index"
 
-  get 'users/preneur', to: 'users_type#preneur'
-  get 'users/artiste', to: 'users_type#artiste'
+  get 'users/taker', to: 'users_type#taker'
+  get 'users/owner', to: 'users_type#owner'
   get 'carts/show'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

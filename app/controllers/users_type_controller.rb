@@ -1,8 +1,8 @@
 class UsersTypeController < ApplicationController
 
-    def preneur
+    def taker
     end
 
-    def artiste
+    def owner
     end
 end
