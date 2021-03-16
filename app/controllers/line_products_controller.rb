@@ -16,18 +16,19 @@ class LineProductsController < ApplicationController
   if current_cart.products.include?(chosen_product)
     # Find the line_item with the chosen_product
     @line_product = current_cart.line_products.find_by(:product_id => chosen_product)
-    redirect_to cart_path(current_cart)
+    redirect_to request.referrer
     flash[:notice] = "Déja ajouté au panier"
 
   else
     @line_product = LineProduct.new(cart: current_cart, product: chosen_product, price: chosen_product.price  )
 
     @line_product.save
+    redirect_to cart_path(current_cart)
   end
 
   # Save and redirect to cart show path
   
-  redirect_to cart_path(current_cart)
+  
 end
       
 
