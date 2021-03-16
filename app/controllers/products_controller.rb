@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     
       def index
-        @products = Product.all
+        @products = Product.all.with_attached_avatar
       end
 
       def show
@@ -35,6 +35,6 @@ class ProductsController < ApplicationController
     
       private
         def product_params
-          params.require(:product).permit(:title, :description, :category, :type, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price,)
+          params.require(:product).permit(:title, :description, :category, :type, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price, :avatar)
         end
 end
