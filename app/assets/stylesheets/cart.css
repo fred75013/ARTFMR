@@ -1,4 +1,4 @@
-
+/* 
 
 .plus-minus {
     position: relative
@@ -30,7 +30,7 @@
 }
 
 .book {
-    margin: 20px 15px 5px 15px
+    margin: 20px 10px 15px 5px;
 }
 
 .border-top {
@@ -149,4 +149,4 @@ button:focus {
     .pad-left {
         padding-left: 20px
     }
-}
+} */
