@@ -1,0 +1,28 @@
+/*-------Color Body-----*/
+.cont-blue{
+    background-color: #2C3E51 ;
+}
+
+/*-------Page Preneur-----*/
+.material-icons{
+    transform: scale(2.5);
+    margin-bottom: 20px;
+}
+
+.text-infos h4{
+font-size: 24px;
+font-weight: 800;
+}
+
+.text-infos p{
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.container-videos{
+    
+    width: 420px;
+    height: 210px;
+    background-color: #2C3E51;
+}
+
