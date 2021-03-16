@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     
       def create
         @product = Product.create(product_params)
-        @product.avatar.attach(params[:avatar])
         redirect_to products_path
       end
     
@@ -32,6 +31,6 @@ class ProductsController < ApplicationController
     
       private
         def product_params
-          params.require(:product).permit(:title, :description, :category, :type, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price)
+          params.require(:product).permit(:title, :description, :category, :type, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price, :avatar)
         end
 end

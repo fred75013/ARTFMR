@@ -1,7 +1,7 @@
 <h2>Nos produits</h2>
 
 <% @products.each do |product| %>
- <p><%# <%= product.avatar.variant(resize_to_limit: [100, 100]) %></p>
+ <p><%= image_tag product.avatar%></p>
   <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
 
     <div class="card-header"><%= product.title %></div>
