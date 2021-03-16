@@ -1,6 +1,9 @@
 class Product < ApplicationRecord
   has_many :line_products, dependent: :destroy
   has_one_attached :avatar
+
+  validates :avatar,
+  presence: true
   
   validates :title, 
   presence: true,
