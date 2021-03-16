@@ -18,3 +18,8 @@
   display: flex;
   font-size: 50px;
 }
+
+.link-footer:hover{
+  color: white;
+  text-decoration: none;
+}
