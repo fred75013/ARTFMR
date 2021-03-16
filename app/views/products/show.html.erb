@@ -1,0 +1,21 @@
+<h1 class="text-center"><%=@product.title%></h1>
+<div class="show-product">
+  <div>
+    <p>
+      <img src="<%= @product.image_url%>" alt="" class="show-img">
+    </p>
+  </div>
+  <div>
+    <p>Titre : <%=@product.title%></p>
+    <p>Description : <%=@product.description%></p>
+    <p>Categorie : <%=@product.category%></p>
+    <p>Style : <%=@product.style%></p>
+    <p>Hauteur : <%=@product.height%></p>
+    <p>Largeur : <%=@product.width%></p>
+    <p>Profondeur : <%=@product.depth%></p>
+    <p>Poids : <%=@product.weight%></p>
+    <p>Etat : <%=@product.status%></p>
+
+    <p><%=link_to 'Ajouter au panier', line_products_path(product_id: @product), class:" btn-sm btn-primary "%></p>
+  </div>
+</div>

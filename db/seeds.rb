@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+Product.destroy_all
 
 @toile = "toile sur chassis"
 @photo = "photo"
@@ -13,6 +14,13 @@ require 'faker'
 @style = [@toile, @photo, @dessin]
 @statut = "Available"
 
+
+@images = [
+    "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdSUyMHN0cmVldCUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1544273677-c433136021d4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dGFibGVhdSUyMHN0cmVldCUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1546930722-a1292ed9dee8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGVhdSUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    
+]
 20.times do |product|
     Product.create!(
         title: Faker::Books::CultureSeries.culture_ship_class,
@@ -26,8 +34,7 @@ require 'faker'
         border_product: false, 
         authenticable_product: false,
         status: @statut ,
-        to_rent: false, 
-        to_buy: false,
-        price: rand(400..1000)
+        price: rand(400..1000),
+        image_url: @images.sample
     )
 end

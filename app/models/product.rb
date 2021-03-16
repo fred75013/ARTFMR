@@ -52,7 +52,7 @@ class Product < ApplicationRecord
   
   validates :price, 
   presence: true,
-  numericality: { only_integer: true, greater_than: 400 }
+  numericality: { only_integer: true, greater_than: 399 }
 
   validates :image_url, 
   presence: false
