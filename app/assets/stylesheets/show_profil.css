@@ -227,3 +227,7 @@ img.rounded {
   background-color: transparent;
   color: #999;
 }
+
+.link-show-user {
+  color: black;
+}

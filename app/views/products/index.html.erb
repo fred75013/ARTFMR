@@ -1,7 +1,7 @@
 
  
 
-<h2 class="text-center">Nos produits</h2>
+
 
 <div class="all-product col-12 text-center">
   <% @products.each do |product| %>
@@ -10,7 +10,7 @@
       <%= image_tag product.avatar, class: "product m-0 p-0"%>
     </a>
     <% else %>
-      <img src="<%= product.image_url%>" class="product m-0 p-0">
+      <img src="<%= product.image_url%>" class="product p-0 m-2">
     </a>
     <%end %>
   <% end%>

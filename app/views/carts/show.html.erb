@@ -45,20 +45,20 @@
                     
                             <li class="dropdown show" style="list-style-type: none;">
                                 <%if line_product.to_buy == true%>
-                                <a class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</a>
+                                <button class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</button>
                                 <%end%>
                                 <%if line_product.to_buy == false%>
-                                <a class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</a>
+                                <button class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</button>
                                 <%end%>
 
                                 <div class="dropdown-menu show">
 
                                 <%if line_product.to_buy == true%>
-                                    <a class="dropdown-item" ><%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;" %></a>
+                                    <a class="dropdown-item" ><%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;", class: "link-cards" %></a>
                                 <%end%>
 
                                 <%if line_product.to_buy == false%>
-                                    <a class="dropdown-item" ><%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;" %></a>
+                                    <a class="dropdown-item" ><%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;", class: "link-cards" %></a>
                                 <%end%>    
                             </li>
                   </strong></td>
