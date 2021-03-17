@@ -39,9 +39,11 @@ class CheckoutController < ApplicationController
 
      @cart.line_products.each do |line|
        if line.to_buy == true 
+        line.update(order_id: @order.id )
         line.product.update(status: "sold")
        else
-        line.product.update(status: "rented")
+        line.update(order_id: @order.id )
+        line.product.update(status: "rented", order_id: @order.id)
        end
     end
     
