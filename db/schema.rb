@@ -73,11 +73,13 @@ ActiveRecord::Schema.define(version: 2021_03_17_111100) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
     t.bigint "cart_id"
     t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
