@@ -2,7 +2,7 @@
   border-top: 1px solid;
   margin-top: 20px;
   width: 100%;
-  color: white;
+  color: black;
   letter-spacing: 1px;
 }
 
@@ -18,10 +18,17 @@
   display: flex;
   font-size: 50px;
 }
+
 .link-footer{
   color: black;
 }
-.link-footer:hover{
+
+
+.link-footer:hover {
+
   color: white;
   text-decoration: none;
+}
+.link-footer {
+  color: black;
 }
