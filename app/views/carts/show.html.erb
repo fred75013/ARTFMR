@@ -1,8 +1,93 @@
 
+  <div class="container text-white py-5 text-center">
+  </div>
+  
+
+  <div class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Produit</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Prix</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Louer/Acheter</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Suppirmer</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @cart.line_products.each do |line_product| %>
+                <tr>
+                  <th scope="row" class="border-0">
+                    <div class="p-2">
+                      <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a  class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Daniel Kahneman</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>
+                  <td class="border-0 align-middle"><strong>
+                    
+                            <li class="nav-item dropdown show" style="list-style-type: none;">
+                                <%if line_product.to_buy == true%>
+                                <a class="nav-link dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</a>
+                                <%end%>
+                                <%if line_product.to_buy == false%>
+                                <a class="nav-link dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</a>
+                                <%end%>
+
+                                <div class="dropdown-menu show">
+
+                                <%if line_product.to_buy == true%>
+                                    <a class="dropdown-item" ><%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;" %></a>
+                                <%end%>
+
+                                <%if line_product.to_buy == false%>
+                                    <a class="dropdown-item" ><%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;" %></a>
+                                <%end%>    
+                            </li>
+                  </strong></td>
+                  <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
+                </tr>
+              <% end %>
+
+              </tbody>
+            </table>
+                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Récapitulatif de la commande</div>
+                    <div class="p-4">
+                      <ul class="list-unstyled mb-4">
+                      <% @cart.line_products.each do |line_product| %>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary"><%=line_product.product.title%></strong><strong><%= line_product.price %> €</strong></li>
+                      <% end %>
+                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary">Total</strong>
+                        
+                        <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> €</h5>
+                      </li>
+                    </ul>
+                    <% if user_signed_in? && @cart.line_products.length > 0%>
+                        <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-light rounded-pill py-1 btn-block ", remote: true %> 
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
 
 
 
-
+<!----
 <div class="container px-4 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-5">
@@ -28,20 +113,20 @@
 
 
  <% @cart.line_products.each do |line_product| %>
-     <div class="row d-flex justify-content-center border-top">
-        <div class="col-5">
-            <div class="row d-flex">
-                <div class="book">
+     <div class=" d-flex justify-content-center border-top">
+        <div class="col-12">
+            <div class="row">
+                <div class="book col-4">
                     <img src="<%=line_product.product.image_url%>" class="book-img"> 
                 </div>
-                    <div class="my-auto flex-column d-flex pad-left">
+                    <div class="my-auto">
                         <h6 class="mob-text"><%=line_product.product.title%></h6>
                         <p class="mob-text">Daniel Kahneman</p>
                         <%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-danger"%>
                     </div>
                 </div>
             </div>
-            <div class="my-auto col-7">
+            <div class="my-auto col-4">
                 <div class="row text-right">
                     <div class="col-4">
                         <p class="mob-text text-capitalize"><%=line_product.product.style%></p>
@@ -78,9 +163,7 @@
                         </ul>
                         </div>
                         </div>
-                    </div>
-                    </div>
-                    
+                    </div> 
                 </div>
             </div>
         </div>
@@ -98,7 +181,10 @@
         <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-warning my-3", remote: true %> 
     <% end %>
 
-
-
 <%# inspired by:https://bbbootstrap.com/snippets/shopping-cart-checkout-payment-options-86973257  %>
+
+
+----->
+
+
 
