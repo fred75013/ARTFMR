@@ -1,5 +1,4 @@
 .footer {
-  border-top: 1px solid;
   margin-top: 20px;
   width: 100%;
   color: black;
@@ -8,15 +7,15 @@
 
 .footer-col {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-top: 20px;
 }
-.footer-col li {
+li {
   list-style: none;
 }
 .icones {
   display: flex;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 .link-footer:hover {
