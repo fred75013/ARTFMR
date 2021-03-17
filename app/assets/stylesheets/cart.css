@@ -145,8 +145,7 @@ button:focus {
   .card {
     padding-left: 15px;
     padding-right: 15px;
-  }
-
+}
 
     .book,
     .book-img {
@@ -159,12 +158,16 @@ button:focus {
         padding-right: 15px
     }
 
-    .mob-text {
-        font-size: 13px
-    }
 
-    .pad-left {
-        padding-left: 20px
-    }
-} */
+
+  .mob-text {
+    font-size: 13px;
+  }
+
+  .pad-left {
+    padding-left: 20px;
+  }
+}
+ */
+
 
