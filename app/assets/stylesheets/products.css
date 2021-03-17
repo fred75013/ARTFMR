@@ -2,9 +2,11 @@
 .product {
   min-width: 300px;
   max-height: 300px;
+  box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
 }
 .all-product {
   width: auto;
+  background-color: #f2f3eb;
 }
 /*Show*/
 .show-product {
