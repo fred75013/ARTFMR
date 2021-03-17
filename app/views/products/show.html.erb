@@ -2,7 +2,13 @@
 <div class="show-product">
   <div>
     <p>
-      <img src="<%= @product.image_url%>" alt="" class="show-img">
+      <% if @product.avatar.attached?%>
+      <%= image_tag @product.avatar, class: "show-img"%>
+    </a>
+    <% else %>
+      <img src="<%= @product.image_url%>" class="show-img">
+    </a>
+    <%end %>
     </p>
   </div>
   <div>
