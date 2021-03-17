@@ -1,4 +1,7 @@
-<h1 class="text-center"><%=@product.title%></h1>
+<div class= "container">
+<h1 class="text-center "><%=@product.title%></h1>
+  
+
 <div class="show-product">
   <div>
     <p>
@@ -21,7 +24,12 @@
     <p>Profondeur : <%=@product.depth%></p>
     <p>Poids : <%=@product.weight%></p>
     <p>Etat : <%=@product.status%></p>
-    <p><%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn-sm btn-primary", :method => 'POST' %></p>
+    <div class="btn-select d-flex">
+      <%= link_to "retour", products_path, class:"btn btn-dark text-center ml-5"%>
+      <%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn btn-primary", :method => 'POST' %>
+    </div>
+  
 
   </div>
+</div>
 </div>
