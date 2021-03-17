@@ -36,7 +36,7 @@
                             <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
                           <%end %>
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a  class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Daniel Kahneman</span>
+                        <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Daniel Kahneman</span>
                       </div>
                     </div>
                   </th>
