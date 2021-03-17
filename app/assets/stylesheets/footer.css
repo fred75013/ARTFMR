@@ -18,7 +18,9 @@
   display: flex;
   font-size: 50px;
 }
-
+.link-footer{
+  color: black;
+}
 .link-footer:hover{
   color: white;
   text-decoration: none;
