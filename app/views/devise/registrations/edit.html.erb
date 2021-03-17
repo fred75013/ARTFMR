@@ -1,55 +1,55 @@
-<h2 >Modifié Mon profile</h2>
+
 
 <%= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { method: :put }) do |f| %>
+
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field" >
-    <%= f.label "Prénom *" %> <br />
-    <%= f.text_field :first_name , class: "text-field"%>
-  </div>
+<div id="container">
 
-  <div class="field" >
-    <%= f.label "Nom *"  %><br/> 
-    <%= f.text_field :last_name, class: "text-field"%>
+  <h1 style="margin-top: 10px;">&bull; Modifié Mon profile &bull;</h1>
+  <div class="underline">
   </div>
-
-  <div class="field" >
-    <%= f.label "Adresse *" %><br />
-    <%= f.text_field :adress, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Ville *" %> <br />
-    <%= f.text_field :city, class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Numéro de téléphone *" %> <br />
-    <%= f.text_field :phone_number, class: "text-field", value:"+33" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Mot de passe actuel *" %><br/>
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "text-field" %>
-  </div>
-
-  <div class="field">
-    <div style="display: inline-block;"><p style="font-size: 0.9375rem;">Êtes vous un artist ?</p>
-      <p style="display: inline-block;">Non<%= f.radio_button :artist, false %></p>
-      
-      <p style="display: inline-block;margin-left: 5px;">Oui<%= f.radio_button :artist, true %></p>
-    </div>
- 
-  </div><br/>
   
-  <div class="button-update" >
-    <%= f.submit "Modifié", class: "btn btn-secondary"%>
+  <div class="icon_wrapper">
+    
   </div>
-<% end %>
-
-
-<div class="actions">
-  <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class: "text-field" %></p>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { method: :put }) do |f| %>
+  <form action="#" method="post" id="contact_form">
+    <div class="phone">
+      <%= f.text_field :first_name, placeholder: "Prénom *"%>
+    </div>    
+    <div class="phone">
+      <%= f.text_field :last_name,  placeholder: "Nom *"%>
+    </div>
+    <div class="phone">
+      <%= f.text_field :adress,  placeholder: "Adresse *" %>
+    </div>
+    <div class="phone">
+      <%= f.text_field :city,  placeholder: "Ville *" %>
+    </div>
+    <div class="phone">
+      <%= f.text_field :phone_number, value:"+33",  placeholder: "+33" %>
+    </div>
+    <div class="phone">
+      <%= f.password_field :current_password,  class:"phone mdp", placeholder:"Mot de passe actuel"  %>
+    </div> 
+    <div class="subject">
+      <div style="display: inline-block;"><p style="font-size: 0.9375rem;">Êtes vous un artist ?</p>
+      <p>Non<%= f.radio_button :artist, false %></p>
+      <p>Oui<%= f.radio_button :artist, true %></p>
+    </div>
+    </div>
+    <div class="submit">
+       <%= f.submit "Modifié", id:"form_button"%>
+    </div>
+  </form>
+  <% end %>
 </div>
+  
+    
 
+
+
+<div class="submit">
+  <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class: "btn btn-primary" %></p>
+</div>
