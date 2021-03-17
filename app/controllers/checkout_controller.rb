@@ -27,13 +27,23 @@ class CheckoutController < ApplicationController
     def success
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+
     end
 
     @cart = @current_cart
-      Order.create(cart_id: @cart.id , amount: @cart.sub_total)
-    
-         
-        
+    @order = Order.create(cart_id: @cart.id , amount: @cart.sub_total, user_id: current_user.id)
+
+    @cart.products.each do |product|
+        OrderProduct.create(product_id: product.id, order_id: @order.id)    
+    end
+
+     @cart.line_products.each do |line|
+       if line.to_buy == true 
+        line.product.update(status: "sold")
+       else
+        line.product.update(status: "rented")
+       end
+    end
     
 
     def cancel
