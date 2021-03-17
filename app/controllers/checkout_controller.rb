@@ -23,15 +23,22 @@ class CheckoutController < ApplicationController
             format.js # renders create.js.erb
         end
     end
-
+    
     def success
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     end
 
+    @cart = @current_cart
+      Order.create(cart_id: @cart.id , amount: @cart.sub_total)
+    
+         
+        
+    
+
     def cancel
-      @session = Stripe::Checkout::Session.retrieve(params[:session_id])
-      @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+        
+      
     end
 end
 end

@@ -1,7 +1,13 @@
 class CartsController < ApplicationController
+  
+  
+ 
   def show
     @cart = @current_cart
    
+  end
+
+  def update
   end
 
   def destroy
@@ -11,4 +17,7 @@ class CartsController < ApplicationController
     
     redirect_to root_path
   end
+
+ 
+
 end
