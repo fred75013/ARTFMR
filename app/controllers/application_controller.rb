@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :current_cart
-
+  
+ 
   private
     def current_cart
       if session[:cart_id]
