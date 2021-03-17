@@ -1,5 +1,6 @@
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 @import url(https://fonts.googleapis.com/css?family=Quando);
 *,
