@@ -2,19 +2,23 @@
   display: flex;
   letter-spacing: 0.5px;
 }
+
 .logo {
   margin-left: 32px;
   margin-top: -85px;
 }
+
 .nav-padding {
   padding: 8px;
   padding-top: 20px;
   height: 50px;
 }
+
 .nav-right {
   padding-top: -15px;
   margin-top: -15px;
 }
+
 .nav-burger {
   margin-top: -15px;
 }

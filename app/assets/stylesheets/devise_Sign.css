@@ -1,11 +1,14 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
- button, input {
-  font-family: 'Montserrat', sans-serif;
+button,
+input {
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   letter-spacing: 1.4px;
 }
@@ -28,7 +31,7 @@
 }
 
 .screen:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 0;
@@ -36,7 +39,7 @@
   right: 20px;
   bottom: 0;
   border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   z-index: -1;
 }
 
@@ -109,7 +112,7 @@
 }
 
 .app-title:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -148,7 +151,7 @@
   font-size: 14px;
   text-transform: uppercase;
   outline: none;
-  transition: border-color .2s;
+  transition: border-color 2s;
 }
 
 .mdp {
@@ -161,7 +164,7 @@
   font-size: 14px;
   text-transform: uppercase;
   outline: none;
-  transition: border-color .2s;
+  transition: border-color 2s;
 }
 .mdp:hover {
   width: 100%;
@@ -172,7 +175,7 @@
   font-size: 14px;
   text-transform: uppercase;
   outline: none;
-  transition: border-color .2s;
+  transition: border-color 2s;
   text-decoration: none;
 }
 

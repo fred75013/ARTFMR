@@ -10,21 +10,20 @@
   justify-content: space-around;
   padding-top: 20px;
 }
+
 li {
   list-style: none;
 }
+
 .icones {
   display: flex;
   font-size: 35px;
 }
-
-.link-footer{
+.link-footer {
   color: black;
 }
 
-
 .link-footer:hover {
-
   color: white;
   text-decoration: none;
 }
