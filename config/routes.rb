@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :line_products
   resources :carts
   resources :users
+  resources :orders
 
    resources :checkout, only: [:create]
    get 'static_pages/faq'
