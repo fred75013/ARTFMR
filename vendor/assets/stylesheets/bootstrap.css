@@ -7174,7 +7174,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #fd9c6c !important;
+  background-color: rgb(253, 156, 108, 0.9) !important;
 }
 
 a.bg-primary:hover,
