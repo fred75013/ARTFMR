@@ -154,9 +154,26 @@ select::-ms-expand {
   width: 100%;
 }
 
+.submit{
+
+ display: inline;
+
+}
+
+
 .phone {
   width: 100%;
+  background-color: #f2f3eb;
+  
 }
+
+.box-mdp{
+  font-weight: normal;
+  text-transform: uppercase;
+  border-bottom: 2.5px solid #474544 ;
+  height: 50px;
+}
+
 
 textarea {
   line-height: 150%;
@@ -184,12 +201,10 @@ textarea {
 }
 
 #form_button {
-  top: 30px;
   background: none;
   border: solid 2px #474544;
   color: #474544;
   cursor: pointer;
-  display: inline-block;
   font-family: "Helvetica", Arial, sans-serif;
   font-size: 0.875em;
   font-weight: bold;
@@ -201,6 +216,15 @@ textarea {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.btn-delete{
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 60px;
+  bottom: 5px;
+ 
 }
 
 #form_button:hover {

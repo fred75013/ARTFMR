@@ -29,17 +29,20 @@
       <%= f.text_field :phone_number, value:"+33",  placeholder: "+33" %>
     </div>
     <div class="phone">
-      <%= f.password_field :current_password,  class:"phone mdp", placeholder:"Mot de passe actuel"  %>
+      <%= f.password_field :current_password,  class:"phone box-mdp mb-4", placeholder:"Mot de passe actuel"%>
     </div> 
     <div class="subject">
-      <div style="display: inline-block;"><p style="font-size: 0.9375rem;">Êtes vous un artist ?</p>
-      <p>Non<%= f.radio_button :artist, false %></p>
-      <p>Oui<%= f.radio_button :artist, true %></p>
+      <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Êtes-vous un artist ?
+      <div>
+        <p><%= f.radio_button :artist, false %> Non </p>
+        <p><%= f.radio_button :artist, true %> Oui</p>
+      </div>
     </div>
     </div>
-    <div class="submit">
-       <%= f.submit "Modifié", id:"form_button"%>
-    </div>
+    <div class=" mt-3">
+       <%= f.submit "Modifier", id:"form_button"%>
+        <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class: "btn btn-danger float-right btn-delete " %>
+    </div> 
   </form>
   <% end %>
 </div>
@@ -48,6 +51,3 @@
 
 
 
-<div class="submit">
-  <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class: "btn btn-primary" %></p>
-</div>
