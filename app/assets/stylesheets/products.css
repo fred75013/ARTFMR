@@ -33,3 +33,10 @@
     width: auto;
   }
 }
+
+/* btn retour & ajout */
+.btn-select{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
