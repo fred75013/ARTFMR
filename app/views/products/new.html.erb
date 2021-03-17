@@ -4,29 +4,40 @@
     <%= f.file_field :avatar,  class:'form-control input-normal' %>
   </p>
   <p>
-    <%= f.label :title %><br>
+    <%= f.label "5 a 140" %><br>
     <%= f.text_field :title, autofocus: true, placeholder: "Title" %>
   </p>
   <p>
-    <%= f.label :description %><br>
+    <%= f.label "20 a 140" %><br>
     <%= f.text_field :description, placeholder: "Title" %>
   </p>
    <p>
     <%= f.label :category %><br>
     <%= f.text_field :category, placeholder: "Title" %>
   </p>
-
+  <p>
+    <%= f.label "style" %><br>
+    <%= f.text_field :style, placeholder: "Title" %>
+  </p>
    <p>
-    <%= f.label :height %><br>
+    <%= f.label "min 70" %><br>
     <%= f.text_field :height, placeholder: "Title" %>
   </p>
    <p>
-    <%= f.label :width %><br>
+    <%= f.label "min 70" %><br>
     <%= f.text_field :width, placeholder: "Title" %>
+  </p>
+  <p>
+    <%= f.label "integer" %><br>
+    <%= f.text_field :depth, placeholder: "Title" %>
   </p>
    <p>
     <%= f.label :weight %><br>
     <%= f.text_field :weight, placeholder: "Title" %>
+  </p>
+   <p>
+    <%= f.label "status" %><br>
+    <%= f.text_field :status, placeholder: "Title" %>
   </p>
    <p>
     <%= f.label :price %><br>

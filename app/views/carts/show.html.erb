@@ -30,7 +30,11 @@
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
-                      <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                          <% if line_product.product.avatar.attached?%>
+                            <%= image_tag line_product.product.avatar, class: "img-fluid rounded shadow-sm", width:"70"%>
+                          <% else %>
+                            <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
+                          <%end %>
                       <div class="ml-3 d-inline-block align-middle">
                         <h5 class="mb-0"> <a  class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Daniel Kahneman</span>
                       </div>
@@ -39,12 +43,12 @@
                   <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>
                   <td class="border-0 align-middle"><strong>
                     
-                            <li class="nav-item dropdown show" style="list-style-type: none;">
+                            <li class="dropdown show" style="list-style-type: none;">
                                 <%if line_product.to_buy == true%>
-                                <a class="nav-link dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</a>
+                                <a class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</a>
                                 <%end%>
                                 <%if line_product.to_buy == false%>
-                                <a class="nav-link dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</a>
+                                <a class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</a>
                                 <%end%>
 
                                 <div class="dropdown-menu show">
