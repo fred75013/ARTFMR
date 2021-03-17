@@ -1,35 +1,52 @@
-<div class= "container">
-<h1 class="text-center "><%=@product.title%></h1>
-  
-
-<div class="show-product">
-  <div>
-    <p>
-      <% if @product.avatar.attached?%>
-      <%= image_tag @product.avatar, class: "show-img"%>
-    </a>
-    <% else %>
-      <img src="<%= @product.image_url%>" class="show-img">
-    </a>
-    <%end %>
-    </p>
-  </div>
-  <div>
-    <p>Titre : <%=@product.title%></p>
-    <p>Description : <%=@product.description%></p>
-    <p>Categorie : <%=@product.category%></p>
-    <p>Style : <%=@product.style%></p>
-    <p>Hauteur : <%=@product.height%></p>
-    <p>Largeur : <%=@product.width%></p>
-    <p>Profondeur : <%=@product.depth%></p>
-    <p>Poids : <%=@product.weight%></p>
-    <p>Etat : <%=@product.status%></p>
-    <div class="btn-select d-flex">
-      <%= link_to "retour", products_path, class:"btn btn-dark text-center ml-5"%>
-      <%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn btn-primary", :method => 'POST' %>
+<div class="container">
+  <div class="show-product">
+    <div>
+      <p>
+        <% if @product.avatar.attached?%>
+        <%= image_tag @product.avatar, class: "show-img"%>
+      </a>
+      <% else %>
+        <img src="<%= @product.image_url%>" class="show-img">
+      </a>
+      <%end %>
+      </p>
     </div>
-  
+    <div>
+      <h5 class="text-center font-weight-bold"> <%=@product.title%></h5>
+      <p class="text-center font-italic">"<%=@product.description%>"</p>
 
+      <% if @product.status == "Available" %>
+        <p class="text-center text-success font-weight-bold">Oeuvre disponible</p>
+      <% elsif @product.status == "rented"%>
+        <p class="text-center text-warning font-weight-bold">Oeuvre louée</p>
+      <% else %>
+        <p class="text-center text-danger font-weight-bold">Oeuvre vendue</p>
+      <%end%>
+
+      <p class="text-center text-secondary font-weight-bold">Prix de vente : <%=@product.price%>€</p>
+      <p class="text-center text-secondary font-weight-bold">Prix de location : 50€</p>
+      <div class="ul-show-product">
+        <ul>
+          <li>Categorie : <%=@product.category%></li>
+          <li>Poids : <%=@product.weight%></li>
+
+          <% if @product.border_product == true%>
+            <li>Encadrée</li>
+          <%else%>
+            <li>Non encadrés</li>
+          <%end%>
+        </ul>
+        <ul>
+          <li>Style : <%=@product.style%></li>
+          <li><%=@product.height%>x<%=@product.width%>x<%=@product.depth%>cm</li>
+          <li>Certifié authentique : <%=@product.authenticable_product%></li>
+        </ul>
+      </div>
+      
+      <div class="btn-show-product">
+        <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
+        <div><%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn btn-primary", :method => 'POST' %></div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
