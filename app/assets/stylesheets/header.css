@@ -18,10 +18,6 @@
 .nav-burger {
   margin-top: -15px;
 }
-.nav-link{
-  color: white;
-  
-}
-.nav-link:hover{
-  color: #18bc9c;
+.nav-link :hover {
+  color: #000;
 }
