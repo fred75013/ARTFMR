@@ -15,7 +15,9 @@
  *= require header
  *= require products
  *= require footer
+ *= require devise
  *= require show_profil
  *= require cart
  *= require users_type
+ *= require devise_sign
 */
