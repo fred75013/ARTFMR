@@ -43,7 +43,7 @@ class CheckoutController < ApplicationController
         line.product.update(status: "sold")
        else
         line.update(order_id: @order.id )
-        line.product.update(status: "rented", order_id: @order.id)
+        line.product.update(status: "rented")
        end
     end
     
