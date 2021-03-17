@@ -18,7 +18,13 @@ li {
   font-size: 35px;
 }
 
+.link-footer{
+  color: black;
+}
+
+
 .link-footer:hover {
+
   color: white;
   text-decoration: none;
 }
