@@ -7,7 +7,7 @@
   <% @products.each do |product| %>
     <a href="<%= product_path(id: product.id) %>" class="card-clic">
     <% if product.avatar.attached?%>
-      <%= image_tag product.avatar, class: "product m-0 p-0"%>
+      <%= image_tag product.avatar, class: "product m-2 p-0"%>
     </a>
     <% else %>
       <img src="<%= product.image_url%>" class="product p-0 m-2">
