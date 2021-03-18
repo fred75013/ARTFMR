@@ -47,13 +47,17 @@
           <div class="tab-content tab-space">
             <div class="tab-pane active text-center gallery" id="studio">
   				<div class="row">
-  					<div class="col-md-3 ml-auto">
-  					    <img src="" class="rounded">
-                        <img src="" class="rounded">  
-                    </div>
-  					<div class="col-md-3 mr-auto">
-  						<img src="" class="rounded">
-  					</div>
+				  <% OrderProduct.all.each do |i|%>
+							<%if i.order.user.id == current_user.id%>
+  					<div class="col-md-3 m-4">
+  					    
+						
+								<img src="<%=i.product.image_url%>" class="product p-0 m-2">
+							
+                         
+                    	</div>
+					<%end%>
+				<%end%>
   				</div>
   			</div>
             
@@ -70,13 +74,8 @@
           </div>
 
 
-<h2>Mes achats récents<h2>
-<% OrderProduct.all.each do |i|%>
- <%if i.order.user.id == current_user.id%>
 
-<img src="<%=i.product.image_url%>" class="product p-0 m-2">
-<%end%>
-<%end%>
+
 
 
 
