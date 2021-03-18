@@ -21,4 +21,5 @@
  *= require users_type
  *= require devise_sign
  *= require users
+ *= require static_pages
 */

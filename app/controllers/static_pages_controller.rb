@@ -4,5 +4,8 @@ class StaticPagesController < ApplicationController
 
   def legal_mention
   end
+
+  def contact
+  end
   
 end
