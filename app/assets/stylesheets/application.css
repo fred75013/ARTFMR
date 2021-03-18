@@ -20,4 +20,5 @@
  *= require cart
  *= require users_type
  *= require devise_sign
+ *= require users
 */
