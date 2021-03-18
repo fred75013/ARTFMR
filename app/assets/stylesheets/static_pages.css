@@ -1,0 +1,18 @@
+/*------CONTACT-----*/
+.contact {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("https://i0.wp.com/altinnov.blog/wp-content/uploads/2019/08/PBOY-Gustave-Courbet.jpg?resize=1140%2C641&ssl=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact-plug {
+  height: 400px;
+  width: 400px;
+  margin: 50px;
+  color: white;
+  background-color: transparent;
+}
+.email {
+}

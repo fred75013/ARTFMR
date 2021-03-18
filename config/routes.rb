@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   end
    get 'static_pages/faq'
    get 'static_pages/legal_mention'
+   get 'static_pages/contact'
 
 end
