@@ -58,3 +58,14 @@
   flex-direction: column;
   align-items: center;
 }
+@media (max-width: 600px) {
+  .text-video,
+  .box-video {
+    display: none;
+  }
+}
+@media (max-width: 750px) {
+  iframe {
+    width: 100%;
+  }
+}

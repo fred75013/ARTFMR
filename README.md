@@ -1,7 +1,6 @@
 # 1. Présentation
 
-***Tu aimes l'art ?*
-**
+***Tu aimes l'art ?***
 Une offre unique consistant à vous mettre en relation avec les artistes vivants près de chez vous, par le biais d'un service de location.
 Découvrez chaque jour de nouvelles oeuvres d'artistes venant du monde entier. Chaque oeuvre présente sur ART FMR est en vente.
 Louez des oeuvres d'artistes vivants à proximité de chez vous, et rencontrez les à domicile lors de l'accrochage de l'oeuvre.
@@ -70,4 +69,7 @@ Nous somme actuellement trois dans l'equipe, on cherche une ou deux personnes en
 - optimisation ( mapping, barre de recherche, et tout autres idée bonne a prendre : optionnel )
 
 # 6. Le mentor
-Nous recherchons activement un mentor .
+Notre mentor : OLivier( session 4 THP)
+
+# 7. Heroku :
+https://artfmr.herokuapp.com/

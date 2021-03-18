@@ -16,8 +16,7 @@ footer li {
 }
 
 .icones {
-  display: flex;
-  font-size: 35px;
+  font-size: 30px;
 }
 .link-footer {
   color: black;
@@ -29,4 +28,9 @@ footer li {
 }
 .link-footer {
   color: black;
+}
+@media (max-width: 700px) {
+  .logo-footer {
+    display: none;
+  }
 }
