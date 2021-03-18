@@ -40,6 +40,7 @@ end
     else
         @line_product.update(to_buy: false, price: 50) 
     end
+    redirect_to request.referrer
   end
 
 
