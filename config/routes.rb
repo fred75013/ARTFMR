@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-
+  
   root "users_type#taker"
 
   get 'users/taker', to: 'users_type#taker'
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :order_products
+
   scope '/checkout' do 
+
    resources :checkout, only: [:create]
     get "success", to: 'checkout#success', as: "checkout_success"
   end
