@@ -1,7 +1,9 @@
 class CheckoutController < ApplicationController
     before_action :authenticate_user
+    
+
     def create
-        if current_user.first_name == nil && current_user.last_name == nil && current_user.adress == nil && current_user.city == nil && current_user.phone_number == nil && current_user.artist == nil
+        if current_user.first_name == nil || current_user.last_name == nil || current_user.adress == nil || current_user.city == nil || current_user.phone_number == nil
             redirect_to edit_user_registration_path
         else
         @user = current_user
@@ -20,48 +22,56 @@ class CheckoutController < ApplicationController
             cancel_url: root_url,
         )
         respond_to do |format|
+
             format.js # renders create.js.erb
         end
+      
     end
-    
+ 
     def success
+
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
       @cart = @current_cart
+
       @order = Order.create(cart_id: @cart.id , amount: @cart.sub_total, user_id: current_user.id)
   
       @cart.products.each do |product|
           OrderProduct.create(product_id: product.id, order_id: @order.id)    
-      end
-  
-       @cart.line_products.each do |line|
-         if line.to_buy == true 
-          line.update(order_id: @order.id )
-          line.product.update(status: "sold")
-         else
-          line.update(order_id: @order.id )
-          line.product.update(status: "rented")
          end
-         @cart.products.destroy_all
-      end
+
+      @cart.line_products.each do |line|
+
+           if line.to_buy == true 
+             line.update(order_id: @order.id )
+             line.product.update(status: "sold")
+           else
+             line.update(order_id: @order.id )
+             line.product.update(status: "rented")
+           end
+            
+         end
+
+      @cart.products.destroy_all
+      
     end
-    
-    
 
         def cancel 
             @session = Stripe::Checkout::Session.retrieve(params[:session_id])
             @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
         end
-end
+    
+
+end  
 private 
 
-def authenticate_user
+  def authenticate_user
     unless current_user
       flash[:danger] = "enregistre toi avant"
       redirect_to new_user_session_path
     end
   end
 
-end
 
+end

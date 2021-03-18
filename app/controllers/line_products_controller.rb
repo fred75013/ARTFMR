@@ -11,6 +11,7 @@ class LineProductsController < ApplicationController
   end
 
   def create
+    
   end
       
 

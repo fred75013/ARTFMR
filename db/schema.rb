@@ -96,8 +96,10 @@ ActiveRecord::Schema.define(version: 2021_03_17_111100) do
     t.string "status", default: "Available"
     t.integer "price"
     t.string "image_url"
+    t.bigint "admin_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_products_on_admin_id"
   end
 
   create_table "users", force: :cascade do |t|

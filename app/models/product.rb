@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_many :order_products
   has_many :orders, through: :order_products
   has_one_attached :avatar
-
+  belongs_to :admin, :class_name => "User"
   validates :avatar,
   presence: false
   
