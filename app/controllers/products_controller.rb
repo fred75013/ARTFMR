@@ -55,11 +55,11 @@ before_action :authenticate_admin, only: [:edit, :update]
       private
 
       def edit_profil
-        if current_user.first_name == nil && current_user.last_name == nil && current_user.adress == nil && current_user.city == nil && current_user.phone_number == nil && current_user.artist == nil
+        if current_user.first_name == nil || current_user.last_name == nil || current_user.adress == nil || current_user.city == nil || current_user.phone_number == nil 
            redirect_to edit_user_registration_path
         end
       end
-      
+
       def authenticate_admin
         @product = Product.find(params[:id])
         unless @product.admin == current_user
