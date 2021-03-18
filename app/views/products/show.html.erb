@@ -1,52 +1,69 @@
-<div class="container">
-  <div class="show-product">
-    <div>
-      <p>
-        <% if @product.avatar.attached?%>
-        <%= image_tag @product.avatar, class: "show-img"%>
-      </a>
-      <% else %>
-        <img src="<%= @product.image_url%>" class="show-img">
-      </a>
-      <%end %>
-      </p>
-    </div>
-    <div>
-      <h5 class="text-center font-weight-bold"> <%=@product.title%></h5>
-      <p class="text-center font-italic">"<%=@product.description%>"</p>
+<div class="container ">
+<div class="show-product ">
+<% if @product.avatar.attached?%>
+<%= image_tag @product.avatar, class: "show-img"%>
+<% else %>
+<img src="<%= @product.image_url%>" class="show-img">
+<div class="square">
+<div class="square"></div> 
+
+<%# content in the box %>
+
+<div class="container box-content">
+
+      <h5 class=" font-weight-bold ml-2"> <%=@product.title%></h5>
+      <p class=" font-italic box-text ml-2 mt-3">"<%=@product.description%>"</p>
+
 
       <% if @product.status == "Available" %>
-        <p class="text-center text-success font-weight-bold">Oeuvre disponible</p>
+        <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
       <% elsif @product.status == "rented"%>
-        <p class="text-center text-warning font-weight-bold">Oeuvre louée</p>
+        <%= link_to "Loué", @product.status , class:"btn-sm btn-info card-status"%>
       <% else %>
-        <p class="text-center text-danger font-weight-bold">Oeuvre vendue</p>
+        <%= link_to "Vendu", @product.status , class:"btn-sm btn-danger card-status"%>
       <%end%>
 
-      <p class="text-center text-secondary font-weight-bold">Prix de vente : <%=@product.price%>€</p>
-      <p class="text-center text-secondary font-weight-bold">Prix de location : 50€</p>
-      <div class="ul-show-product">
-        <ul>
-          <li>Categorie : <%=@product.category%></li>
-          <li>Poids : <%=@product.weight%></li>
+      <div class="box-price float-right">
+        <p>Prix de vente : <span class="font-weight-bold"><%=@product.price%>€</span></p>
+        <p>Prix de location : <span class="font-weight-bold">50€/mois</span></p>
+      </div>
 
+      <div class="ul-show-product d-flex flex-column ml-2">
+        <ul class="del-li">
+          <li>Categorie : <%=@product.category%></li>
+          <li><img src="https://img.icons8.com/fluent-systems-filled/24/000000/weight-kg.png"/>Poids : <%=@product.weight%> kg</li>
           <% if @product.border_product == true%>
             <li>Encadrée</li>
           <%else%>
-            <li>Non encadrés</li>
+            <li><img src="https://img.icons8.com/material-sharp/24/000000/frame.png"/> non encadré</li>
           <%end%>
         </ul>
-        <ul>
-          <li>Style : <%=@product.style%></li>
-          <li><%=@product.height%>x<%=@product.width%>x<%=@product.depth%>cm</li>
-          <li>Certifié authentique : <%=@product.authenticable_product%></li>
+        <ul class="del-li ">
+          <li><img class="png-min" src="https://img.icons8.com/ios/50/000000/height.png"/><%=@product.height%> cm
+           <img class="png-min" src="https://img.icons8.com/ios/50/000000/width.png"/><%=@product.width%>cm
+          <img class="png-min" src="https://img.icons8.com/fluent-systems-regular/24/000000/depth.png"/><%=@product.depth%>cm</li>
+          <% if @product.authenticable_product == false %>
+          <li> <img class="png-min" src="https://img.icons8.com/ios/50/000000/check--v1.png"/> Non Certifié  </li>
+          <% elsif @product.authenticable_product == true%>
+           <li><img class="png-min " src="https://img.icons8.com/ios/50/000000/check--v1.png"/> Tableau Certifié  </li>
+          <%end%>
         </ul>
       </div>
       
-      <div class="btn-show-product">
+      <div class="btn-show-product btns float-right ">
         <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
         <div><%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn btn-primary", :method => 'POST' %></div>
       </div>
-    </div>
-  </div>
+ 
+</div>
+
+
+
+</div>
+<%end %>
+
+</div>
+
+
+</div>
 </div>
