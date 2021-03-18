@@ -43,6 +43,7 @@ class CheckoutController < ApplicationController
           line.update(order_id: @order.id )
           line.product.update(status: "rented")
          end
+         @cart.products.destroy_all
       end
     end
     
