@@ -69,9 +69,22 @@
       		</div>
           </div>
 
+
+<h2>Mes achats récents<h2>
+<% OrderProduct.all.each do |i|%>
+ <%if i.order.user.id == current_user.id%>
+
+<img src="<%=i.product.image_url%>" class="product p-0 m-2">
+<%end%>
+<%end%>
+
+
+
         
             </div>
         </div>
 	</div>
 
 </div>
+
+
