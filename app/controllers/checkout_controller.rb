@@ -16,7 +16,7 @@ class CheckoutController < ApplicationController
                     quantity: 1,
                 },
             ],
-            success_url: root_url + "?session_id={CHECKOUT_SESSION_ID}",
+            success_url: checkout_success_url + "?session_id={CHECKOUT_SESSION_ID}",
             cancel_url: root_url,
         )
         respond_to do |format|
@@ -27,10 +27,8 @@ class CheckoutController < ApplicationController
     def success
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-      
-    end
-    
-    @cart = @current_cart
+
+      @cart = @current_cart
       @order = Order.create(cart_id: @cart.id , amount: @cart.sub_total, user_id: current_user.id)
   
       @cart.products.each do |product|
@@ -46,6 +44,9 @@ class CheckoutController < ApplicationController
           line.product.update(status: "rented")
          end
       end
+    end
+    
+    
 
         def cancel 
             @session = Stripe::Checkout::Session.retrieve(params[:session_id])

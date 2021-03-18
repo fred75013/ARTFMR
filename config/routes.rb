@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :order_products
-
+  scope '/checkout' do 
    resources :checkout, only: [:create]
+    get "success", to: 'checkout#success', as: "checkout_success"
+  end
    get 'static_pages/faq'
    get 'static_pages/legal_mention'
 
