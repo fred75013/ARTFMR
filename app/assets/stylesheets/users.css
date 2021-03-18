@@ -1,0 +1,55 @@
+/*---------EDIT------------*/
+.chose {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-signin {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.whoareyou {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.btn-right {
+  animation-name: slidedown;
+  animation-duration: 2s;
+}
+@keyframes slidedown {
+  0% {
+    transform: translateY(-1000px);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.btn-left {
+  animation-name: slideup;
+  animation-duration: 2s;
+}
+@keyframes slideup {
+  0% {
+    transform: translateY(1000px);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  transform: scale(1.3);
+}
+.btn-right,
+.btn-left {
+  transition: 0.8s;
+}

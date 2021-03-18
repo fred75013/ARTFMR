@@ -25,6 +25,7 @@
   --cyan: #3498db;
   --white: #fff;
   --gray: #fdcfa8;
+  --origine: #212529;
   --gray-dark: #343a40;
   --primary: #fd9c6c;
   --secondary: #fdcfa8;
@@ -2727,6 +2728,11 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #fd9c6c;
   border-color: #fd9c6c;
+}
+.btn-origine {
+  color: #fff;
+  background-color: var(--origine);
+  border-color: var(--origine);
 }
 
 .btn-primary:hover {
@@ -7169,6 +7175,9 @@ a.close.disabled {
 
 .bg-primary {
   background-color: rgba(253, 156, 108, 0.9) !important;
+}
+.bg-origine {
+  background-color: var(--origine);
 }
 
 a.bg-primary:hover,
