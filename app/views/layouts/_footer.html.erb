@@ -12,8 +12,8 @@
         <% if user_signed_in? %>
           <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete %> 
         <%else%>
-          <a href="/users/sign_in" class="pl-5">Connexion</a>
-          <a href="/users/sign_up" >Inscription</a>
+          <a href="/users/sign_in" >Connexion</a>
+          <a href="/users/sign_up" class="pl-5" >Inscription</a>
         <%end%>
         <a href="#" class="pl-5">Nous contacter</a>
       </div>
