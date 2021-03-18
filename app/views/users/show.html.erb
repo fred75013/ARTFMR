@@ -1,5 +1,5 @@
 
-<div class="profile-page">
+<div class="profile-page" style="margin-bottom: 50px;">
 	<div class="page-header header-filter" data-parallax="true" style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');"></div>
     	<div class="main main-raised">
 			<div class="profile-content">
@@ -25,14 +25,23 @@
                           		<ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                             		<li class="nav-item">
                                 		<a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                                  			<i class="material-icons">shopping_cart</i>
-                                  			Achats
+                                  			<% Product.all.each do |product| %>
+							  					<% if product.admin_id == @user.id%>
+													<i class="fa fa-paint-brush"></i>
+													Peintures
+												<%else %>
+													<i class="material-icons">shopping_cart</i>
+													Achats
+											  <% end %>
+											<% end %>
                                 		</a>
                             		</li>
                             		<li class="nav-item">
                                 		<a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+										<%if @user.id == current_user.id%>
                                   			<i class="material-icons">favorite</i>
-                                    		Favorite
+                                    		Favoris
+										<% end %>
                                 		</a>
                             		</li>
                          	 	</ul>
@@ -42,6 +51,17 @@
           			<div class="tab-content tab-space">
             			<div class="tab-pane active text-center gallery" id="studio">
   							<div class="row">
+							  <% Product.all.each do |product| %>
+							  	<% if product.admin_id == @user.id%>
+									<div class="col-md-3 m-4">
+								  		<% if product.avatar.attached?%>  
+											<%= image_tag product.avatar, class: "product m-2 p-0"%>
+										<% else %>
+											<img src="<%= product.image_url%>" class="product p-0 m-2">
+										<% end %>
+									</div>
+								<% end %>
+							  <% end %>
 				  				<% OrderProduct.all.each do |i|%>
 									<%if i.order.user.id == @user.id%>
 										<div class="col-md-3 m-4">

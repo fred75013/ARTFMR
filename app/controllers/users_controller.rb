@@ -28,8 +28,12 @@ end
 
 def is_it_you?
     @user = User.find(params[:id])
-    if @user.id != current_user.id
-    redirect_to user_path(current_user)
+    Product.all.each do |product| 
+      if product.admin_id == @user.id
+  
+      elsif @user.id != current_user.id
+        redirect_to user_path(current_user)
+      end
     end
 end
 
