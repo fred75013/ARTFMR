@@ -21,17 +21,14 @@ Product.destroy_all
     "https://images.unsplash.com/photo-1546930722-a1292ed9dee8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGVhdSUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
     "https://labaleinegraphique.com/wp-content/uploads/2019/05/tableau_tags_graffitis_decoration_street_art_zoom.jpg",
     "https://d2ans0z9s1x1c.cloudfront.net/produits/tableau-pop-art-chien-street-art-5fe23d8d2c177.jpg",
-    "https://i.ebayimg.com/images/g/n8wAAOSwlY1ZHv2a/s-l300.jpg",
     "https://i.pinimg.com/originals/70/2a/0d/702a0d9a72451d836887f0ea346f70a7.jpg",
     "https://cdn.shopify.com/s/files/1/0315/4362/3817/products/loftdeco-tableau-femme-impressionniste-toile-peinture-decoration-14197858435209_900x.jpg?v=1587805655",
     "https://i.ebayimg.com/images/g/eIEAAOSwnSJd3VQ5/s-l300.jpg",
     "https://storage.gra.cloud.ovh.net/v1/AUTH_ca60d77ddd5e42749d7c4c17f753540d/ugm-data/pictures/l-aquarelle-autrement/1877036-tableau-peinture-femme-africaine-1.jpeg?1551180783",
-    "https://a.travel-assets.com/findyours-php/viewfinder/images/res50/176000/176578-share-image.jpg",
     "https://i1.wp.com/hoteleole.fr/wp-content/uploads/images/nom_de_peintre_celebre_5.jpg?w=1250",
     "https://static.lexpress.fr/medias_9526/w_1000,c_fill,g_north/vincent-van-gogh_4877375.jpg",
     "https://lh3.googleusercontent.com/proxy/mxIp7kqUEaE-Ukm3toy5s6e1rOw5Owx-cuZhVVDhcwUODuHBPmLhXh2HBaY-DZNzokaGTu_u9ojTSeLbdGHOUmD0BeRvArpVqd5o6fm6fbOmzCYpYlitJ-eVRZXJbmrPNY77swBcQUeifSjR_knUlQ",
     "http://m.oeuvres-art.com/images/le-baiser-thumb.jpg",
-    "https://www.rivagedeboheme.fr/medias/images/19-promenade-1913.jpg",
     "https://www.cineclubdecaen.com/peinture/peintres/matisse/reve.jpg",
     "https://edu1d.ac-toulouse.fr/blogs31/cm2-hugon-muret/files/2020/04/La-laiti%C3%A8re-253x300.jpg"
 ]
