@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.integer :weight
       t.boolean :border_product
       t.boolean :authenticable_product
-      t.string :status
+      t.string :status, :default => "Available"
       t.integer :price
       t.string :image_url
 

@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_111100) do
     t.integer "weight"
     t.boolean "border_product"
     t.boolean "authenticable_product"
-    t.string "status"
+    t.string "status", default: "Available"
     t.integer "price"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
