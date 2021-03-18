@@ -1,42 +1,23 @@
-
-<div class="background">
-  <div class="container">
-    <div class="screen">
-      <div class="screen-body">
-        <div class="screen-body-item left">
-          <div class="app-title">
-            <span>Connexion</span>
-         </div>   
-        </div>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="screen-body-item">
-          <div class="app-form">
-            <div class="app-form-group">
-              <%= f.email_field :email, autofocus: true, placeholder: "EMAIL", class:"app-form-control" %>
-            </div>
-            <div class="app-form-group">
-                
-                <%= f.password_field :password, placeholder: "MOT DE PASSE",autocomplete: "current-password" ,class:"app-form-control"  %>
-            </div>
-            <div class="app-form-group">
-            <% if devise_mapping.rememberable? %>
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            <% end %>
-            </div>
-            <div class="app-form-group buttons">
-              <%= f.submit "Connexion",class:"app-form-button"%>
-            </div>
-            
-            <div class="app-form-group">
-              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"app-form-control mdp" %><br />
+<div class="container">
+  <div id="container">
+      <h1 style="margin-top: 10px;">&bull; Connexion &bull;</h1>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>        <%= render "devise/shared/error_messages", resource: resource %>
+        <form action="#" method="post" id="contact_form">
+          <div class="app-form-group mb-3">
+            <%= f.email_field :email, autofocus: true, placeholder: "EMAIL", autocomplete:"off" ,class:"phone mb-3" %>
+          </div>    
+          <div class=" app-form-group mb-4">
+            <%= f.password_field :password, placeholder: "MOT DE PASSE", class:"phone" %>
+          </div>
+          <div class=" d-flex justify-content-center flex-column">
+            <%= f.submit "Connexion", id:"form_button"%>
+            <div class="mdp-recovery">
+              <%-if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"text-dark"  %><br />
               <% end %>  
             </div>
-          </div>
-        </div>
+          </div> 
       <% end %>
-      </div>
-    </div>
-  </div>
+      </form> 
+  </div> 
 </div>
