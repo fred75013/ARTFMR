@@ -1,4 +1,6 @@
 class LineProductsController < ApplicationController
+  before_action :chosen_product, only: [:create]
+  
   def index
     @line_product = LineProduct.all
   end
@@ -13,13 +15,10 @@ class LineProductsController < ApplicationController
   
   current_cart = @current_cart
 
-  if current_cart.products.include?(chosen_product)
-    # Find the line_item with the chosen_product
-    @line_product = current_cart.line_products.find_by(:product_id => chosen_product)
+  if chosen_product.status == "sold" || chosen_product.status == "rented"
     redirect_to request.referrer
-    flash[:notice] = "Déja ajouté au panier"
-
-  else
+    flash[:notice] = "Ce produit est indisponible"
+  else 
     @line_product = LineProduct.new(cart: current_cart, product: chosen_product, price: chosen_product.price  )
 
     @line_product.save
@@ -50,5 +49,20 @@ end
     redirect_to cart_path(@current_cart)
   end  
 
+  private 
+  
+  def chosen_product
+    chosen_product = Product.find(params[:product_id])
+  
+    current_cart = @current_cart
+
+    if current_cart.products.include?(chosen_product)
+      # Find the line_item with the chosen_product
+      @line_product = current_cart.line_products.find_by(:product_id => chosen_product)
+      redirect_to request.referrer
+      flash[:notice] = "Déja ajouté au panier"
+    end
+  end
+ 
     
 end
