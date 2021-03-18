@@ -79,9 +79,9 @@
                         <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> €</h5>
                       </li>
                     </ul>
-                    <% if user_signed_in? && @cart.line_products.length > 0%>
+                    
                         <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-light rounded-pill py-1 btn-block ", remote: true %> 
-                    <% end %>
+                    
                   </div>
                 </div>
               </div>

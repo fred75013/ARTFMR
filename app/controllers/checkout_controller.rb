@@ -1,5 +1,5 @@
 class CheckoutController < ApplicationController
-
+    before_action :authenticate_user
     def create
         if current_user.first_name == nil && current_user.last_name == nil && current_user.adress == nil && current_user.city == nil && current_user.phone_number == nil && current_user.artist == nil
             redirect_to edit_user_registration_path
@@ -54,5 +54,14 @@ class CheckoutController < ApplicationController
             @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
         end
 end
+private 
+
+def authenticate_user
+    unless current_user
+      flash[:danger] = "enregistre toi avant"
+      redirect_to new_user_session_path
+    end
+  end
+
 end
 
