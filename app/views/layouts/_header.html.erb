@@ -33,21 +33,18 @@
         <% end %>
       <%end %>
     </ul>
-    <ul>
+    <ul class="navbar-nav  nav-right mr-4">
      <%if user_signed_in? %>
         <li class="nav-item">
             <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
         </li>
      <%else%>
-     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Connexion/Inscription
-      </button>
-        <div id="navbarDropdown" class="dropdown-menu"  role="menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="/users/sign_in" >Connexion</a>
-        <a class="dropdown-item" href="/users/sign_up" >S'inscrire</a>
-      </div>
-    </div>
+        <li class="nav-item">
+          <a href="/users/sign_in"  class= "nav-link">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a href="/users/sign_up"  class= "nav-link">S'inscrire</a>
+        </li>
      <%end%>
     </ul>
   </div>
