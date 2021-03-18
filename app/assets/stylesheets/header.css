@@ -19,9 +19,21 @@
   margin-top: -15px;
 }
 
-.nav-burger {
-  margin-top: -15px;
-}
 .nav-link :hover {
   color: #000;
+}
+
+@media (max-width: 600px) {
+  .navbar-collapse {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  .navbar-collapse .nav-link {
+    color: #000 !important;
+    text-decoration-line: underline;
+  }
+  .nav-burger {
+    margin-top: -25px;
+  }
 }
