@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-
+  
   root "users_type#taker"
 
   get 'users/taker', to: 'users_type#taker'
@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :order_products
-
    resources :checkout, only: [:create]
    get 'static_pages/faq'
    get 'static_pages/legal_mention'
