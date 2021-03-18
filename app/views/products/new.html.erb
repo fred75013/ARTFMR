@@ -1,48 +1,79 @@
-<%= form_for(@product) do |f| %>
+<% if @product.errors.any? %>
+  <div class="alert alert-danger text-center" role="alert">
+    <p>nous n'avons pas reussi a creer votre annonce pour les raisons suivantes :</p>
+    <ul>
+    <% @product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+<%= form_for @product do |f| %>
 
   <p>
     <%= f.file_field :avatar,  class:'form-control input-normal' %>
   </p>
   <p>
     <%= f.label "5 a 140" %><br>
-    <%= f.text_field :title, autofocus: true, placeholder: "Title" %>
+    <%= f.text_field :title, autofocus: true, placeholder: "Titre de votre oeuvre" %>
   </p>
   <p>
     <%= f.label "20 a 140" %><br>
-    <%= f.text_field :description, placeholder: "Title" %>
+    <%= f.text_field :description, placeholder: "Description de l'oeuvre ( entre 20 et 140 caractères )" %>
   </p>
+  
+<div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;"> Comment vous definissez votre style ?
+      <div>
+        <p><%= f.radio_button :category, "contemporary" %> Contemporain </p>
+        <p> <%= f.radio_button :category, "abstractionist" %> Abstrait</p>
+        <p><%= f.radio_button :category, "street_art" %> Street-art </p>
+        <p> <%= f.radio_button :category, "pop_art" %> Pop-art</p>
+        <p><%= f.radio_button :category, "realism" %> Réalisme </p>
+        <p> <%= f.radio_button :category, "surrealism" %> surrealisme</p>
+      </div>
+
+<div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;"> Quel est le produit que vous desirez vendre ?
+      <div>
+        <p><%= f.radio_button :style, "canvas" %> Toile sur chassis  </p>
+        <p><%= f.radio_button :style, "drawing" %> Dessin</p>
+        <p><%= f.radio_button :style, "photo" %> Photo</p>
+      </div>
+
    <p>
-    <%= f.label :category %><br>
-    <%= f.text_field :category, placeholder: "Title" %>
-  </p>
-  <p>
-    <%= f.label "style" %><br>
-    <%= f.text_field :style, placeholder: "Title" %>
+    <%= f.label "min 70" %><br>
+    <%= f.text_field :height, placeholder: "Hauteur (minimum 70 cm)" %>
   </p>
    <p>
     <%= f.label "min 70" %><br>
-    <%= f.text_field :height, placeholder: "Title" %>
-  </p>
-   <p>
-    <%= f.label "min 70" %><br>
-    <%= f.text_field :width, placeholder: "Title" %>
+    <%= f.text_field :width, placeholder: "Largeur (minimum 70 cm)" %>
   </p>
   <p>
     <%= f.label "integer" %><br>
-    <%= f.text_field :depth, placeholder: "Title" %>
+    <%= f.text_field :depth, placeholder: "Profondeur" %>
   </p>
    <p>
     <%= f.label :weight %><br>
-    <%= f.text_field :weight, placeholder: "Title" %>
+    <%= f.text_field :weight, placeholder: "Poids" %>
   </p>
+   <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre est elle encadrée ?
+      <div>
+        <p><%= f.radio_button :border_product, false %> Non 
+        <%= f.radio_button :border_product, true %> Oui</p>
+      </div>
+      <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre possède un certificat d'authentification ?
+      <div>
+        <p><%= f.radio_button :authenticable_product, false %> Non 
+        <%= f.radio_button :authenticable_product, true %> Oui</p>
+      </div>
    <p>
-    <%= f.label "status" %><br>
-    <%= f.text_field :status, placeholder: "Title" %>
-  </p>
-   <p>
+   
     <%= f.label :price %><br>
-    <%= f.number_field :price, placeholder: "Title" %>
+    <%= f.number_field :price, placeholder: "Prix ( minimum 400 )" %>
   </p>
+  
   <p>
     <%= f.submit %>
   </p>
