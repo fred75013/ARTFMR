@@ -1,5 +1,6 @@
 class LineProductsController < ApplicationController
   before_action :chosen_product, only: [:create]
+  before_action :set_create, only: [:create, :index]
   
   def index
     @line_product = LineProduct.all
@@ -10,25 +11,7 @@ class LineProductsController < ApplicationController
   end
 
   def create
-  # Find associated product and current cart
-  chosen_product = Product.find(params[:product_id])
-  
-  current_cart = @current_cart
-
-  if chosen_product.status == "sold" || chosen_product.status == "rented"
-    redirect_to request.referrer
-    flash[:notice] = "Ce produit est indisponible"
-  else 
-    @line_product = LineProduct.new(cart: current_cart, product: chosen_product, price: chosen_product.price  )
-
-    @line_product.save
-    redirect_to cart_path(current_cart)
   end
-
-  # Save and redirect to cart show path
-  
-  
-end
       
 
   def update
@@ -65,4 +48,25 @@ end
   end
  
     
+
+    #before action create
+    
+    def set_create
+     # Find associated product and current cart
+    chosen_product = Product.find(params[:product_id])
+  
+    current_cart = @current_cart
+
+    if chosen_product.status == "sold" || chosen_product.status == "rented"
+      redirect_to request.referrer
+      flash[:notice] = "Ce produit est indisponible"
+    else 
+      @line_product = LineProduct.new(cart: current_cart, product: chosen_product, price: chosen_product.price  )
+
+      @line_product.save
+      redirect_to cart_path(current_cart)
+    end
+    # Save and redirect to cart show path
+    end
+
 end
