@@ -72,6 +72,8 @@ textarea {
   max-width: 768px;
   margin: 60px auto;
   position: relative;
+  background: #e0e1da;
+
 }
 
 form {
@@ -160,10 +162,10 @@ select::-ms-expand {
 
 }
 
-
 .phone {
   width: 100%;
-  background-color: #f2f3eb;
+  background: #e0e1da;
+  border-bottom: 2.5px solid #474544 ;
   
 }
 
@@ -266,4 +268,15 @@ textarea {
   .underline {
     width: 53px;
   }
+}
+
+/* connexion page */
+.mdp-recovery{
+  top: 10px
+}
+
+/* registration new page */
+
+.box-container{
+  bottom: 20px;
 }
