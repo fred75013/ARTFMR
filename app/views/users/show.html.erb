@@ -8,7 +8,7 @@
 	                	<div class="col-md-6 ml-auto mr-auto">
         	           		<div class="profile">
 	                        	<div class="avatar">
-	                            	<img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+	                            	<img src="https://effet-a.com/wp-content/uploads/2020/03/avatar_neutre-7.png" alt="Circle Image" class="img-raised rounded-circle img-fluid">
 								</div>
 	                        	<div class="name">
 	                            	<h3 class="title"><%= @user.email%></h3>
@@ -93,6 +93,19 @@
       						<div class="row">
       							<div class="col-md-3 ml-auto">
       				 				<img src="" class="rounded">
+											<% Like.all.each do |i|%>
+													<%if i.user_id == @user.id %>
+														<% Product.all.each do |j|%>
+															<% if i.product_id == j.id %>
+																<% if j.avatar.attached?%>
+																	<img src="<%= image_tag j.avatar, class: "product m-0 p-2"%>" class="product p-0 m-2">
+																<% else %>
+																	<img src="<%= j.image_url%>" class="product p-0 m-2">
+																<% end %>
+															<% end %>
+														<% end %>
+												<% end %>
+											<% end %>
       							</div>
       							<div class="col-md-3 mr-auto">
       				  				<img src="" class="rounded">

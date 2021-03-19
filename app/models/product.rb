@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_products
   has_one_attached :avatar
   belongs_to :admin, class_name: "User"
+  has_many :likes, dependent: :destroy
 
   validates :avatar,
             presence: false
