@@ -5,13 +5,14 @@
 <% else %>
 <img src="<%= @product.image_url%>" class="show-img">
 <%end %>
+
 <div class="square">
 <div class="square"></div> 
 
-<%# content in the box %>
+
 
 <div class="container box-content">
-
+                         
       <h5 class=" font-weight-bold ml-2"> <%=@product.title%></h5>
       <p class=" font-italic box-text ml-2 mt-3">"<%=@product.description%>"</p>
 
@@ -49,13 +50,14 @@
            <li><img class="png-min " src="https://img.icons8.com/ios/50/000000/check--v1.png"/> Tableau Certifié  </li>
           <%end%>
         </ul>
+      
       </div>
       
       <div class="btn-show-product btns float-right ">
         <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
         <div><%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn btn-primary", :method => 'POST' %></div>
       </div>
- 
+        
 </div>
 </div>
 </div>
