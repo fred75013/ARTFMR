@@ -40,9 +40,9 @@ User.destroy_all
 @category = [
   "Contemporain",
   "Abstrait",
-  "Street-art", 
+  "Street-art",
   "Pop-art",
-  "Réalisme", 
+  "Réalisme",
   "Surrealisme"
 ]
 @admin = User.create!(
@@ -73,4 +73,3 @@ User.destroy_all
     admin_id: @u.id
   )
 end
-

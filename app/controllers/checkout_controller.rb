@@ -36,7 +36,6 @@ class CheckoutController < ApplicationController
 
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)
 
-
       @cart.line_products.each do |line|
         if line.to_buy == true
           line.update(order_id: @order.id )
@@ -48,14 +47,12 @@ class CheckoutController < ApplicationController
       end
 
       @cart.products.each do |product|
-           if product.status == "sold"
-        OrderProduct.create(product_id: product.id, order_id: @order.id)
-           else
-        OrderProduct.create(product_id: product.id, order_id: @order.id, start_date: Time.now, end_date: Time.now.advance(days: 30))
-           end
+        if product.status == "sold"
+          OrderProduct.create(product_id: product.id, order_id: @order.id)
+        else
+          OrderProduct.create(product_id: product.id, order_id: @order.id, start_date: Time.now, end_date: Time.now.advance(days: 30))
+        end
       end
-
-     
 
       @cart.products.destroy_all
     end
