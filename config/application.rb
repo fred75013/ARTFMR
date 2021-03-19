@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 require "active_storage/engine"
 require "rails/all"
@@ -6,12 +8,11 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-
 module ARTFMR
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-    
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -21,6 +22,5 @@ module ARTFMR
     # config.eager_load_paths << Rails.root.join("extras")
     config.assets.paths << "#{Rails.root}/app/assets/videos"
     config.assets.enabled = true
-
   end
 end
