@@ -30,11 +30,9 @@ class UsersController < ApplicationController
   def is_it_you?
     @user = User.find(params[:id])
     Product.all.each do |product|
-      if product.admin_id == @user.id
-
-      elsif @user.id != current_user.id
-        redirect_to user_path(current_user)
+      if @user.id != current_user.id
+        redirect_to user_path(current_user) and return
       end
-    end
+    end 
   end
 end
