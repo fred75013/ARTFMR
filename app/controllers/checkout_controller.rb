@@ -36,26 +36,28 @@ class CheckoutController < ApplicationController
 
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)
 
+      
 
       @cart.line_products.each do |line|
-        if line.to_buy == true
-          line.update(order_id: @order.id )
+        if line.to_buy == true && line.product.status == "Available"
           line.product.update(status: "sold")
-        else
           line.update(order_id: @order.id )
+          OrderProduct.create(product_id: line.product.id, order_id: @order.id)
+        
+        elsif line.to_buy == false && line.product.status == "Available"
           line.product.update(status: "rented")
+          line.update(order_id: @order.id )
+          OrderProduct.create(product_id: line.product.id, order_id: @order.id, start_date: Time.now, end_date: Time.now.advance(days: 30), renting_time:  1 )
+
+        elsif line.to_buy == true && line.product.status == "rented"
+          line.product.update(status: "sold")
+          line.product.order_products.last.update(start_date: nil, end_date: nil)
+
+        elsif line.to_buy == false && line.product.status == "rented"   
+          line.product.order_products.last.update(end_date: line.product.order_products.last.end_date.advance(days: 30), renting_time: line.product.order_products.last.renting_time + 1)
+
         end
       end
-
-      @cart.products.each do |product|
-           if product.status == "sold"
-        OrderProduct.create(product_id: product.id, order_id: @order.id)
-           else
-        OrderProduct.create(product_id: product.id, order_id: @order.id, start_date: Time.now, end_date: Time.now.advance(days: 30))
-           end
-      end
-
-     
 
       @cart.products.destroy_all
     end

@@ -18,9 +18,12 @@
             <a href="<%= product_path(id: product.id)%>"true"><img src="<%= product.image_url%>" class="product p-0 m-2"></a>
             <div class="product-action">
                 <div class="product-action-style">
-                    <a href=""> <i class="fa fa-heart"></i> </a> 
+                <a href=""> <i class="fa fa-heart"></i> </a> 
+                <% if product.status == "Available" %>
                     <%= link_to "YO", line_products_path(id: product.id), method: :post %>
-                   
+                    <%end%>
+        
+      
                 </div>
             </div>
            </div>
