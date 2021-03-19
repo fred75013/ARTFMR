@@ -69,10 +69,12 @@
 											<% else %>
 												<img src="<%=i.product.image_url%>" class="product p-0 m-2">
 											<% end %>
+											<%= link_to "Prolonger d'un mois", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %></div>
+											<%= link_to "Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %></div>
 										</div>
 									<%end%>
 								<%end%>
-								
+
 								<h2>Mes achats<h2>
 								<% OrderProduct.all.each do |i|%>
 									<%if i.order.user.id == @user.id && i.product.status == "sold"%>
