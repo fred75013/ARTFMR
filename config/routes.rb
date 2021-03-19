@@ -1,7 +1,6 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-
-
-  
   root "users_type#taker"
 
   get 'users/taker', to: 'users_type#taker'
@@ -18,13 +17,11 @@ Rails.application.routes.draw do
   resources :orders
   resources :order_products
 
-  scope '/checkout' do 
-
-   resources :checkout, only: [:create]
+  scope '/checkout' do
+    resources :checkout, only: [:create]
     get "success", to: 'checkout#success', as: "checkout_success"
   end
-   get 'static_pages/faq'
-   get 'static_pages/legal_mention'
-   get 'static_pages/contact'
-
+  get 'static_pages/faq'
+  get 'static_pages/legal_mention'
+  get 'static_pages/contact'
 end
