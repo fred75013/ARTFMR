@@ -1,0 +1,14 @@
+salut <%= @user.email %>
+
+merci pour tes achats voici un petit recap
+numeros de commande : <%= @order.id %> ,montant :<%=@order.amount%>
+<% @cart.products.each do |product| %>
+      <% if product.avatar.attached?%>
+        <%= image_tag product.avatar, class: "show-img"%>
+      </a>
+      <% else %>
+        <img src="<%= product.image_url%>" class="show-img">
+      </a>
+    
+      <%end %>
+<% end %>

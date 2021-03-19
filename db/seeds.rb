@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 Product.destroy_all
+User.destroy_all
 
 @toile = "toile sur chassis"
 @photo = "photo"
@@ -33,6 +34,16 @@ Product.destroy_all
     "https://www.cineclubdecaen.com/peinture/peintres/matisse/reve.jpg",
     "https://edu1d.ac-toulouse.fr/blogs31/cm2-hugon-muret/files/2020/04/La-laiti%C3%A8re-253x300.jpg"
 ]
+@admin = User.create!(
+    email: "coucou@yopmail.com",
+    password: "coucou!",
+    first_name: "Coucou",
+    last_name: "oucouc",
+    adress: "12 rue du chacal",
+    city: "Fronce",
+    phone_number: "0771006523",
+    artist: true,
+)
 20.times do |product|
     Product.create!(
         title: Faker::Books::CultureSeries.culture_ship_class,
@@ -51,3 +62,4 @@ Product.destroy_all
         admin_id: @u.id
     )
 end
+
