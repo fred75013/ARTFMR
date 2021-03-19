@@ -5650,6 +5650,7 @@ a.badge-dark.focus {
 }
 
 .jumbotron {
+  background-attachment: fixed;
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   background-color: #ecf0f1;
