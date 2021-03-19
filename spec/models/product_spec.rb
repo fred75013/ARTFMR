@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 
     before(:each) do 
+      @u = User.create( email: "artist2@gmail.com" ,password: "123456", encrypted_password: "123456", first_name: "artist2", last_name: "artist2", adress: "5 rue des artist", city: "Paris", phone_number: 0600000001, artist: true)
         @product = Product.create!(
             title: "New title",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into elec",
@@ -17,7 +18,8 @@ RSpec.describe Product, type: :model do
             status: "solde",
             price: 800,
             avatar: Rack::Test::UploadedFile.new('app/assets/images/image.jpeg'),
-            image_url:  "https://images.unsplash.com/photo-1546930722-a1292ed9dee8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGVhdSUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            image_url:  "https://images.unsplash.com/photo-1546930722-a1292ed9dee8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGVhdSUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+            admin_id: @u.id
         )
     end
 
