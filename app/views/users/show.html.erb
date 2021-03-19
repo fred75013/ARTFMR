@@ -91,6 +91,19 @@
       						<div class="row">
       							<div class="col-md-3 ml-auto">
       				 				<img src="" class="rounded">
+											<% Like.all.each do |i|%>
+													<%if i.user_id == @user.id %>
+														<% Product.all.each do |j|%>
+															<% if i.product_id == j.id %>
+																<% if j.avatar.attached?%>
+																	<img src="<%= image_tag j.avatar, class: "product m-0 p-2"%>" class="product p-0 m-2">
+																<% else %>
+																	<img src="<%= j.image_url%>" class="product p-0 m-2">
+																<% end %>
+															<% end %>
+														<% end %>
+												<% end %>
+											<% end %>
       							</div>
       							<div class="col-md-3 mr-auto">
       				  				<img src="" class="rounded">
