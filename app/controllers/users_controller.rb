@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+
   before_action :is_it_you?, only: [:show, :edit, :update]
   before_action :set_user
+
 
   def show; end
 

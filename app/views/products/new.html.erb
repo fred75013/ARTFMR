@@ -1,7 +1,7 @@
 <% if @product.errors.any? %>
   <div class="alert alert-danger text-center" role="alert">
-    <p>nous n'avons pas reussi a creer votre annonce pour les raisons suivantes :</p>
-    <ul>
+    <p>Nous n'avons pas reussi a creer votre annonce pour les raisons suivantes :</p>
+    <u>
       <% @product.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -62,7 +62,7 @@
         <%= f.number_field :price, placeholder: "Prix ( minimum 400 )", class: "field_price " %>
       </p><br/>
       <p>
-        <%= f.submit "Dépose ton oeuvre", class: "btn-new btn" %>
+        <%= f.submit "Déposez votre oeuvre", class: "btn-new btn" %>
       </p>
     <% end %>
   </div>
