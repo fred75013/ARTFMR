@@ -19,7 +19,8 @@
             <div class="product-action">
                 <div class="product-action-style">
                     <a href=""> <i class="fa fa-heart"></i> </a> 
-                    <a href="<%= line_products_path(product_id: product.id)%>"> <i class="fa fa-shopping-cart"></i> </a> 
+                    <%= link_to "YO", line_products_path(id: product.id), method: :post %>
+                   
                 </div>
             </div>
            </div>

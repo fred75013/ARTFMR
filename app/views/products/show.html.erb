@@ -53,7 +53,7 @@
       
       <div class="btn-show-product btns float-right ">
         <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
-        <div><%= link_to "Ajouter au panier", line_products_path(product_id: @product), class: "btn btn-primary", :method => 'POST' %></div>
+        <div><%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn btn-primary", :method => 'POST' %></div>
       </div>
  
 </div>
