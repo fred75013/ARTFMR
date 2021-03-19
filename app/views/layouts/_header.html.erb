@@ -11,9 +11,7 @@
       <li class="nav-item">
         <%= link_to "Galerie",  products_path, class:"nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
-      </li>
+      
       
      <% if user_signed_in? %>
       <li class="nav-item">
@@ -37,6 +35,9 @@
       <%end %>
     </ul>
     <ul class="navbar-nav  nav-right mr-4">
+    <li class="nav-item">
+        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
+      </li>
      <%if user_signed_in? %>
         <li class="nav-item">
             <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
