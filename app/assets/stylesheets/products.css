@@ -1,8 +1,13 @@
 /*Index*/
 .product {
-  min-width: 300px;
-  max-height: 300px;
-  box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
+  min-width: 360px;
+  max-height: 360px;
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: scale(0.99);
 }
 .all-product {
   width: auto;
@@ -95,7 +100,6 @@
   box-shadow: 0 0 8px 1.7px rgba(0, 0, 0, 0.06);
   display: inline-block;
   padding: 6px 2px 12px;
-  
 }
 
 .product-action-style > a {
@@ -177,23 +181,22 @@
 .png-min {
   transform: scale(0.5);
 }
-.field_avatar{
+.field_avatar {
   background-color: #e0e1da;
   border: none;
-  right: 2% ;
+  right: 2%;
 }
-.field_price{
+.field_price {
   background-color: #e0e1da;
   border-bottom: 2px solid #282828;
 }
 
-.btn-new{
+.btn-new {
   background-color: #212529;
   color: white;
 }
 
-.btn-new:hover{
+.btn-new:hover {
   background-color: white;
   color: #212529;
 }
-
