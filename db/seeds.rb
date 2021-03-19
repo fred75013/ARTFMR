@@ -14,6 +14,7 @@ Product.destroy_all
 @style = [@toile, @photo, @dessin]
 @statut = "Available"
 
+@u = User.create( email: "artist@gmail.com" ,password: "123456", encrypted_password: "123456", first_name: "artist", last_name: "artist", adress: "5 rue des artist", city: "Paris", phone_number: 0600000001, artist: true)
 
 @images = [
     "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdSUyMHN0cmVldCUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -46,6 +47,7 @@ Product.destroy_all
         authenticable_product: false,
         status: @statut ,
         price: rand(400..1000),
-        image_url: @images.sample
+        image_url: @images.sample,
+        admin_id: @u.id
     )
 end
