@@ -35,9 +35,22 @@
       <%end %>
     </ul>
     <ul class="navbar-nav  nav-right mr-4">
+    <div>
+    <%if user_signed_in?%>
+      <li class="nav-item mt-2 mr-2 info-status">
+      <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
+      <%if current_user.artist == false%>
+            <%= link_to "Art lover" ,users_path, class:"btn-sm btn-success pl-4 "%>
+            <% elsif current_user.artist == true%>
+            <%= link_to "Artist" ,users_path, class:"btn-sm btn-info pl-4"%>
+            <%end %>
+        </li>
+      <%end %>
+    </div>
     <li class="nav-item">
         <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
       </li>
+      
      <%if user_signed_in? %>
         <li class="nav-item">
             <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
