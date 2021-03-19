@@ -14,5 +14,28 @@
   color: white;
   background-color: transparent;
 }
-.email {
+
+/*------- Checkout/success view----- */
+.gif-validate{
+  transform: scale(1.2);
 }
+
+.box-success{
+    top: 50px;
+}
+
+
+
+.redirect-btn{
+  top: 0px;
+}
+
+/* .box-text-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  width: 100%;
+  height: 100px;
+} */

@@ -1,1 +1,11 @@
-<h2>Paiment avec success</h2>
+<div class="container py-4 ">
+  <h1 class="text-success-valid mt-3">Votre achat a été validé avec succès !</h1>
+  <p class="text-center mt-3"> Vous allez recevoir un email de confirmation avec le détail de votre commande.</p>
+  <div class=" d-flex justify-content-center align-items-center box-success flex-column ">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player class="gif-validate mb-3" src="https://assets7.lottiefiles.com/temp/lf20_PRvG5R.json"  background="transparent"  speed="0.8"  style="width: 300px; height: 300px;"  noloop nocontrols autoplay></lottie-player>
+    <div>
+      <%= link_to 'suivant', products_path, method: :GET ,class:"btn btn-primary mt-3 redirect-btn"%>
+    </div>
+  </div> 
+</div>
