@@ -36,6 +36,15 @@ User.destroy_all
   "https://www.cineclubdecaen.com/peinture/peintres/matisse/reve.jpg",
   "https://edu1d.ac-toulouse.fr/blogs31/cm2-hugon-muret/files/2020/04/La-laiti%C3%A8re-253x300.jpg"
 ]
+
+@category = [
+  "Contemporain",
+  "Abstrait",
+  "Street-art", 
+  "Pop-art",
+  "Réalisme", 
+  "Surrealisme"
+]
 @admin = User.create!(
   email: "coucou@yopmail.com",
   password: "coucou!",
@@ -50,7 +59,7 @@ User.destroy_all
   Product.create!(
     title: Faker::Books::CultureSeries.culture_ship_class,
     description: Faker::Hipster.paragraph_by_chars,
-    category: Faker::Beer.malts,
+    category: @category.sample,
     style: @style.sample,
     height: rand(71..150),
     width: rand(71..150),
@@ -64,3 +73,4 @@ User.destroy_all
     admin_id: @u.id
   )
 end
+
