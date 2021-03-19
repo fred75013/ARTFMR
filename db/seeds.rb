@@ -31,7 +31,6 @@ User.destroy_all
   "https://storage.gra.cloud.ovh.net/v1/AUTH_ca60d77ddd5e42749d7c4c17f753540d/ugm-data/pictures/l-aquarelle-autrement/1877036-tableau-peinture-femme-africaine-1.jpeg?1551180783",
   "https://i1.wp.com/hoteleole.fr/wp-content/uploads/images/nom_de_peintre_celebre_5.jpg?w=1250",
   "https://static.lexpress.fr/medias_9526/w_1000,c_fill,g_north/vincent-van-gogh_4877375.jpg",
-  "https://lh3.googleusercontent.com/proxy/mxIp7kqUEaE-Ukm3toy5s6e1rOw5Owx-cuZhVVDhcwUODuHBPmLhXh2HBaY-DZNzokaGTu_u9ojTSeLbdGHOUmD0BeRvArpVqd5o6fm6fbOmzCYpYlitJ-eVRZXJbmrPNY77swBcQUeifSjR_knUlQ",
   "http://m.oeuvres-art.com/images/le-baiser-thumb.jpg",
   "https://www.cineclubdecaen.com/peinture/peintres/matisse/reve.jpg",
   "https://edu1d.ac-toulouse.fr/blogs31/cm2-hugon-muret/files/2020/04/La-laiti%C3%A8re-253x300.jpg"
