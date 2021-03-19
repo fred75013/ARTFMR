@@ -25,14 +25,12 @@
                           		<ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                             		<li class="nav-item">
                                 		<a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
-                                  			<% Product.all.each do |product| %>
-							  					<% if product.admin_id == @user.id%>
-													<i class="fa fa-paint-brush"></i>
-													Peintures
-												<%else %>
-													<i class="material-icons">shopping_cart</i>
-													Achats
-											  <% end %>
+							  				<% if @user.artist == true %>
+												<i class="fa fa-paint-brush"></i>
+												Peintures
+											<%else %>
+												<i class="material-icons">shopping_cart</i>
+												Achats
 											<% end %>
                                 		</a>
                             		</li>
