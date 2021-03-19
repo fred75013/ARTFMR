@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-
   before_action :is_it_you?, only: [:show, :edit, :update]
   before_action :set_user
-
 
   def show; end
 
@@ -29,10 +27,10 @@ class UsersController < ApplicationController
 
   def is_it_you?
     @user = User.find(params[:id])
-    Product.all.each do |product|
+    Product.all.each do |_product|
       if @user.id != current_user.id
         redirect_to user_path(current_user) and return
       end
-    end 
+    end
   end
 end
