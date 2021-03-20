@@ -38,10 +38,11 @@
     <div>
     <%if user_signed_in?%>
       <li class="nav-item mt-2 mr-2 info-status">
-      <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
       <%if current_user.artist == false%>
+            <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
             <%= link_to "Art lover" ,users_path, class:"btn-sm btn-success pl-4 "%>
-            <% elsif current_user.artist == true%>
+        <% elsif current_user.artist == true%>
+              <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
             <%= link_to "Artist" ,users_path, class:"btn-sm btn-info pl-4"%>
             <%end %>
         </li>
