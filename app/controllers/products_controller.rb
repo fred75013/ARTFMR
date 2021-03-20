@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :edit_profil, only: [:new, :create]
   before_action :authenticate_admin, only: [:edit, :update]
+  
 
   def index
     @products = Product.all.with_attached_avatar
@@ -44,7 +45,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :category, :style, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price, :avatar, status: "Available")
+    params.require(:product).permit(:title, :description, :category, :style, :height, :width, :depth, :weight, :border_product, :authenticable_product, :price, :avatar, status: "available")
   end
 
   def set_product
@@ -64,4 +65,5 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
+  
 end

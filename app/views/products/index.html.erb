@@ -10,7 +10,7 @@
              <div class="product-action">
                 <div class="product-action-style">
                     <a href=""> <i class="fa fa-heart"></i> </a> 
-                     <% if product.status == "Available" %>
+                     <% if product.status == "available" %>
                     <a href="<%= line_products_path(product_id: product.id)%>"> <i class="fa fa-shopping-cart"></i> </a> 
                       <%end%>
                 </div>
@@ -35,7 +35,7 @@
                 <% else %>
                    <p> <%= product.likes.count%>   <i class="fa fa-heart" aria-hidden="true" style="color: black; "></i></p>
                 <% end %>
-                  <% if product.status == "Available" %>
+                  <% if product.status == "available" %>
                     <%= link_to "", line_products_path(id: product.id), method: :post, class:"fa fa-shopping-cart"%>
                   <%end%>
                 </div>

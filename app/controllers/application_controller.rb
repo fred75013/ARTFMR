@@ -3,10 +3,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   before_action :current_cart
-
+  before_action :renting_time_over?
+  
   private
+  def renting_time_over?
+    OrderProduct.all.each do |order|
+     if order.end_date != nil
+      if order.end_date < Date.today
+         order.product.update(status: "available")
+      end
+     end
+    end
+  end
 
   def current_cart
     if session[:cart_id]
@@ -27,6 +36,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(_resource_or_scope)
+    if @user.first_name = !current_user.first_name
+      edit_user_url(current_user)
+    else
+      "/"
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -35,13 +52,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :adress, :city, :phone_number, :artist, :current_password) }
   end
 
-  private
-
-  def after_sign_in_path_for(_resource_or_scope)
-    if @user.first_name = !current_user.first_name
-      edit_user_url(current_user)
-    else
-      "/"
-    end
-  end
+  
 end
