@@ -47,10 +47,7 @@
         </li>
       <%end %>
     </div>
-    <li class="nav-item">
-        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link" %>
-      </li>
-      
+
      <%if user_signed_in? %>
         <li class="nav-item">
             <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
@@ -63,7 +60,11 @@
           <a href="/users/sign_up"  class= "nav-link">S'inscrire</a>
         </li>
      <%end%>
+     <li class="nav-item">
+        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link " %>
+      </li>
     </ul>
+    
   </div>
 </nav>
 

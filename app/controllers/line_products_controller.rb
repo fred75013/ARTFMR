@@ -15,9 +15,11 @@ class LineProductsController < ApplicationController
   def create
     chosen_product = Product.find(params[:id])
 
-    
+    if chosen_product.status == "rented"
+      @line_product = LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price - (50 * chosen_product.order_products.last.renting_time) )
+    else
       @line_product = LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price )
-
+    end
       @line_product.save
       redirect_to cart_path(@current_cart)
     
@@ -27,14 +29,10 @@ class LineProductsController < ApplicationController
   def update
     @line_product = LineProduct.find(params[:id])
     # @line_product.product.map(&:price)=50
-    if @line_product.to_buy == true && @line_product.product.status == "Available"
+    if @line_product.to_buy == true 
       @line_product.update(to_buy: false, price: 50)
-    elsif @line_product.to_buy == false && @line_product.product.status == "Available"
+    else 
       @line_product.update(to_buy: true, price: @line_product.product.price)
-    elsif @line_product.to_buy == true && @line_product.product.status == "rented"
-      @line_product.update(to_buy: false, price: 50)
-    elsif @line_product.to_buy == false && @line_product.product.status == "rented"
-      @line_product.update(to_buy: true, price: @line_product.product.price - (50* @line_product.product.order_products.last.renting_time))
     end
     redirect_to request.referrer
   end
@@ -58,9 +56,5 @@ class LineProductsController < ApplicationController
     end
   end
 
-  # before action create
-
-  def set_create
-    # Find associated product and current cart
-  end
+ 
 end
