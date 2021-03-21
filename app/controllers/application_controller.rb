@@ -5,15 +5,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :current_cart
   before_action :renting_time_over?
-  
+
   private
+
   def renting_time_over?
     OrderProduct.all.each do |order|
-     if order.end_date != nil
+      next if order.end_date.nil?
+
       if order.end_date < Date.today
-         order.product.update(status: "available")
+        order.product.update(status: "available")
       end
-     end
     end
   end
 
@@ -51,6 +52,4 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :adress, :city, :phone_number, :artist, :current_password) }
   end
-
-  
 end

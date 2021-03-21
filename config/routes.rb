@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :orders
   resources :order_products
 
+  resources :conversations do
+    resources :messages
+  end
+
   scope '/checkout' do
     resources :checkout, only: [:create]
     get "success", to: 'checkout#success', as: "checkout_success"
