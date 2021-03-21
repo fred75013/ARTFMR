@@ -29,11 +29,17 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit 
+    @product = Product.find(params[:id])
+  end
 
   def update
-    @product.update(product_params)
-    redirect_to products_path
+    if @product.update(product_params)
+      flash[:notice] = "Votre oeuvre a été modifiée"
+      redirect_to products_path
+    else
+    
+    end
   end
 
   def destroy

@@ -53,3 +53,11 @@
 .btn-left {
   transition: 0.8s;
 }
+
+.img-group{
+  overflow-x: scroll;
+}
+.img-group{
+  display: flex;
+
+}
