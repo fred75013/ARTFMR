@@ -43,8 +43,8 @@
                   <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>                 
                   <td class="border-0 align-middle"><strong>                              
                   <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropright
+                    <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Acheter / Louer
                     </button>
                     <div class="dropdown-menu">
                       <%if line_product.to_buy == true%>
@@ -56,7 +56,7 @@
                     </div>
                   </div>        
                   </strong></td>
-                  <td class="border-0 trash-icn align-middle"><%= link_to "delete", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"material-icons text-dark"%></td>
+                  <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
                 </tr>
               <% end %>
               </tbody>
