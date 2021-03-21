@@ -39,35 +39,26 @@
                         <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block">Daniel Kahneman</span>
                       </div>
                     </div>
-                  </th>
-                
-                  <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>
-                  
-                  <td class="border-0 align-middle"><strong>
-                    
-                            <li class="dropdown show" style="list-style-type: none;">
-                                <%if line_product.to_buy == true%> 
-                                <button class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Acheter</button>
-                                <%end%>
-                                <%if line_product.to_buy == false%>
-                                <button class=" dropdown-toggle" style="list-style-type: none" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Louer</button>
-                                <%end%>
-
-                                <div class="dropdown-menu show">
-
-                                <%if line_product.to_buy == true%>
-                                    <a class="dropdown-item" ><%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;", class: "link-cards" %></a>
-                                <%end%>
-
-                                <%if line_product.to_buy == false%>
-                                    <a class="dropdown-item" ><%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;", class: "link-cards" %></a>
-                                <%end%>    
-                            </li>
+                  </th>                
+                  <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>                 
+                  <td class="border-0 align-middle"><strong>                              
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropright
+                    </button>
+                    <div class="dropdown-menu">
+                      <%if line_product.to_buy == true%>
+                        <%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards" %>
+                        <%elsif line_product.to_buy == false%>
+                      <%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards" %>
+                      <%end%>
+                    </div>
+                    </div>
+                  </div>        
                   </strong></td>
-                  <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
+                  <td class="border-0 trash-icn align-middle"><%= link_to "delete", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"material-icons text-dark"%></td>
                 </tr>
               <% end %>
-
               </tbody>
             </table>
                   <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Récapitulatif de la commande</div>
@@ -91,3 +82,4 @@
       </div>
     </div>
 
+  
