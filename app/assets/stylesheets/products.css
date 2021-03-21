@@ -1,7 +1,7 @@
 /*Index*/
 .product {
-  min-width: 360px;
-  max-height: 360px;
+  min-width: 250px;
+  max-height: 250px;
   box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.5);
   transition: transform 0.3s;
 }
@@ -76,7 +76,7 @@
 }
 
 .all-product {
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 .product-img > span {
@@ -199,4 +199,10 @@
 .btn-new:hover {
   background-color: white;
   color: #212529;
+}
+
+.h1-index {
+  font-size: 90px;
+  color: white;
+  background-attachment: fixed;
 }
