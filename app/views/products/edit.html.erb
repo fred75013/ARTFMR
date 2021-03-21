@@ -1,0 +1,69 @@
+<% if @product.errors.any? %>
+  <div class="alert alert-danger text-center" role="alert">
+    <p>Nous n'avons pas reussi a creer votre annonce pour les raisons suivantes :</p>
+    <u>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="container">
+  <div id="container">
+    <%= form_for @product do |f| %>
+      <p>
+        <%= f.file_field :avatar,  class:'form-control input-normal field_avatar' %>
+      </p><br/>
+      <p>
+        <%= f.text_field :title, autofocus: true, placeholder: "Titre de votre oeuvre ( entre 5 et 140 caractères )" %>
+      </p><br/>
+      <p>
+        <%= f.text_field :description, placeholder: "Description de l'oeuvre ( entre 20 et 140 caractères )" %>
+      </p><br/>
+      <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;"> Comment vous definissez votre style ?
+        <div>
+          <p><%= f.radio_button :category, "contemporary" %> Contemporain </p>
+          <p> <%= f.radio_button :category, "abstractionist" %> Abstrait</p>
+          <p><%= f.radio_button :category, "street_art" %> Street-art </p>
+          <p> <%= f.radio_button :category, "pop_art" %> Pop-art</p>
+          <p><%= f.radio_button :category, "realism" %> Réalisme </p>
+          <p> <%= f.radio_button :category, "surrealism" %> surrealisme</p>
+        </div><br/>
+        <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;"> Quel est le produit que vous desirez vendre ?
+          <div>
+            <p><%= f.radio_button :style, "canvas" %> Toile sur chassis  </p>
+            <p><%= f.radio_button :style, "drawing" %> Dessin</p>
+            <p><%= f.radio_button :style, "photo" %> Photo</p>
+          </div><br/>
+        </div>
+      </div>
+      <p>
+        <%= f.text_field :height, placeholder: "Hauteur (minimum 70 cm)" %>
+      </p><br/>
+      <p>
+        <%= f.text_field :width, placeholder: "Largeur (minimum 70 cm)" %>
+      </p><br/>
+      <p>
+        <%= f.text_field :depth, placeholder: "Profondeur" %>
+      </p><br/>
+      <p>
+        <%= f.text_field :weight, placeholder: "Poids" %>
+      </p><br/>
+      <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre est elle encadrée ?
+          <p><%= f.radio_button :border_product, false %> Non 
+          <%= f.radio_button :border_product, true %> Oui</p><br/>
+      </div><br/>
+       
+      <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre possède un certificat d'authentification ?
+          <p><%= f.radio_button :authenticable_product, false %> Non 
+          <%= f.radio_button :authenticable_product, true %> Oui</p><br/>
+      </div>
+      <p>
+        <%= f.number_field :price, placeholder: "Prix ( minimum 400 )", class: "field_price " %>
+      </p><br/>
+      <p>
+        <%= f.submit "Modifier votre oeuvre", class: "btn-new btn" %>
+      </p>
+    <% end %>
+  </div>
+</div>
