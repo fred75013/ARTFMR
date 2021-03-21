@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def destroy; end
+
   def update
     case params[:commit]
     when 'ARTISTE'
@@ -27,12 +29,8 @@ class UsersController < ApplicationController
 
   def is_it_you?
     @user = User.find(params[:id])
-    
-    Product.all.each do |_product|
-      if @user.id != current_user.id
-        redirect_to user_path(current_user) and return
-      end
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
     end
   end
-  
 end

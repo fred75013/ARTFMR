@@ -15,7 +15,7 @@ User.destroy_all
 @photo = "photo"
 @dessin = "dessin"
 @style = [@toile, @photo, @dessin]
-@statut = "Available"
+@statut = "available"
 
 @u = User.create( email: "artist@gmail.com", password: "123456", encrypted_password: "123456", first_name: "artist", last_name: "artist", adress: "5 rue des artist", city: "Paris", phone_number: 0o600000001, artist: true)
 

@@ -17,7 +17,7 @@
       <p class=" font-italic box-text ml-2 mt-3">"<%=@product.description%>"</p>
 
 
-      <% if @product.status == "Available" %>
+      <% if @product.status == "available" %>
         <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
       <% elsif @product.status == "rented"%>
         <%= link_to "Loué", @product.status , class:"btn-sm btn-info card-status"%>
@@ -55,7 +55,7 @@
       
       <div class="btn-show-product btns float-right ">
         <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
-        <% if @product.status == "Available" %>
+        <% if @product.status == "available" %>
         <div><%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn btn-primary", :method => 'POST' %></div>
       <%end%>
       </div>
