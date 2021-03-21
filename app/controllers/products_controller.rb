@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :edit_profil, only: [:new, :create]
   before_action :authenticate_admin, only: [:edit, :update]
-  
 
   def index
     @products = Product.all.with_attached_avatar
@@ -65,5 +64,4 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-  
 end

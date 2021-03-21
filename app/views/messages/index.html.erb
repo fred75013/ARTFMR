@@ -1,0 +1,52 @@
+<div class="container-sms">
+<div class="scroll-sms">
+<% if @over_ten %>
+ <%= link_to "Show Previous", "?m=all" %>
+<% end %>
+<div class="ui segment">
+ <% @messages.each do |message| %>
+  <% if message.body %>
+   <% user = User.find(message.user_id) %>
+   <div class="item">
+    <div class="content-sms">
+      <div class="header-sms">
+      <% if user == current_user %>
+      <div class="group-sms-current_user">
+      <div class="current_user-sms">
+        <strong><%= user.first_name %></strong>     
+        <%= message.message_time %>
+      </div><br/>
+      
+      <div class="list-sms">
+        <p class="sms-body"><%= message.body %></p>
+      </div><br/>
+      </div>
+      <% else %>
+      <div class="group-sms-user">
+      <div class="user-sms">
+        <strong><%= user.first_name %></strong>     
+        <%= message.message_time %>
+      </div>
+        <div class="list">
+          <p class="sms-body"><%= message.body %></p>  
+        </div>
+      </div>
+      
+      <%end%>
+
+      </div>
+   </div>
+ </div>
+ <% end %>
+<% end %>
+</div>
+</div>
+<%= form_for [@conversation, @message] do |f| %>
+ <div class="group-sms">
+   <%= f.text_area :body, class: "form-control" %>
+   <%= f.submit "Envoyer", class: "btn-primary btn btn-sms" %>
+ </div>
+ <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+ 
+<% end %>
+</div>

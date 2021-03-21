@@ -1,0 +1,17 @@
+.title-list{
+  top: 20px;
+  text-align: center;
+}
+.list-conv{
+  top: 20px;
+  left: 25%;
+  width: 50%;
+  height: 300px;
+  background-color: #358293;
+  border-radius: 12px;
+}
+.item-conv{
+  top: 5%;
+  left: 5%;
+  color: black;
+}

@@ -7,8 +7,7 @@ class Product < ApplicationRecord
   has_one_attached :avatar
   belongs_to :admin, class_name: "User"
   has_many :likes, dependent: :destroy
-  
-  
+
   validates :avatar,
             presence: false
 
@@ -58,5 +57,3 @@ class Product < ApplicationRecord
   validates :image_url,
             presence: false
 end
-
-

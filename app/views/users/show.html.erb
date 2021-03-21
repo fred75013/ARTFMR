@@ -17,6 +17,7 @@
 					<%sum_like = 0%> 
          <%Order.all.each do |order_product|%>
 
+
           <%if order_product.user == current_user%>
            <% order_product.order_products.each do |i|%>
             <% if i.order.user == current_user && i.start_date != nil && i.end_date > DateTime.now%>
@@ -91,6 +92,7 @@
 															<% end %>
 														<% end %>
 												<% end %>
+
 											<% end %>
 								</div>
 </div>
