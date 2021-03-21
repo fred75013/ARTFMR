@@ -22,4 +22,6 @@
  *= require devise_sign
  *= require users
  *= require static_pages
+ *= require messages
+ *= require conversations
 */

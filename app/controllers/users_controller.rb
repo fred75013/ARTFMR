@@ -3,7 +3,6 @@
 class UsersController < ApplicationController
   before_action :is_it_you?, only: [:show, :edit, :update]
   before_action :set_user
-  
 
   def show; end
 
@@ -29,11 +28,9 @@ class UsersController < ApplicationController
   end
 
   def is_it_you?
-    @user = User.find(params[:id])    
-      if @user.id != current_user.id
-        redirect_to user_path(current_user) 
-      end
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
-
-  
 end
