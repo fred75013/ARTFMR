@@ -3,10 +3,13 @@
 class UsersController < ApplicationController
   before_action :is_it_you?, only: [:show, :edit, :update]
   before_action :set_user
+  
 
   def show; end
 
   def edit; end
+
+  def destroy; end
 
   def update
     case params[:commit]
@@ -26,13 +29,11 @@ class UsersController < ApplicationController
   end
 
   def is_it_you?
-    @user = User.find(params[:id])
-    
-    Product.all.each do |_product|
+    @user = User.find(params[:id])    
       if @user.id != current_user.id
-        redirect_to user_path(current_user) and return
+        redirect_to user_path(current_user) 
       end
-    end
   end
+
   
 end

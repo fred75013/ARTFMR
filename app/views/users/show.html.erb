@@ -61,6 +61,8 @@
 												<img src="<%=i.product.image_url%>" class="product p-0 m-2">
 											<% end %>
 											<%= link_to "Prolonger d'un mois ou Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %></div>
+											   <p><%=((i.end_date - i.start_date) /1.day).ceil%> jours restants de location </p>
+											   <p>Votre location prendra fin le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p>  
 									<%end%>
 								<%end%><br/>
 
@@ -100,6 +102,7 @@
       							</div>
       							<div class="col-md-3 mr-auto">
       				  				<img src="" class="rounded">
+										
       			    			</div>
       						</div>
       					</div>
@@ -109,6 +112,8 @@
 		</div>
 	</div>
 </div> 
+
+
 
 
 
