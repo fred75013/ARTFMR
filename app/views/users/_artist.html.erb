@@ -142,18 +142,37 @@
 									<%if i.order.user.id == @user.id && i.product.status == "rented"%>
 										
 											<% if i.product.avatar.attached?%>
-                                            <div class="col-lg-4 mb-2 pr-lg-1" ><%= image_tag i.avatar, class: "img-fluid rounded shadow-sm"%></div>
+											<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%= image_tag i.product.avatar%>" alt="" class="img-fluid rounded shadow-sm">
+                                            <%if i.customer_confirmation == "validated" && i.artist_confirmation == "validated"%>
 											<%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
 											   <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
-											   <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p>  
-											   </div>
+											   <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+                                               <%elsif i.customer_confirmation != "validated"%> 
+                                             <%= link_to "Bien reçu !", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , style: "text-align: center;", class: " dropdown-item link-cards" %>
+                                               <%else%>
+                                               <p>merci</p>
+                                                <%end%>
+                                                <%if i.customer_confirmation != "validated" && i.artist_confirmation != "validated" %>
+                                                <%= link_to "annuler", order_product_path(i), method: :delete, data: {confirm: "Êtes-vous sur de vouloir annuler la commande? :("} , class:"fa fa-trash text-dark"%>
+											   <%end%>
+                                               </div>
+                        
 												
 											<% else %>
 											<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%=i.product.image_url%>" alt="" class="img-fluid rounded shadow-sm">
 
+											    <%if i.customer_confirmation == "validated" && i.artist_confirmation == "validated"%>
+											<%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
 											   <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
 											   <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
-											   <%= link_to "Prolonger/Acheter definitvement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %> 
+                                               <%elsif i.customer_confirmation != "validated"%> 
+                                             <%= link_to "Bien reçu !", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , style: "text-align: center;", class: " dropdown-item link-cards" %>
+                                               <%else%>
+                                               <p>merci</p>
+                                                <%end%>
+                                                <%if i.customer_confirmation != "validated" && i.artist_confirmation != "validated" %>
+                                                <%= link_to "annuler", order_product_path(i), method: :delete, data: {confirm: "Êtes-vous sur de vouloir annuler la commande? :("} , class:"fa fa-trash text-dark"%>
+											   <%end%>
 											   </div>
 												
 											<% end %>

@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_093650) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "renting_time"
+    t.string "artist_confirmation"
+    t.string "customer_confirmation"
     t.bigint "order_id"
     t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false

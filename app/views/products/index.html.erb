@@ -25,11 +25,13 @@
                 <% if user_signed_in? %>
                    <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
                     <% if pre_like %>
+
                         <%= link_to product_like_path(product, pre_like),remote: true , method: :delete do %>
                          <%= product.likes.count %>   <i class="fa fa-heart" aria-hidden="true" style="color: red; backgound-color: none;"></i>
                         <% end %>
                     <% else %>
                         <%= link_to  product_likes_path(product),remote: true , method: :post do %>
+
                           <%= product.likes.count %>   <i class="fa fa-heart" aria-hidden="true" style="color: black;backgound-color: none;"></i>
                         <% end %>
                     <% end %>

@@ -45,7 +45,7 @@ class CheckoutController < ApplicationController
         elsif line.to_buy == false && line.product.status == "available"
           line.product.update(status: "rented")
           line.update(order_id: @order.id )
-          OrderProduct.create(product_id: line.product.id, order_id: @order.id, start_date: Date.today, end_date: Date.today.advance(days: 30), renting_time: 1 )
+          OrderProduct.create(product_id: line.product.id, order_id: @order.id, renting_time: 1 )
 
         elsif line.to_buy == true && line.product.status == "rented"
           line.product.update(status: "sold")
