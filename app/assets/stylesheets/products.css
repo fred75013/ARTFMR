@@ -104,7 +104,8 @@
 }
 
 .ul-show-product {
-  display: flex;
+  width: atuo;
+  height: 200px;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -112,6 +113,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
 
 /* INDEX view cart hover */
@@ -202,22 +206,16 @@
 }
 
 .box-content {
-  bottom: 350px;
+  bottom: 370px;
   left: 15px;
-  font-family: "montserrat";
 }
 
 .del-li {
-  list-style-type: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  bottom: 10px;
+  width: 60%;
+  height: auto;
+  margin-left: 17px; 
 }
 
-.del-li:nth-child(2) {
-  right: 15px;
-}
 .card-status {
   position: absolute;
   top: 5px;
@@ -226,17 +224,25 @@
 }
 
 .box-text {
-  width: 450px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  width: 400px;
   overflow-wrap: break-word;
 }
 
-.box-price {
-  right: 25px;
-  top: 60px;
+.title-text-sp{
+  font-size: 32px;
 }
-.btns {
-  bottom: 50px;
-  right: 20px;
+.box-price {
+  position: fixed;
+  text-align: right;
+  right: 15px;
+  bottom: 65px;
+  width: 250px;
+  height: auto;
+}
+.price-p{
+  font-size: 20px;
 }
 
 .png-min {
