@@ -171,3 +171,21 @@ button:focus {
 .link-cards {
   color: black;
 }
+
+.btn-pay:hover{
+  background-color: #18bc9c;
+}
+
+.btns-checkout{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  bottom: 10px;
+  overflow: hidden;
+}
+
+.btn-pay{
+  right: 38px;
+}
