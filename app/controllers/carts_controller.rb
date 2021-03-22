@@ -11,6 +11,6 @@ class CartsController < ApplicationController
     @cart = @current_cart
     @cart.products.destroy_all
 
-    redirect_to root_path
+    redirect_to cart_path
   end
 end
