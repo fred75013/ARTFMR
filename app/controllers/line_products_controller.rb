@@ -21,7 +21,6 @@ class LineProductsController < ApplicationController
                       LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price )
                     end
     @line_product.save
-    redirect_to cart_path(@current_cart)
 
     # Save and redirect to cart show path
   end
