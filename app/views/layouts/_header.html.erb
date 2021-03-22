@@ -61,11 +61,15 @@
           <a href="/users/sign_up"  class= "nav-link">S'inscrire</a>
         </li>
      <%end%>
-     <li class="nav-item">
-        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link " %>
+     <li class="nav-item d-flex align-items-center">
+        <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link"%>
+        <% if @current_cart.products.length != 0 %>
+       <div><p class="cart-count"><%= @current_cart.products.count%></div>
+       <% else %>
+       <div></div>
+       <%end%>
       </li>
     </ul>
-    
   </div>
 </nav>
 

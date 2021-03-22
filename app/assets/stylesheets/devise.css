@@ -38,7 +38,13 @@ html {
 }
 
 body {
-  background: #f2f3eb;
+  background: #141e30; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #243b55,
+    #141e30
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243b55, #141e30);
 }
 
 button {
@@ -73,7 +79,6 @@ textarea {
   margin: 60px auto;
   position: relative;
   background: #e0e1da;
-
 }
 
 form {
@@ -156,26 +161,22 @@ select::-ms-expand {
   width: 100%;
 }
 
-.submit{
-
- display: inline;
-
+.submit {
+  display: inline;
 }
 
 .phone {
   width: 100%;
   background: #e0e1da;
-  border-bottom: 2.5px solid #474544 ;
-  
+  border-bottom: 2.5px solid #474544;
 }
 
-.box-mdp{
+.box-mdp {
   font-weight: normal;
   text-transform: uppercase;
-  border-bottom: 2.5px solid #474544 ;
+  border-bottom: 2.5px solid #474544;
   height: 50px;
 }
-
 
 textarea {
   line-height: 150%;
@@ -220,13 +221,12 @@ textarea {
   transition: all 0.3s;
 }
 
-.btn-delete{
+.btn-delete {
   display: flex;
   align-items: center;
   width: auto;
   height: 60px;
   bottom: 5px;
- 
 }
 
 #form_button:hover {
@@ -271,12 +271,12 @@ textarea {
 }
 
 /* connexion page */
-.mdp-recovery{
-  top: 10px
+.mdp-recovery {
+  top: 10px;
 }
 
 /* registration new page */
 
-.box-container{
+.box-container {
   bottom: 20px;
 }
