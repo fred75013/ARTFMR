@@ -53,14 +53,14 @@
                   <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>                 
                   <td class="border-0 align-middle"><strong>                              
                   <div class="btn-group">
-                    <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Acheter / Louer
                     </button>
                     <div class="dropdown-menu">
                       <%if line_product.to_buy == true%>
-                        <%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards" %>
+                        <%= link_to "Louer", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards", remote: true %>
                         <%elsif line_product.to_buy == false%>
-                      <%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards" %>
+                      <%= link_to "Acheter", line_product_path(line_product), method: :patch, style: "text-align: center;", class: " dropdown-item link-cards", remote: true %>
                       <%end%>
                     </div>
                     </div>
@@ -69,8 +69,7 @@
                   </strong></td>
                   <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
                 </tr>
-         
-      
+
               <% end %>
               </tbody>
             </table>
@@ -85,9 +84,8 @@
                         <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> €</h5>
                       </li>
                     </ul>
-                    
-                        <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-light rounded-pill py-1 btn-block ", remote: true %> 
-                    
+                      <%= link_to "Vider le panier", cart_path(@cart.products), method: :delete, data: {confirm: "Êtes-vous sur de vouloir vider votre panier?"} , class:"btn btn-danger text-light", remote: true %>
+                      <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn-sm btn-warning rounded-pill py-1 btn-block ", remote: true %> 
                   </div>
                 </div>
               </div>
