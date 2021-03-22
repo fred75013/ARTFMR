@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    if @conversation == nil
     @conversation = if Conversation.between(params[:sender_id], params[:recipient_id]).present?
                       Conversation.between(params[:sender_id],
                                            params[:recipient_id]).first
@@ -16,6 +17,8 @@ class ConversationsController < ApplicationController
                     end
     redirect_to conversation_messages_path(@conversation)
   end
+  end
+
 
   private
 

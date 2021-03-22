@@ -57,7 +57,7 @@
 					</br>
 					<% if current_user.id == @user.id %>
 	                <%= link_to 'Modifié Mon profile', edit_user_registration_path , class: "link-show-user"%><br/>
-									<%= link_to "Voir mes messages", conversations_path, class: "link-show-user" %>
+									<%= link_to "Voir mes messages", conversation_messages_path(1), class: "link-show-user" %>
 					<% end %>
 					
                 </div>
