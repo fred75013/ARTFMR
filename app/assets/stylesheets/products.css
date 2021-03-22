@@ -1,4 +1,66 @@
 /*Index*/
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #93876C;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.link-show-product{
+  float: right;
+  padding: 5px;
+  
+}
+.btn-heart:hover{
+  text-decoration: none;
+  color: white;
+}
+.link-show-product:hover{
+  text-decoration: #93876C;
+  
+}
+.product-description{
+  padding: 5px;
+
+}
+.product-description:hover{
+  padding: 5px;
+  text-decoration: none;
+}
+
 .product {
   min-width: 250px;
   max-height: 250px;

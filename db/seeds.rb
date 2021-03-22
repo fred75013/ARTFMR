@@ -57,7 +57,7 @@ User.destroy_all
 20.times do |_product|
   Product.create!(
     title: Faker::Books::CultureSeries.culture_ship_class,
-    description: Faker::Hipster.paragraph_by_chars,
+    description: Faker::Lorem.paragraph(sentence_count: 4),
     category: @category.sample,
     style: @style.sample,
     height: rand(71..150),
