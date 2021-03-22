@@ -2,7 +2,7 @@
 <% if @user.artist == false %>
  <%= render 'artlover' %>
 <% else %>
-<% if @user.id == current_user.id%>
+<% if user_signed_in? && @user.id == current_user.id  %>
 	<%= render 'artist' %>
 	<% else %>
 	<%= render 'artist_' %>

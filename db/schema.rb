@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20_210_321_093_650) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
     t.string "first_name"
     t.string "last_name"
     t.string "adress"

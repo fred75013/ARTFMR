@@ -8,6 +8,11 @@
  
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { method: :put }) do |f| %>
   <form action="#" method="post" id="contact_form">
+    <% if current_user.artist == true%>
+      <div class="">
+        <%= f.text_field :nickname, placeholder: "Nom d'artiste*"%>
+      </div>  
+    <% end %>
     <div class="">
       <%= f.text_field :first_name, placeholder: "Prénom *"%>
     </div>    

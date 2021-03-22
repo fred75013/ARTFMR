@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
     @products = Product.all.with_attached_avatar
   end
 
-  def show; end
+  def show
+    @user = User.all
+  end
 
   def new
     @product = Product.new

@@ -12,10 +12,15 @@
 .whoareyou {
   margin-top: 40px;
   margin-bottom: 60px;
+  color: white;
 }
 .btn-right {
   animation-name: slidedown;
   animation-duration: 2s;
+  font-size: 20px;
+}
+.btn-left {
+  font-size: 20px;
 }
 @keyframes slidedown {
   0% {
@@ -54,10 +59,9 @@
   transition: 0.8s;
 }
 
-.img-group{
+.img-group {
   overflow-x: scroll;
 }
-.img-group{
+.img-group {
   display: flex;
-
 }

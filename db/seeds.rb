@@ -17,7 +17,7 @@ User.destroy_all
 @style = [@toile, @photo, @dessin]
 @statut = "available"
 
-@u = User.create( email: "artist@gmail.com", password: "123456", encrypted_password: "123456", first_name: "artist", last_name: "artist", adress: "5 rue des artist", city: "Paris", phone_number: 0o600000001, artist: true)
+@u = User.create( email: "artist@gmail.com", password: "123456", encrypted_password: "123456", nickname: "Picato", first_name: "artist", last_name: "artist", adress: "5 rue des artist", city: "Paris", phone_number: 0o600000001, artist: true)
 
 @images = [
   "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdSUyMHN0cmVldCUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
