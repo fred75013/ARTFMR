@@ -29,10 +29,10 @@ class UsersController < ApplicationController
 
   def is_it_you?
     @user = User.find(params[:id])
-    
-    if @user.artist == true 
-    elsif @user.id != current_user.id 
+
+    if @user.artist == true
+    elsif @user.id != current_user.id
       redirect_to user_path(current_user)
-    end 
+    end
   end
 end
