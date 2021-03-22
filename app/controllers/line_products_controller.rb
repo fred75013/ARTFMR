@@ -20,8 +20,10 @@ class LineProductsController < ApplicationController
                     else
                       LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price )
                     end
-    @line_product.save
-
+    if @line_product.save
+      redirect_to products_path
+      flash[:success] = "Bien ajouté au panier"
+    end 
     # Save and redirect to cart show path
   end
 
