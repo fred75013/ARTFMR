@@ -69,3 +69,22 @@
     width: 100%;
   }
 }
+.btn-taker{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.btn-taker:hover{
+  color: black;
+  background-color: #F9CFA8;
+}
+.btn-paint{
+  top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.containt-taker{
+  bottom: 30px;
+}
