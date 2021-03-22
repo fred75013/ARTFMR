@@ -189,3 +189,18 @@ button:focus {
 .btn-pay{
   right: 38px;
 }
+
+.cart-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  background-color: #fd9c6c;
+  bottom: 5px;
+  right: 5px;
+  font-size: 11px;
+  font-weight: 500;
+}
