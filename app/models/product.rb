@@ -17,7 +17,7 @@ class Product < ApplicationRecord
 
   validates :description,
             presence: true,
-            length: { in: 20..400 }
+            length: { in: 20..250 }
 
   validates :category,
             presence: true
