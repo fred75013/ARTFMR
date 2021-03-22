@@ -12,7 +12,12 @@
 
 
 <div class="container box-content">
-                         
+      <% @user.each do |user|%>
+        <% if user.id == @product.admin_id%>
+          <h6 class=" font-weight-bold ml-2"> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
+        <% end %>
+      <% end %>
+                 
       <h5 class=" font-weight-bold ml-2"> <%=@product.title%></h5>
       <p class=" font-italic box-text ml-2 mt-3">"<%=@product.description%>"</p>
 
