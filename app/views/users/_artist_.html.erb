@@ -1,6 +1,9 @@
+<!-- ancien code au cas ou il y aurait bug 
+
+
 <div class="row " style="margin: 20px;">
     <div class="col-md-3 ">
-        <!-- Profile widget -->
+
         <div class="bg-white shadow rounded overflow-hidden">
             <div class="px-4 pt-0 pb-4 cover1">
                 <div class="media align-items-end profile-head">
@@ -104,3 +107,51 @@
     </div>
   </div>
 </div>
+
+
+
+<!--ARTISTS GESTION-->
+
+<div class="artist-profil-for-artlover">
+  <div class="photo-profil pt-4">
+    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="200" class="rounded mb-2 img-thumbnail">
+    <div class="number-location-buy-favorites">
+      <div class="m-2">
+        <%= @user.nickname%>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+<!--Mes oeuvres-->
+<div class="my-art-all">
+  <h4>Ses oeuvres</h4>
+  <div class="my-art">
+
+            <% Product.all.each do |i|%>
+              <% if i.admin_id == @user.id%>
+                <% if i.avatar.attached?%>
+                    <%= image_tag i.avatar, class:"img-my-art "%>
+                <% else %>
+                    <img src="<%=i.image_url%>" alt="" class="img-my-art ">
+                <% end %>
+              <% end %>
+            <% end %>  
+
+
+  </div>
+</div>
+
+
+
+
+
+
+    
+      
+  </div>
+</div>
+
+
