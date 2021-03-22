@@ -205,3 +205,17 @@
   color: white;
   background-attachment: fixed;
 }
+
+.cart-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #fd9c6c;
+  top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}

@@ -25,19 +25,21 @@
                 <% if user_signed_in? %>
                    <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
                     <% if pre_like %>
-                        <%= link_to product_like_path(product, pre_like), method: :delete, remote: true do %>
+
+                        <%= link_to product_like_path(product, pre_like),remote: true , method: :delete do %>
                          <%= product.likes.count %>   <i class="fa fa-heart" aria-hidden="true" style="color: red; backgound-color: none;"></i>
                         <% end %>
                     <% else %>
-                        <%= link_to  product_likes_path(product), method: :post, remote: true do %>
+                        <%= link_to  product_likes_path(product),remote: true , method: :post do %>
+
                           <%= product.likes.count %>   <i class="fa fa-heart" aria-hidden="true" style="color: black;backgound-color: none;"></i>
                         <% end %>
                     <% end %>
                 <% else %>
-                   <p> <%= product.likes.count%>   <i class="fa fa-heart" aria-hidden="true" style="color: black; "></i></p>
+                   <p> <%= product.likes.count%><i class="fa fa-heart" aria-hidden="true" style="color: black; "></i></p>
                 <% end %>
                   <% if product.status == "available" %>
-                    <%= link_to "", line_products_path(id: product.id), method: :post, class:"fa fa-shopping-cart"%>
+                    <%= link_to "", line_products_path(id: product.id), remote: true ,method: :post, class:"fa fa-shopping-cart"%>
                   <%end%>
                 </div>
             </div>
