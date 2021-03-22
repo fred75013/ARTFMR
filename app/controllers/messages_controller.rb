@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   def index
     @users = User.all
     @conversations = Conversation.all
-    
+
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
@@ -30,14 +30,14 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if @conversation == nil
-    @conversation = if Conversation.between(params[:sender_id], params[:recipient_id]).present?
-      Conversation.between(params[:sender_id],
-                           params[:recipient_id]).first
-    else
-      Conversation.create!(conversation_params)
+    if @conversation.nil?
+      @conversation = if Conversation.between(params[:sender_id], params[:recipient_id]).present?
+                        Conversation.between(params[:sender_id],
+                                             params[:recipient_id]).first
+                      else
+                        Conversation.create!(conversation_params)
+                      end
     end
-  end
 
     @message = @conversation.messages.new(message_params)
     if @message.save
@@ -54,6 +54,4 @@ class MessagesController < ApplicationController
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end
-
-  
 end
