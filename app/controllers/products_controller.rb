@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
     @product = Product.find(params[:id])
   end
 
@@ -37,8 +37,6 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       flash[:notice] = "Votre oeuvre a été modifiée"
       redirect_to products_path
-    else
-    
     end
   end
 

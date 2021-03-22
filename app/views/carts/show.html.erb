@@ -49,12 +49,24 @@
                       </div>
                     </div>
 
-                  </th>                
-                  <td class="border-0 align-middle"><strong><%= line_product.price %> €</strong></td>                 
+                  </th>    
+
+                  <%if line_product.to_buy == true && line_product.product.status == "rented" %>
+                   <td class="border-0 align-middle"><strong><%= line_product.price %>€ /</strong></br><strike><%= line_product.product.price %></strike>€</td>
+           
+                  <%else%>
+                  <td class="border-0 align-middle"><strong><%= line_product.price %>€</strong></td>
+                  <%end%>
+                
                   <td class="border-0 align-middle"><strong>                              
                   <div class="btn-group">
+                  <%if line_product.to_buy == true%>
                     <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Acheter / Louer
+                      Acheter 
+                      <%else%>
+                      <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Louer 
+                      <%end%>
                     </button>
                     <div class="dropdown-menu">
                       <%if line_product.to_buy == true%>
