@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_093650) do
     t.integer "weight"
     t.boolean "border_product"
     t.boolean "authenticable_product"
-    t.string "status", default: "Available"
+    t.string "status", default: "available"
     t.integer "price"
     t.string "image_url"
     t.bigint "admin_id", null: false
