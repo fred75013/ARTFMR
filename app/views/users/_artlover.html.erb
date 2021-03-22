@@ -13,7 +13,7 @@
             </div>
             <div class="bg-light p-4 d-flex justify-content-end text-center">
                 <ul class="list-inline mb-0">
-                    <li class="list-inline-item papa">
+                    <li class="list-inline-item">
 					<%sum_like = 0%> 
          <%Order.all.each do |order_product|%>
 
@@ -87,7 +87,7 @@
 														<% Product.all.each do |j|%>
 															<% if i.product_id == j.id %>
 																<% if j.avatar.attached?%>
-                                                                    <div class="col-lg-4 mb-2 pr-lg-1" ><%= image_tag j.avatar, class: "img-fluid rounded shadow-sm"%></div>
+												                   <div class="col-lg-4 mb-2 pr-lg-1"><img src="<%= image_tag j.avatar%>" alt="" class="img-fluid rounded shadow-sm"></div>
 																<% else %>
 																	<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%=j.image_url%>" alt="" class="img-fluid rounded shadow-sm"></div>
 																<% end %>
@@ -118,10 +118,8 @@
 									<%if i.order.user.id == @user.id && i.product.status == "rented"%>
 										
 											<% if i.product.avatar.attached?%>
-
-
-                                            <div class="col-lg-4 mb-2 pr-lg-1" ><%= image_tag i.avatar, class: "img-fluid rounded shadow-sm"%>
-
+											<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%= image_tag i.product.avatar%>" alt="" class="img-fluid rounded shadow-sm">
+                                            <%if i.customer_confirmation == "validated" && i.artist_confirmation == "validated"%>
 											<%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
 											   <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
 											   <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
@@ -179,7 +177,7 @@
 									<%if i.order.user.id == @user.id && i.product.status == "sold"%>
 										
 											<% if i.product.avatar.attached?%>
-                                                <div class="col-lg-4 mb-2 pr-lg-1" ><%= image_tag i.product.avatar, class: "img-fluid rounded shadow-sm"%></div>
+												<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%= image_tag i.product.avatar%>" alt="" class="img-fluid rounded shadow-sm"></div>
 											<% else %>
 												<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%=i.product.image_url%>" alt="" class="img-fluid rounded shadow-sm"></div>
 											<% end %>
@@ -192,8 +190,3 @@
 
 </div>
 </div>
-
-
-
-
-
