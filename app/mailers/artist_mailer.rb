@@ -17,7 +17,14 @@ class ArtistMailer < ApplicationMailer
       mail(to: email_artist, subject: 'confirmation de commande')
       
       end
-
     end
+
+    def new_product(product)
+        @product = product
+        @artist = User.find(product.admin.id)
+        @url  = 'https://artfmr.herokuapp.com/'
+        mail(to: @artist.email, subject: 'nouveau produit créer')
+    end
+
   
 end
