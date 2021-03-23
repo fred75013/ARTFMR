@@ -343,6 +343,80 @@
 
 
 
+<!------ Include the above in your HEAD tag ---------->
 
-
-
+ <div class="container">
+              <div class="row">
+                <div class="col-xs-12 ">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes achats</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes locations</a>
+                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Mes favoris</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                      <div class="my-order">
+                        <% OrderProduct.all.each do |i|%>
+                          <%if i.order.user.id == @user.id && i.product.status == "sold"%>
+                            <% if i.product.avatar.attached?%>
+                              <%= image_tag i.avatar, class:"img-my-art"%>
+                            <% else %>
+                              <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+                            <% end %>
+                          <%end%>
+                        <%end%>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="my-location">
+                          <% OrderProduct.all.each do |i|%>
+                            <%if i.order.user.id == @user.id && i.product.status == "rented"%>
+                              <% if i.product.avatar.attached?%>
+                                <img src="<%= image_tag i.product.avatar%>" alt="" class="img-my-art">
+                                <!--ICI DECRIRE le produit-->
+                                <%if i.artist_confirmation == "validated"%>
+                                  <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+                                  <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+                                <%else%>
+                                  <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+                                <%end%>  
+                              <% else %>
+                                <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+                                <%if i.artist_confirmation == "validated"%>
+                                  <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+                                  <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+                                <%else%>
+                                  <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+                                <%end%>
+                              <% end %>
+                            <%end%>
+                          <%end%> 
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                      <div class="my-favorites">
+                        <% Like.all.each do |i|%>
+                          <%if i.user_id == @user.id %>
+                            <% Product.all.each do |j|%>
+                              <% if i.product_id == j.id %>
+                                <% if j.avatar.attached?%>
+                                  <%= image_tag j.avatar, class: "img-my-art"%>
+                                <% else %>
+                                  <img src="<%=j.image_url%>" alt="" class="img-my-art">
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    </div>
+                    
+                  </div>
+                
+                </div>
+              </div>
+        </div>
+      </div>
+</div>
