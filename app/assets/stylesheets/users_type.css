@@ -74,10 +74,11 @@
   display: flex;
   justify-content: center;
   color: black;
+  
 }
 .btn-taker:hover{
-  color: black;
-  background-color: #F9CFA8;
+  color: white;
+  background:#141e30;
 }
 .btn-paint{
   top: 30px;
@@ -87,4 +88,38 @@
 
 .containt-taker{
   bottom: 30px;
+}
+
+.jumbotron-image{
+  background-image: url('../app/assets/images/kam-idris-_HqHX3LBN18-unsplash.jpg');
+  background-size:contain ;
+  background-repeat: repeat-y  ;
+  height: 550px;
+  width: auto;
+  object-fit:cover;
+}
+
+.text-jumbo{
+  position: sticky;
+
+  display: flex;
+  flex-direction: column;
+  top: 200px;
+  width: 70%;
+  height: auto;
+}
+
+.text-jumbo p, .text-jumbo h1{
+  text-align: left;
+  width: auto;
+  height: auto;
+}
+.text-jumbo p{
+  top: 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.text-jumbo h1{
+  font-size: 48px;
 }
