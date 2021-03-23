@@ -4570,6 +4570,7 @@ input[type="button"].btn-block {
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
   border-color: #ecf0f1 #ecf0f1 #ecf0f1;
+  color: var(--primary);
 }
 
 .nav-tabs .nav-link.disabled {

@@ -36,19 +36,25 @@
   width: 100%;
   height: 300px;
   overflow-x: scroll;
+  align-items: center;
 }
 .img-my-art {
   width: 200px;
   height: 200px;
   margin: 5px;
+  transition: 0.5s;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #000000;
+}
+.img-my-art:hover {
+  transform: scale(0.9);
 }
 .my-art-all {
   border-radius: 5px;
   box-shadow: 0 0 10px #000000;
   padding: 10px;
   margin: 10px;
-  margin-left: 80px;
-  margin-right: 80px;
+
   background-color: white;
 }
 .one-art {
@@ -57,11 +63,6 @@
 }
 .btn-art {
   align-self: center;
-  display: none;
-}
-
-.one-art:hover .btn-art {
-  display: block;
 }
 
 /*My favorite*/
@@ -70,8 +71,6 @@
   box-shadow: 0 0 10px #000000;
   padding: 10px;
   margin: 10px;
-  margin-left: 80px;
-  margin-right: 80px;
   background-color: white;
 }
 
@@ -80,6 +79,7 @@
   width: 100%;
   height: 300px;
   overflow-x: scroll;
+  align-items: center;
 }
 
 /*Mes locations*/
@@ -89,15 +89,30 @@
   box-shadow: 0 0 10px #000000;
   padding: 10px;
   margin: 10px;
-  margin-left: 80px;
-  margin-right: 80px;
   background-color: white;
+  overflow: scroll;
+  height: 600px;
 }
 .my-location {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+.my-location-bis {
   display: flex;
   width: 100%;
-  height: 300px;
-  overflow-x: scroll;
+
+  margin-top: 7px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000000;
+}
+.delay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /*My order*/
@@ -106,8 +121,7 @@
   box-shadow: 0 0 10px #000000;
   padding: 10px;
   margin: 10px;
-  margin-left: 80px;
-  margin-right: 80px;
+
   background-color: white;
 }
 .my-order {
@@ -115,11 +129,20 @@
   width: 100%;
   height: 300px;
   overflow-x: scroll;
+  align-items: center;
 }
 
-/*Artiste page profil*/
+/*Artiste profil page*/
 
 .artist-profil-for-artlover {
   width: 300px;
   align-self: center;
+}
+
+/*NAV NAVIGATION*/
+.nav-tab-home-made {
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000000;
+  margin: 10px;
+  padding: 10px;
 }
