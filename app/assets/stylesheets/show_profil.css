@@ -63,11 +63,6 @@
 }
 .btn-art {
   align-self: center;
-  display: none;
-}
-
-.one-art:hover .btn-art {
-  display: block;
 }
 
 /*My favorite*/

@@ -485,7 +485,11 @@ FRED PART ====>
                     <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
                   </div>
                 <% else %>
-                  <img src="<%=i.image_url%>" alt="">
+                <div class="one-art">
+                  <%=image_tag i.image_url , class:"img-my-art"%>
+                  <br/>
+                  <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
+                </div>
                 <% end %>
               <% end %>
             <% end %>  
