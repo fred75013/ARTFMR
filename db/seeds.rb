@@ -17,7 +17,6 @@ User.destroy_all
 @style = [@toile, @photo, @dessin]
 @statut = "available"
 
-@u = User.create( email: "artist@gmail.com", password: "123456", encrypted_password: "123456", nickname: "Picato", first_name: "artist", last_name: "artist", adress: "5 rue des artist", city: "Paris", phone_number: 0o600000001, artist: true)
 
 @images = [
   "https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dGFibGVhdSUyMHN0cmVldCUyMGFydHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -44,7 +43,7 @@ User.destroy_all
   "Réalisme",
   "Surrealisme"
 ]
-@admin = User.create!(
+@u = User.create!(
   email: "coucou@yopmail.com",
   password: "coucou!",
   nickname: "Picalo",
@@ -55,6 +54,41 @@ User.destroy_all
   phone_number: "0771006523",
   artist: true,
 )
+@u1 = User.create!( 
+  email: "artist@gmail.com", 
+  password: "123456", 
+  nickname: "Picato", 
+  first_name: "artist", 
+  last_name: "artist", 
+  adress: "5 rue des artist", 
+  city: "Paris", 
+  phone_number: 0600000001, 
+  artist: true
+)
+@u2 = User.create!(
+  email: "artist2@gmail.com", 
+  password: "123456", 
+  nickname: "Picamo", 
+  first_name: "artista", 
+  last_name: "artisto", 
+  adress: "5 rue des artist", 
+  city: "Paris", 
+  phone_number: 0600000001, 
+  artist: true
+)
+@u3 = User.create!(
+  email: "artist3@gmail.com", 
+  password: "123456", 
+  nickname: "Micaflo", 
+  first_name: "artista", 
+  last_name: "artisto", 
+  adress: "5 rue des artist", 
+  city: "Paris", 
+  phone_number: 0600000001, 
+  artist: true  
+)
+
+@admin = [@u.id, @u1.id, @u2.id, @u3.id]
 20.times do |_product|
   Product.create!(
     title: Faker::Books::CultureSeries.culture_ship_class,
@@ -70,6 +104,6 @@ User.destroy_all
     status: @statut,
     price: rand(400..1000),
     image_url: @images.sample,
-    admin_id: rand(@u.id..@admin.id)
+    admin_id: @admin.sample
   )
 end
