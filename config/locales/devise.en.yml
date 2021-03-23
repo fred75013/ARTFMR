@@ -38,7 +38,7 @@ en:
       updated_not_active: "Votre mot de passe a été changé avec succès."
     registrations:
       destroyed: "Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt."
-      signed_up: "Bonjour! Inscription avec succès."
+      signed_up: "ya rien la frr"
       signed_up_but_inactive: "Vous vous êtes inscrit avec succès. Cependant, nous n'avons pas pu vous connecter car votre compte n'est pas encore activé."
       signed_up_but_locked: "Vous vous êtes inscrit avec succès. Cependant, nous n'avons pas pu vous connecter car votre compte est verrouillé."
       signed_up_but_unconfirmed: "Un message avec un lien de confirmation a été envoyé à votre adresse e-mail. Veuillez suivre le lien pour activer votre compte."
@@ -46,7 +46,7 @@ en:
       updated: "Votre compte a été mis à jour avec succès."
       updated_but_not_signed_in: "Votre compte a été mis à jour avec succès, mais depuis que votre mot de passe a été modifié, vous devez vous reconnecter"
     sessions:
-      signed_in: "Connecté avec succès"
+      signed_in: "Connecté avec succzzzzès"
       signed_out: "Déconnexion avec succès"
       already_signed_out: "Déconnexion avec succès"
     unlocks:
