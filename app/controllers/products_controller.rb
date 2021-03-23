@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
 
   def show
     @user = User.all
+    if current_user.nil?
+      flash[:alert] = "Il faut vous connectez si vous voulez acheter ou louer une oeuvre!"
+    elsif current_user.first_name.nil? || current_user.last_name.nil? || current_user.adress.nil? || current_user.city.nil? || current_user.phone_number.nil?
+      flash[:alert] = "Il faut modifier son profil si vous voulez acheter ou louer une oeuvre!"
+    end
   end
 
   def new
