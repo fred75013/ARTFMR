@@ -127,15 +127,19 @@
 
 <!--Mes oeuvres-->
 <div class="my-art-all">
-  <h4>Ses oeuvres</h4>
+  <h4 class="text-center">Ses oeuvres</h4>
   <div class="my-art">
 
             <% Product.all.each do |i|%>
               <% if i.admin_id == @user.id%>
                 <% if i.avatar.attached?%>
+                  <%=link_to product_path(id: i.id) do %>
                     <%= image_tag i.avatar, class:"img-my-art "%>
+                  <%end%>
                 <% else %>
-                    <img src="<%=i.image_url%>" alt="" class="img-my-art ">
+                  <%=link_to product_path(id: i.id) do %>
+                    <%=image_tag i.image_url , class:"img-my-art "%>
+                  <%end%>
                 <% end %>
               <% end %>
             <% end %>  

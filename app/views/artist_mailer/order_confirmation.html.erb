@@ -5,74 +5,85 @@
   </head>
   <body>
     <h1>Bonjour</h1>
+      
+    <%if @order_product.status == "sold" && @order_product.renting_time == nil%>
 
-    
-    <% @cart.line_products.each do |line_product|%>
-    
-    <%if line.to_buy == true && line.product.status == "available" && line.product.admin.email == @email_artist %>
-      <%=line_product.product.admin.email%>
-      <%=line_product.product.price%><br/>
-      <p>ceci est un achat</p>
-    <%elsif line.to_buy == false && line.product.status == "available" && line.product.admin.email == @email_artist%>
-     
-      <%=line_product.product.tile%>
-    <%elsif line.to_buy == true && line.product.status == "rented" && line.product.admin.email == @email_artist%>
-      <%=line_product.product.admin.email%>
-      <%=line_product.product.price%><br/>
-      <p>ceci est une extend de location</p>
-    <%elsif line.to_buy == false && line.product.status == "rented" && line.product.admin.email == @email_artist%>
-      <%=line_product.product.admin.email%>
-      <%=line_product.product.price%><br/>
-      <p>ceci est un achat coup de coeur</p>
-    <%end%>
+    <h1> <%=@user.first_name%> <%=@user.last_name%> viens d'acheter votre oeuvre !!!</h1>
+
+      <% if @order_product.product.avatar.attached?%>
+        <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
+      <% else %>
+        <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+      <%end %>
+
+      <p>montant: <%= @order_product.product.price%> </p>
+      <p>Voici les coordonnées de votre acheteur</p>
+      <p>Prenez contact, et organisez votre rendez-vous</p>
+      <%=@user.first_name%><br/>
+      <%=@user.last_name%><br/>
+      <%=@user.email%><br/>
+      <%=@user.phone_number%><br/>
+      <%=@user.city%><br/>
+      <%=@user.adress%><br/>
+      <p>Bonne continuation et bravo pour votre vente </p>
+      <%end%>
+
+    <%if @order_product.status == "sold" && @order_product.renting_time != nil%>
+    <h1> <%=@user.first_name%> <%=@user.last_name%> viens d'acheter votre oeuvre !!!</h1>
+    <% if @order_product.product.avatar.attached?%>
+        <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
+      <% else %>
+      <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+      <%end %>
+      <p><%= @order_product.product.price%> - <%=@order_product.renting_time%> mois de locations ( soit <%=@order_product.renting_time * 50%> euros ) </p>
+      <p>montant: <%= @order_product.product.price - (@order_product.renting_time * 50)%> euros </p>
+      <p>Vous n'avez rien a faire juste profitez et si vous le souhaité vous pouvez 
+      appeler <%=@user.first_name%> au <%=@user.phone_number%> pour prendre des nouvelles de votre bébé</p>
+      <p> Bravo pour votre vente !</p>
     <%end%>
 
-    <h1> <%=@user.first_name%> <%=@user.last_name%> souhaite louer/acheter votre art !!  </h1>
-     <p>et comme on dis chez nous louée soit l'art :)</p>
-     
-     <h1> Comment Procéder: IMPORTANT</h1>
+
+    <%if @order_product.status == "rent" && @order_product.renting_time == 1%>
+     <h1><%=@user.first_name%> <%=@user.last_name%> souhaite louer votre oeuvre intitulé <%=@order_product.product.title%></h1>
+    <% if @order_product.product.avatar.attached?%>
+        <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
+      <% else %>
+        <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+       <p>montant: 50 euros </p>
+       <p>Voici les coordonnées de votre acheteur</p>
+      <p>Prenez contact, et organisez votre rendez-vous</p>
+      <%=@user.first_name%><br/>
+      <%=@user.last_name%><br/>
+      <%=@user.email%><br/>
+      <%=@user.phone_number%><br/>
+      <%=@user.city%><br/>
+      <%=@user.adress%><br/>
+      <p>Une fois l'oeuvre posée chez l'artiste, validé votre location en vous rendant dans votre espace profil ART FMR !!
+      et cliquer sur le bouton "confirmer l'accrochage de l'oeuvre".</p>
+      <p>Celle ci enclencheras le date du debut de la location</p>
+      <p>Bonne continuation et bravo pour votre location </p>
+       
+      <%end %>
+     <%end%>
+
+
+     <%if @order_product.status == "rent" && @order_product.renting_time > 1%>
+     <h1><%=@user.first_name%> <%=@user.last_name%> viens de prolonger la location de votre oeuvre intitulé <%=@order_product.product.title%>!!!</h1>
+    <% if @order_product.product.avatar.attached?%>
+        <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
+      <% else %>
+        <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+      <p>montant: 50 euros </p>
+      <p><%=@user.first_name%> <%=@user.last_name%> prolonge son mois de location jusqu'au <%=@order_product.end_date%></p>
+      <%end %>
+     <%end%>
  
-    <p><%=@user.first_name%> <%=@user.last_name%> est interessé par une ou plusieurs de vos oeuvre !! genial non ? </p>
-    <p> Il est temps de prendre contact avec votre client et de convenir d'un jour de rencontre</p>
     
-    <p>Nous vous donnons toutes ses coordonnées:</p>
-
-    <%@user.email%><br/>
-    <%@user.phone_number%><br/>
-    <%@user.city%><br/>
-    <%@user.adress%><br/>
+    
+    
+    
+    
+     
 
      
-    <h1>comment ça se passe ?</h1>
-
-    <h2> Cas numeros 1 : Tu vends une oeuvre ?</h2>
-    <p>Après avoir pris rendez-vous avec ton client, il ne te reste plus cas accrocher l'oeuvre chez lui.</p>
-    <p>vous discutez, vous echanger c'est super, champagne !</p>
     
-
-    <h2> Cas numeros 2 : tu loue  une oeuvre?</h2>  
-    <p>Après avoir pris rendez-vous avec ton client, il ne te reste plus cas accrocher l'oeuvre chez lui.</p>
-    <p>Important ! une fois l'oeuvre accroché chez ton client, rends toi dans ton espace profil ART
-    FMR, selectionne l'oeuvre que tu viens de deposer chez <%@user.first_name%>, clique sur le bouton comme quoi tu 
-    as bien livré <%@user.first_name%> et tadam la location peut commencer.</p>
-    <p>Tu pourras venir la recuperer dans 30 jours</p>
-    <p> Bravo pour ton talent :) </p>
-    
-
-    <h2> Cas numeros 3 : tu prolonge une location ?</h2> 
-
-    <p>Deja super, tu cartonne ! et ensuite ba tu n'as rien a faire .. check juste ton compte en banque</p>
-    <p>c'est reparti pour 30 jours de plus, suis son evolution dans ton espace profile ART FMR</p>
-    <p> Bravo pour ton talent :) </p>
-
-    <h2> Cas numeros 4 : tu vends ton oeuvre qui etait en location ?</h2>
-    <p>C'est le coup de coeur, tu as sus tranmettre ton art. </p>
-    <p><%@user.first_name%> est ravi, et il viens d'acheter ton oeuvre.</p>
-     <p>Tu n'as rien a faire, on s'occupe de tout et on te fait le virement illico presto </p>
-    <p> Bravo pour ton talent :) </p>
-
-
-
-
-  </body>
-</html>

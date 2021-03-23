@@ -217,12 +217,115 @@
 </div>
 </div>
 
+
+
+
+
+FRED PART ====>
+
+
+
+
+<div class="my-art-all">
+  <h4>Mes oeuvres</h4>
+  <div class="my-art">
+    <% Product.all.each do |i|%>
+      <% if i.admin_id == @user.id%>
+        <% if i.avatar.attached?%>
+          <div class="one-art">
+            <%= image_tag i.avatar, class:"img-my-art"%>
+            <br/>
+            <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
+          </div>
+        <% else %>
+          <img src="<%=i.image_url%>" alt="">
+        <% end %>
+      <% end %>
+    <% end %>  
+  </div>
+</div>
+
+
+<div class="my-favorites-all">
+  <h4>Mes favoris</h4>
+  <div class="my-favorites">
+    <% Like.all.each do |i|%>
+      <%if i.user_id == @user.id %>
+        <% Product.all.each do |j|%>
+          <% if i.product_id == j.id %>
+            <% if j.avatar.attached?%>
+              <%= image_tag j.avatar, class: "img-my-art"%>
+            <% else %>
+              <img src="<%=j.image_url%>" alt="" class="img-my-art">
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="my-location-all">
+  <h4>Mes locations</h4>
+  <div class="my-location">
+    <% OrderProduct.all.each do |i|%>
+      <%if i.order.user.id == @user.id && i.product.status == "rented"%>
+        <% if i.product.avatar.attached?%>
+          <img src="<%= image_tag i.product.avatar%>" alt="" class="img-my-art">
+
+          <%if i.artist_confirmation == "validated"%>
+            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
+          <%else%>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
+          <%end%>  
+        <% else %>
+          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+          <%if i.artist_confirmation == "validated"%>
+            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
+          <%else%>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
+          <%end%>  
+        <% end %>
+      <%end%>
+    <%end%> 
+  </div>
+</div>
+
+
+<div class="my-order-all">
+  <h4>Mes achats</h4>
+  <div class="my-order">
+    <% OrderProduct.all.each do |i|%>
+      <%if i.order.user.id == @user.id && i.product.status == "sold"%>
+        <% if i.product.avatar.attached?%>
+          <%= image_tag i.avatar, class:"img-my-art"%>
+        <% else %>
+          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+        <% end %>
+      <%end%>
+    <%end%>
+  </div>
+</div>
+
+<p>Gerer ses locations</p>
+
+<%OrderProduct.all.each do |i|%>
+  <% if i.product.status == "rented" && i.product.admin == current_user%>
+    <% if i.product.avatar.attached?%>
+      <%= image_tag i.product.avatar, class:"img-my-art"%>
+      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+    <% else %>
+      <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+    <% end %>
+  <%end%>
+<%end%>
 -->
-
-
-
-
-<!--ARTISTS GESTION-->
 
 <div class="first-part">
   <div class="photo-profil">
@@ -255,183 +358,170 @@
     </div>
   </div>
 </div>
-
-<!--Mes oeuvres-->
-<div class="my-art-all">
-  <h4>Mes oeuvres</h4>
-  <div class="my-art">
-    <% Product.all.each do |i|%>
-      <% if i.admin_id == @user.id%>
-        <% if i.avatar.attached?%>
-          <div class="one-art">
-            <%= image_tag i.avatar, class:"img-my-art"%>
-            <br/>
-            <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
-          </div>
-        <% else %>
-          <img src="<%=i.image_url%>" alt="">
-        <% end %>
-      <% end %>
-    <% end %>  
-  </div>
-</div>
-
-<!--Mes favoris -->
-<div class="my-favorites-all">
-  <h4>Mes favoris</h4>
-  <div class="my-favorites">
-    <% Like.all.each do |i|%>
-      <%if i.user_id == @user.id %>
-        <% Product.all.each do |j|%>
-          <% if i.product_id == j.id %>
-            <% if j.avatar.attached?%>
-              <%= image_tag j.avatar, class: "img-my-art"%>
-            <% else %>
-              <img src="<%=j.image_url%>" alt="" class="img-my-art">
-            <% end %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<!--Mes locations-->
-<div class="my-location-all">
-  <h4>Mes locations</h4>
-  <div class="my-location">
-    <% OrderProduct.all.each do |i|%>
-      <%if i.order.user.id == @user.id && i.product.status == "rented"%>
-        <% if i.product.avatar.attached?%>
-          <img src="<%= image_tag i.product.avatar%>" alt="" class="img-my-art">
-          <!--ICI DECRIRE le produit-->
-          <%if i.artist_confirmation == "validated"%>
-            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
-            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
-            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
-          <%else%>
-            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
-          <%end%>  
-        <% else %>
-          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
-          <%if i.artist_confirmation == "validated"%>
-            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
-            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
-            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
-          <%else%>
-            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
-          <%end%>  
-        <% end %>
-      <%end%>
-    <%end%> 
-  </div>
-</div>
-
-<!--Mes Achats-->
-<div class="my-order-all">
-  <h4>Mes achats</h4>
-  <div class="my-order">
-    <% OrderProduct.all.each do |i|%>
-      <%if i.order.user.id == @user.id && i.product.status == "sold"%>
-        <% if i.product.avatar.attached?%>
-          <%= image_tag i.avatar, class:"img-my-art"%>
-        <% else %>
-          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
-        <% end %>
-      <%end%>
-    <%end%>
-  </div>
-</div>
-
-<p>Gerer ses locations</p>
-
-<%OrderProduct.all.each do |i|%>
-  <% if i.product.status == "rented" && i.product.admin == current_user%>
-    <% if i.product.avatar.attached?%>
-      <%= image_tag i.product.avatar, class:"img-my-art"%>
-      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
-    <% else %>
-      <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
-      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
-    <% end %>
-  <%end%>
-<%end%>
-
-
 <!------ Include the above in your HEAD tag ---------->
-
- <div class="container">
-              <div class="row">
-                <div class="col-xs-12 ">
-                  <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Mes achats</a>
-                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Mes locations</a>
-                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Mes favoris</a>
-                    </div>
-                  </nav>
-                  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                      <div class="my-order">
-                        <% OrderProduct.all.each do |i|%>
-                          <%if i.order.user.id == @user.id && i.product.status == "sold"%>
-                            <% if i.product.avatar.attached?%>
-                              <%= image_tag i.avatar, class:"img-my-art"%>
-                            <% else %>
-                              <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
-                            <% end %>
-                          <%end%>
-                        <%end%>
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div class="my-location">
-                          <% OrderProduct.all.each do |i|%>
-                            <%if i.order.user.id == @user.id && i.product.status == "rented"%>
-                              <% if i.product.avatar.attached?%>
-                                <img src="<%= image_tag i.product.avatar%>" alt="" class="img-my-art">
-                                <!--ICI DECRIRE le produit-->
-                                <%if i.artist_confirmation == "validated"%>
-                                  <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
-                                  <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
-                                <%else%>
-                                  <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
-                                <%end%>  
-                              <% else %>
-                                <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
-                                <%if i.artist_confirmation == "validated"%>
-                                  <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
-                                  <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
-                                <%else%>
-                                  <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
-                                <%end%>
-                              <% end %>
-                            <%end%>
-                          <%end%> 
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                      <div class="my-favorites">
-                        <% Like.all.each do |i|%>
-                          <%if i.user_id == @user.id %>
-                            <% Product.all.each do |j|%>
-                              <% if i.product_id == j.id %>
-                                <% if j.avatar.attached?%>
-                                  <%= image_tag j.avatar, class: "img-my-art"%>
-                                <% else %>
-                                  <img src="<%=j.image_url%>" alt="" class="img-my-art">
-                                <% end %>
-                              <% end %>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </div>
-                    </div>
-                    
-                  </div>
-                
-                </div>
-              </div>
+<div class="nav-tab-home-made">
+  <div>
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-buy" role="tab" aria-controls="nav-home" aria-selected="true">Mes achats</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-rent" role="tab" aria-controls="nav-profile" aria-selected="false">Mes locations</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-favorite" role="tab" aria-controls="nav-contact" aria-selected="false">Mes favoris</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-buy" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="my-order-all">
+          <div class="my-order">
+            <% OrderProduct.all.each do |i|%>
+              <%if i.order.user.id == @user.id && i.product.status == "sold"%>
+                <% if i.product.avatar.attached?%>
+                  <%=link_to product_path(id: i.product.id) do %>
+                  <%= image_tag i.product.avatar, class:"img-my-art"%>
+                  <%end%>
+                <% else %>
+                  <%=link_to product_path(id: i.product.id) do %>
+                  <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+                  <%end%>
+                <% end %>
+              <%end%>
+            <%end%>
+          </div>
         </div>
       </div>
+      <div class="tab-pane fade" id="nav-rent" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <!--Mes locations-->
+        <div class="my-location-all">
+          <div class="my-location">
+            <% OrderProduct.all.each do |i|%>
+              <%if i.order.user.id == @user.id && i.product.status == "rented"%>
+                <% if i.product.avatar.attached?%>
+                  <div class="my-location-bis">
+                   <%=link_to product_path(id: i.product.id) do %>
+                  <%= image_tag i.product.avatar, class:"img-my-art"%>
+                  <%end%>
+                  <!--ICI DECRIRE le produit-->
+                  <%if i.artist_confirmation == "validated"%>
+                    <div class="delay">
+                    <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+                    <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+                    <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-outline-dark btn-sm", :method => 'POST' %>
+                    </div>
+                  <%else%>
+                    <p> L'artist <%= link_to i.product.admin.nickname, user_path(i.product.admin.id), style: "color:black;"%> vous contactez prochainement</p>  
+                  <%end%>  
+                  </div>
+                <% else %>
+                  <div class="my-location-bis">
+                   <%=link_to product_path(id: i.product.id) do %>
+                  <%=image_tag i.product.image_url, class:"img-my-art"%>
+                  <%end%>
+                  <%if i.artist_confirmation == "validated"%>
+                    <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+                    <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+                    <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
+                  <%else%>
+                    
+                    <p> L'artist <%= link_to i.product.admin.nickname, user_path(i.product.admin.id), style: "color:black;"%> vous contactez prochainement</p> 
+                  </div>
+                  <%end%>
+                <% end %>
+              <%end%>
+            <%end%> 
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-favorite" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <!--Mes favoris -->
+          <div class="my-favorites-all">
+            <div class="my-favorites">
+              <% Like.all.each do |i|%>
+                <%if i.user_id == @user.id %>
+                  <% Product.all.each do |j|%>
+                    <% if i.product_id == j.id %>
+                      <% if j.avatar.attached?%>
+                        <%=link_to product_path(id: j.id) do %>
+                        <%= image_tag j.avatar, class: "img-my-art"%>
+                        <%end%>
+                      <% else %>
+                        <%=link_to product_path(id: j.id) do %>
+                        <img src="<%=j.image_url%>" alt="" class="img-my-art">
+                        <%end%>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+  
+  </div>
+</div>
+</div>
+</div>
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="nav-tab-home-made">
+  <div>
+    <nav>
+      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-g-artwort" role="tab" aria-controls="nav-home" aria-selected="true">Gestion de mes oeuvres</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-g-rent" role="tab" aria-controls="nav-profile" aria-selected="false">Gestion des envois </a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false"></a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-g-artwort" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="my-art-all">
+        <div class="my-art">
+            <% Product.all.each do |i|%>
+              <% if i.admin_id == @user.id%>
+                <% if i.avatar.attached?%>
+                  <div class="one-art">
+                    <%= image_tag i.avatar, class:"img-my-art"%>
+                    <br/>
+                    <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
+                  </div>
+                <% else %>
+                <div class="one-art">
+                  <%=image_tag i.image_url , class:"img-my-art"%>
+                  <br/>
+                  <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
+                </div>
+                <% end %>
+              <% end %>
+            <% end %>  
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="nav-g-rent" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="my-art-all">
+        <div class="my-art">
+          <%OrderProduct.all.each do |i|%>
+            <% if i.product.status == "rented" && i.product.admin == current_user%>
+              <% if i.product.avatar.attached?%>
+               <div class="one-art">
+                <%= image_tag i.product.avatar, class:"img-my-art"%>
+                <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+              </div>
+              <% else %>
+               <div class="one-art">
+                <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+                <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+                </div>
+              <% end %>
+            <%end%>
+          <%end%>
+        </div>
+      </div>
+      </div>
+      <div class="tab-pane fade" id="#" role="tabpanel" aria-labelledby="nav-contact-tab">
+       
+      </div>
+      
+    </div>
+  
+  </div>
 </div>
