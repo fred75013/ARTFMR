@@ -308,17 +308,19 @@
           <%if i.artist_confirmation == "validated"%>
             <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
             <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
           <%else%>
-            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
           <%end%>  
         <% else %>
           <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
           <%if i.artist_confirmation == "validated"%>
             <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
             <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
           <%else%>
-            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
-          <%end%>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
+          <%end%>  
         <% end %>
       <%end%>
     <%end%> 
@@ -341,6 +343,19 @@
   </div>
 </div>
 
+<p>Gerer ses locations</p>
+
+<%OrderProduct.all.each do |i|%>
+  <% if i.product.status == "rented" && i.product.admin == current_user%>
+    <% if i.product.avatar.attached?%>
+      <%= image_tag i.product.avatar, class:"img-my-art"%>
+      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+    <% else %>
+      <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+      <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+    <% end %>
+  <%end%>
+<%end%>
 
 
 
