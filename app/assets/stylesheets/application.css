@@ -24,4 +24,5 @@
  *= require static_pages
  *= require messages
  *= require conversations
+ *= require admin
 */

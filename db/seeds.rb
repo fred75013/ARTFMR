@@ -88,7 +88,7 @@ User.destroy_all
   artist: true  
 )
 
-@admin = [@u.id, @u1.id, @u2.id, @u3.id]
+@artist = [@u.id, @u1.id, @u2.id, @u3.id]
 20.times do |_product|
   Product.create!(
     title: Faker::Books::CultureSeries.culture_ship_class,
@@ -104,6 +104,19 @@ User.destroy_all
     status: @statut,
     price: rand(400..1000),
     image_url: @images.sample,
-    admin_id: @admin.sample
+    admin_id: @artist.sample
   )
 end
+
+@admin = User.create!(
+  email: "admin@gmail.com", 
+  password: "123456", 
+  nickname: "Micaflo", 
+  first_name: "artista", 
+  last_name: "artisto", 
+  adress: "5 rue des artist", 
+  city: "Paris", 
+  phone_number: 0600000001, 
+  artist: true,
+  admin: true 
+)
