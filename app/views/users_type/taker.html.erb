@@ -55,8 +55,54 @@
     </div>
       <br/>
       <br/>
-      
+      <br/>
+
+
+    <div class="containt-best-artist" >
+      <h3>Les oeuvres les plus convoitées</h3>
+      <% @user = User.find_by(id: 4)%>
+      <% @user1 = User.find_by(id: 3)%>
+      <%@product = Product.find_by(id: 1)%>
+      <%@product1 = Product.find_by(id: 7)%>
+        <div class="containt-product-artist">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <a><img src="<%= @product.image_url%>" class="product p-0 m-2 mt-2"></a>
+              </div>
+              <div class="flip-card-back">
+                    <h1><%= @user.nickname %></h1> 
+                <p class="product-description"><%= @product.description %></p>
+                
+                <div class="bottom-card">
+                 <p>
+                  <%= link_to "En savoir plus", product_path(id: @product.id), class: "link-show-product" %>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <a><img src="<%= @product1.image_url%>" class="product p-0 m-2 mt-2"></a>
+              </div>
+              <div class="flip-card-back">
+                    <h1><%= @user1.nickname %></h1> 
+                <p class="product-description"><%= @product1.description %></p>
+                
+                <div class="bottom-card">
+                 <p>
+                  <%= link_to "En savoir plus", product_path(id: @product1.id), class: "link-show-product" %>
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="btn-paint">
-      <%= link_to "Voir la galerie",  products_path, class:"btn btn-secondary btn-taker" %>
+      <%= link_to "Voir dans la galerie d'autre oeuvres",  products_path, class:"btn btn-secondary btn-taker" %>
     </div>
 </div>
