@@ -99,7 +99,7 @@
                     </ul>
                       
                     <div class="btns-checkout">
-                       <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-primary btn-pay" %> 
+                       <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-primary btn-pay" , remote: true %> 
                       <%= link_to "Vider le panier", cart_path(@cart.products), method: :delete, data: {confirm: "Êtes-vous sur de vouloir vider votre panier?"} , class:"btn btn-danger text-light ", remote: true %>
                       </div>
                   </div>
