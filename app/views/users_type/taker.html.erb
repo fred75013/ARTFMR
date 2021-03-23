@@ -1,18 +1,16 @@
 <div class="containt-taker">
-    <div class="jumbotron jumbotron-fluid text-white jumbotron-image shadow" style="background-image: url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1167&q=80); heigth: 150% ">
-      <div class="container py-5">
-      
-       <p style="color: #474548;opacity: 1;">Achetez, louez, découvrez, rencontrez ... </p><br/>
-      
-      <h1 class="mb-4"> L'ART QUI S'INVITE CHEZ VOUS</h1>
+    <div class="jumbotron jumbotron-fluid jumbotron-image shadow"  style="background-image: url(<%= asset_path 'kam-idris-_HqHX3LBN18-unsplash.jpg' %>); ">
+      <div class="container text-jumbo text-white">
+       <p class="dispear">Achetez, louez, découvrez, rencontrez ... </p><br/>
+        <h1 class="text-white dispear"> L'ART QUI S'INVITE CHEZ VOUS</h1>       
     </div>
   </div>
 
   
   <div class=" py-3">
     <h2 class="mb-4 text-center text-white"> VOUS N'AVEZ JAMAIS ÉTÉ AUSSI PROCHES DES ARTISTES</h2>
-    <p class="text-center  mb-4 text-white">Chez ART FMR, notre état d'esprit est de mettre en avant nos artistes et oeuvres d'une manière inédite. Nous avons mis en place une offre <br>
-    unique consistant à vous mettre en relation avec les artistes vivants près de chez vous, par le biais d'un service de location
+    <p class="text-center  mb-4 text-white">Chez ART FMR, notre état d'esprit est de mettre en avant nos artistes et leurs oeuvres d'une manière inédite. Nous avons mis en place une offre <br>
+    unique consistant à vous mettre en relation avec les artistes, par le biais d'un service de location ou d'achat.
     </p>
   </div>
 
@@ -38,13 +36,13 @@
       </div>
 <br/>
       <div class="text-video">
-          <p class="text-center ml-2 mr-2 text-white">Découvrez chaque jour de nouvelles oeuvres d'artistes venant <br> 
-         du monde entier. Chaque oeuvre présente sur ART FMR est en <br> vente</p>
+          <p class="text-center ml-3 text-white">Découvrez chaque jour de nouvelles oeuvres d'artistes <br> 
+          venant du monde entier.</p>
 
-          <p class="text-center mr-2 text-white">Louez des oeuvres d'artistes vivants à proximité de chez vous, et <br> 
+          <p class="text-center ml-3 text-white">Louez des oeuvres d'artistes et <br> 
          rencontrez les à domicile lors de l'accrochage de l'oeuvre</p>
 
-          <p class="text-center mr-2 text-white">Prolongez vos mois de location, achetez en leasing ou craquezt <br> 
+          <p class="text-center ml-3 text-white">Prolongez vos locations ou craquez <br> 
         immédiatement pour une oeuvre que vous ne voulez plus <br> quitter</p>
       </div>
 
@@ -59,6 +57,6 @@
       <br/>
       
     <div class="btn-paint">
-      <%= link_to "Aller voir dans la galerie",  products_path, class:"btn btn-secondary btn-taker" %>
+      <%= link_to "Voir la galerie",  products_path, class:"btn btn-secondary btn-taker" %>
     </div>
 </div>

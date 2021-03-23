@@ -223,7 +223,7 @@
     <p><%=@user.email%></p>
     <div class="btn-profil">
       <%= link_to 'Modifié Mon profile', edit_user_registration_path , class: "btn btn-outline-dark btn-sm m-2"%><br/>
-      <%= link_to "Voir mes messages", conversations_path, class: "btn btn-outline-dark btn-sm m-2" %>
+      <%= link_to "Voir mes messages", conversation_messages_path(1), class: "btn btn-outline-dark btn-sm m-2" %>
     </div>
   </div>
 </div>
@@ -261,16 +261,18 @@
           <%if i.artist_confirmation == "validated"%>
             <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
             <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
           <%else%>
-            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
           <%end%>  
         <% else %>
           <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
           <%if i.artist_confirmation == "validated"%>
             <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
             <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+            <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
           <%else%>
-            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+            <p><%=i.product.admin.nickname%> va vous contactez prochainement</p> 
           <%end%>
         <% end %>
       <%end%>
@@ -285,7 +287,7 @@
     <% OrderProduct.all.each do |i|%>
       <%if i.order.user.id == @user.id && i.product.status == "sold"%>
         <% if i.product.avatar.attached?%>
-          <%= image_tag i.avatar, class:"img-my-art"%>
+          <%= image_tag i.product.avatar, class:"img-my-art"%>
         <% else %>
           <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
         <% end %>
