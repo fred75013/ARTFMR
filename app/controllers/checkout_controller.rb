@@ -39,20 +39,19 @@ class CheckoutController < ApplicationController
       @cart.line_products.each do |line|
         if line.to_buy == true && line.product.status == "available"
           line.product.update(status: "sold")
-          line.update(order_id: @order.id )
-          OrderProduct.create(product_id: line.product.id, order_id: @order.id)
+          OrderProduct.create(product_id: line.product.id, order_id: @order.id, status: "sold")
 
         elsif line.to_buy == false && line.product.status == "available"
           line.product.update(status: "rented")
           line.update(order_id: @order.id )
-          OrderProduct.create(product_id: line.product.id, order_id: @order.id, renting_time: 1 )
+          OrderProduct.create(product_id: line.product.id, order_id: @order.id, renting_time: 1, status: "rent" )
 
         elsif line.to_buy == true && line.product.status == "rented"
           line.product.update(status: "sold")
-          line.product.order_products.last.update(start_date: nil, end_date: nil)
+          line.product.order_products.last.update(status: "sold")
 
         elsif line.to_buy == false && line.product.status == "rented"
-          line.product.order_products.last.update(end_date: line.product.order_products.last.end_date.advance(days: 30), renting_time: line.product.order_products.last.renting_time + 1)
+          line.product.order_products.last.update(end_date: line.product.order_products.last.end_date.advance(days: 30), renting_time: line.product.order_products.last.renting_time + 1, status: "rent")
 
         end
       end
