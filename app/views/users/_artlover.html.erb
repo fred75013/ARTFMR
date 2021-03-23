@@ -132,8 +132,7 @@
                                                 <%= link_to "annuler", order_product_path(i), method: :delete, data: {confirm: "Êtes-vous sur de vouloir annuler la commande? :("} , class:"fa fa-trash text-dark"%>
 											   <%end%>
                                                </div>
-                        
-												
+                                           
 											<% else %>
 											<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%=i.product.image_url%>" alt="" class="img-fluid rounded shadow-sm">
 
@@ -184,12 +183,14 @@
 										
 									<%end%>
 								<%end%>
+                                
 								</div>
 </div>
 
 
 </div>
 </div>
+
 
 <!--ART LOVER GESTION-->
 
@@ -290,3 +291,4 @@
     <%end%>
   </div>
 </div>
+
