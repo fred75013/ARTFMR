@@ -1,35 +1,3 @@
-<div class="containt-conv">
-<div class="title-list">
- <h3>Messagerie</h3>
-</div>
- <div class="ui list-conv">
-  <div class="item-conv">
-   <% @conversations.each do |conversation| %>
-   <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-    <% if conversation.sender_id == current_user.id %>
-      <% recipient = User.find(conversation.recipient_id) %>
-    <% else %>
-      <% recipient = User.find(conversation.sender_id) %>
-    <% end %>
-    <h5><%= link_to recipient.first_name,   conversation_messages_path(conversation)%></h5>
-   <% end %>
-  <% end %>
-  
- </div>
-</div>
-<div class="title-list">
- <h3>Tous les artiste</h3>
- </div>
-  <div class="ui list-conv">
-   <%OrderProduct.all.each do |i|%>
-<%if i.order.user == current_user %>
-       
-     <div class="item-conv">
-        <h5><%= link_to i.product.admin.first_name ,conversations_path(sender_id: current_user.id, recipient_id: i.product.admin.id), method: "post"%></h5>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-</div>
 
- 
+
+

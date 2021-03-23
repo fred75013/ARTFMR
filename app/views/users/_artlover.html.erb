@@ -57,7 +57,7 @@
 					</br>
 					<% if current_user.id == @user.id %>
 	                <%= link_to 'Modifié Mon profile', edit_user_registration_path , class: "link-show-user"%><br/>
-									<%= link_to "Voir mes messages", conversations_path, class: "link-show-user" %>
+									<%= link_to "Voir mes messages", conversation_messages_path(1), class: "link-show-user" %>
 					<% end %>
 					
                 </div>
@@ -189,5 +189,106 @@
 
 
 </div>
+</div>
+
+
+<!--ART LOVER GESTION-->
+
+<div class="first-part">
+  <div class="photo-profil">
+    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="200" class="rounded mb-2 img-thumbnail">
+    <div class="number-location-buy-favorites">
+      <div class="m-2">
+        <p class="mb-0">215</p>
+        <small>Mes locations</small>
+      </div>
+      <div class="m-2">
+        <p class="mb-0">745</p>
+        <small>Mes Achats</small>
+      </div>
+      <div class="m-2">
+        <p class="mb-0">340</p>
+        <small>Mes favoris</small>
+      </div>
+    </div>
+  </div>
+  <div class="profil-description">
+    <h5 class="mb-0">Mes informations</h5>
+    <p><%=@user.last_name%> <%=@user.first_name%></p>
+    <p><%=@user.city%></p>
+    <p><%=@user.adress%></p>
+    <p>+<%=@user.phone_number%></p>
+    <p><%=@user.email%></p>
+    <div class="btn-profil">
+      <%= link_to 'Modifié Mon profile', edit_user_registration_path , class: "btn btn-outline-dark btn-sm m-2"%><br/>
+      <%= link_to "Voir mes messages", conversations_path, class: "btn btn-outline-dark btn-sm m-2" %>
+    </div>
+  </div>
+</div>
+
+
+<!--Mes favoris -->
+<div class="my-favorites-all">
+  <h4>Mes favoris</h4>
+  <div class="my-favorites">
+    <% Like.all.each do |i|%>
+      <%if i.user_id == @user.id %>
+        <% Product.all.each do |j|%>
+          <% if i.product_id == j.id %>
+            <% if j.avatar.attached?%>
+              <%= image_tag j.avatar, class: "img-my-art"%>
+            <% else %>
+              <img src="<%=j.image_url%>" alt="" class="img-my-art">
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<!--Mes locations-->
+<div class="my-location-all">
+  <h4>Mes locations</h4>
+  <div class="my-location">
+    <% OrderProduct.all.each do |i|%>
+      <%if i.order.user.id == @user.id && i.product.status == "rented"%>
+        <% if i.product.avatar.attached?%>
+          <img src="<%= image_tag i.product.avatar%>" alt="" class="img-my-art">
+          <!--ICI DECRIRE le produit-->
+          <%if i.artist_confirmation == "validated"%>
+            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+          <%else%>
+            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+          <%end%>  
+        <% else %>
+          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+          <%if i.artist_confirmation == "validated"%>
+            <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
+            <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
+          <%else%>
+            <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Confirmez vous avoir bien reçu l'oeuvre ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+          <%end%>
+        <% end %>
+      <%end%>
+    <%end%> 
+  </div>
+</div>
+
+<!--Mes Achats-->
+<div class="my-order-all">
+  <h4>Mes achats</h4>
+  <div class="my-order">
+    <% OrderProduct.all.each do |i|%>
+      <%if i.order.user.id == @user.id && i.product.status == "sold"%>
+        <% if i.product.avatar.attached?%>
+          <%= image_tag i.avatar, class:"img-my-art"%>
+        <% else %>
+          <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+        <% end %>
+      <%end%>
+    <%end%>
+  </div>
 </div>
 

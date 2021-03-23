@@ -31,7 +31,7 @@ class CheckoutController < ApplicationController
     def success
       @session = Stripe::Checkout::Session.retrieve(params[:session_id])
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-
+      flash[:notice] = "Tu peux envoyer un message a l'artiste depuis ton profil"
       @cart = @current_cart
 
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)

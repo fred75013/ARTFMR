@@ -1,14 +1,42 @@
 .container-sms{
-  margin: 30px;
-  width: 50%;
-  left: 25%;
-  display: inline-block;
+  /* margin: 30px; */
+   width: 50%; 
+  /* left: 25%; */
+  /* display: inline-block; */
   background-color: #D8E5EC; 
-  border-radius: 20px;
+  
   padding: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.content-sms-artist{
+  display: flex;
+  justify-content: center;
   
 }
+.list-conv{
+  background-color:#d0dfe7;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  width: 15%;
+}
 
+.item-name{
+  display: flex;
+  justify-content: center;
+  color: black;
+  text-align: center;
+  border-bottom: black solid 1px;
+  top: 10px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.item-name:hover{
+  text-decoration: none;
+  color: black;
+ 
+}
 .scroll-sms{
   overflow-y: scroll;
   height: 500px;
@@ -56,6 +84,7 @@
   margin-left: 10px;
   height: 100%;
 }
+
 
 @media screen and (max-width: 990px) {
   .list {

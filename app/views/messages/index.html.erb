@@ -1,3 +1,23 @@
+<div class="content-sms-artist">
+  <div class="ui list-conv">
+    <%OrderProduct.all.each do |i|%>
+      <%if i.order.user == current_user%>
+        <div class="item-conv">
+          <h5><%= link_to i.product.admin.nickname ,conversations_path(sender_id: current_user.id, recipient_id: i.product.admin.id), method: "post" ,class: "item-name"%></h5>
+        </div>
+      <% elsif current_user.artist == true %>
+            <div class="item-conv">
+              <h5><%= link_to i.order.user.first_name ,conversations_path(sender_id: current_user.id, recipient_id:  i.order.user.id), method: "post" ,class: "item-name"%></h5>
+            </div>
+            <div class="item-conv">
+              <h5><%= link_to i.product.admin.nickname ,conversations_path(sender_id: current_user.id, recipient_id: i.product.admin.id), method: "post" ,class: "item-name"%></h5>
+            </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
 <div class="container-sms">
 <div class="scroll-sms">
 <% if @over_ten %>
@@ -49,4 +69,5 @@
  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
  
 <% end %>
+</div>
 </div>

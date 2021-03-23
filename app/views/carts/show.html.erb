@@ -1,15 +1,13 @@
 
-  <div class=" text-white py-5 text-center">
-  </div>
-  
-
+<div class="container">
   <div class="pb-5">
-    <div class="container">
       <div class="row">
         <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
           <div class="table-responsive">
             <table class="table">
+            <%# ------Column infos------- %>
               <thead>
+              <h5 class="py-3 ">Détails de votre panier</h5>
                 <tr>
                   <th scope="col" class="border-0 bg-light">
                     <div class="p-2 px-3 text-uppercase">Produit</div>
@@ -25,6 +23,7 @@
                   </th>
                 </tr>
               </thead>
+              <%# ------Products infos------- %>
               <tbody>
               <% @cart.line_products.each do |line_product| %>
                 <tr>
@@ -62,10 +61,10 @@
                   <div class="btn-group">
 
                   <%if line_product.to_buy == true%>
-                    <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-primary text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Acheter 
                       <%else%>
-                      <button type="button" class="btn btn-success text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button type="button" class="btn btn-primary text-light dropdown-toggle"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Louer 
                       <%end%>
 
@@ -81,25 +80,28 @@
                   </div>        
 
                   </strong></td>
-                  <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
+                  <td class="border-0 align-middle"><%= link_to "", line_product_path(line_product), remote: true ,method: :delete, data: {confirm: "Êtes-vous sur de vouloir suppirmer l'article?"} , class:"fa fa-trash text-dark"%></td>
                 </tr>
-
+  
               <% end %>
               </tbody>
+              <%# ------Products infos------- %>
             </table>
-                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Récapitulatif de la commande</div>
+           
                     <div class="p-4">
                       <ul class="list-unstyled mb-4">
                       <% @cart.line_products.each do |line_product| %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary"><%=line_product.product.title%></strong><strong><%= line_product.price %> €</strong></li>
                       <% end %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary">Total</strong>
-                        
                         <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> €</h5>
                       </li>
                     </ul>
-                      <%= link_to "Vider le panier", cart_path(@cart.products), method: :delete, data: {confirm: "Êtes-vous sur de vouloir vider votre panier?"} , class:"btn btn-danger text-light", remote: true %>
-                      <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn-sm btn-warning rounded-pill py-1 btn-block ", remote: true %> 
+                      
+                    <div class="btns-checkout">
+                       <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price), class: "btn btn-primary btn-pay" %> 
+                      <%= link_to "Vider le panier", cart_path(@cart.products), method: :delete, data: {confirm: "Êtes-vous sur de vouloir vider votre panier?"} , class:"btn btn-danger text-light ", remote: true %>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -107,4 +109,6 @@
       </div>
     </div>
 
-  
+
+
+>

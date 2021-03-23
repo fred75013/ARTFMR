@@ -63,15 +63,13 @@
      <%end%>
      <li class="nav-item d-flex align-items-center">
         <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link"%>
-        <div>
-        <% if @current_cart.products != 0%>
-          <p class="cart-count"><%= @current_cart.products.count%></p>
-          <% else %>
-        <%end%>
-        </div>
+        <% if @current_cart.products.length != 0 %>
+       <div><p class="cart-count"><%= @current_cart.products.count%></div>
+       <% else %>
+       <div></div>
+       <%end%>
       </li>
     </ul>
-    
   </div>
 </nav>
 

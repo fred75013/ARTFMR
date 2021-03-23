@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all.with_attached_avatar
+    @users = User.all
   end
 
   def show

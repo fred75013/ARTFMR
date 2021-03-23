@@ -1,4 +1,66 @@
 /*Index*/
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #93876C;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.link-show-product{
+  float: right;
+  padding: 5px;
+  
+}
+.btn-heart:hover{
+  text-decoration: none;
+  color: white;
+}
+.link-show-product:hover{
+  text-decoration: #93876C;
+  
+}
+.product-description{
+  padding: 5px;
+
+}
+.product-description:hover{
+  padding: 5px;
+  text-decoration: none;
+}
+
 .product {
   min-width: 250px;
   max-height: 250px;
@@ -42,7 +104,8 @@
 }
 
 .ul-show-product {
-  display: flex;
+  width: atuo;
+  height: 200px;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -50,6 +113,9 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
 
 /* INDEX view cart hover */
@@ -140,22 +206,16 @@
 }
 
 .box-content {
-  bottom: 350px;
+  bottom: 370px;
   left: 15px;
-  font-family: "montserrat";
 }
 
 .del-li {
-  list-style-type: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  bottom: 10px;
+  width: 60%;
+  height: auto;
+  margin-left: 17px; 
 }
 
-.del-li:nth-child(2) {
-  right: 15px;
-}
 .card-status {
   position: absolute;
   top: 5px;
@@ -164,17 +224,25 @@
 }
 
 .box-text {
-  width: 450px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  width: 400px;
   overflow-wrap: break-word;
 }
 
-.box-price {
-  right: 25px;
-  top: 60px;
+.title-text-sp{
+  font-size: 32px;
 }
-.btns {
-  bottom: 50px;
-  right: 20px;
+.box-price {
+  position: fixed;
+  text-align: right;
+  right: 15px;
+  bottom: 65px;
+  width: 250px;
+  height: auto;
+}
+.price-p{
+  font-size: 20px;
 }
 
 .png-min {
@@ -206,16 +274,3 @@
   background-attachment: fixed;
 }
 
-.cart-count{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  background-color: #fd9c6c;
-  top: 6px;
-  font-size: 12px;
-  font-weight: 500;
-}

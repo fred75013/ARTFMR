@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end
 
   def index
+    @users = User.all
+    @conversations = Conversation.all
+
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
@@ -26,6 +30,15 @@ class MessagesController < ApplicationController
   end
 
   def create
+    if @conversation.nil?
+      @conversation = if Conversation.between(params[:sender_id], params[:recipient_id]).present?
+                        Conversation.between(params[:sender_id],
+                                             params[:recipient_id]).first
+                      else
+                        Conversation.create!(conversation_params)
+                      end
+    end
+
     @message = @conversation.messages.new(message_params)
     if @message.save
       redirect_to conversation_messages_path(@conversation)
@@ -36,5 +49,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :user_id)
+  end
+
+  def conversation_params
+    params.permit(:sender_id, :recipient_id)
   end
 end
