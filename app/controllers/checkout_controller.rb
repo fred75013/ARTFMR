@@ -35,7 +35,7 @@ class CheckoutController < ApplicationController
       @cart = @current_cart
 
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)
-
+   
       @cart.line_products.each do |line|
         if line.to_buy == true && line.product.status == "available"
           line.product.update(status: "sold")

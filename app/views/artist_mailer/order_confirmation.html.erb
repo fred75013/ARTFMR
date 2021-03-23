@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour</h1>
+
+    
+    <% @cart.line_products.each do |line_product|%>
+    
+    <%if line.to_buy == true && line.product.status == "available" && line.product.admin.email == @email_artist %>
+      <%=line_product.product.admin.email%>
+      <%=line_product.product.price%><br/>
+      <p>ceci est un achat</p>
+    <%elsif line.to_buy == false && line.product.status == "available" && line.product.admin.email == @email_artist%>
+     
+      <%=line_product.product.tile%>
+    <%elsif line.to_buy == true && line.product.status == "rented" && line.product.admin.email == @email_artist%>
+      <%=line_product.product.admin.email%>
+      <%=line_product.product.price%><br/>
+      <p>ceci est une extend de location</p>
+    <%elsif line.to_buy == false && line.product.status == "rented" && line.product.admin.email == @email_artist%>
+      <%=line_product.product.admin.email%>
+      <%=line_product.product.price%><br/>
+      <p>ceci est un achat coup de coeur</p>
+    <%end%>
+    <%end%>
+
+    <h1> <%=@user.first_name%> <%=@user.last_name%> souhaite louer/acheter votre art !!  </h1>
+     <p>et comme on dis chez nous louée soit l'art :)</p>
+     
+     <h1> Comment Procéder: IMPORTANT</h1>
+ 
+    <p><%=@user.first_name%> <%=@user.last_name%> est interessé par une ou plusieurs de vos oeuvre !! genial non ? </p>
+    <p> Il est temps de prendre contact avec votre client et de convenir d'un jour de rencontre</p>
+    
+    <p>Nous vous donnons toutes ses coordonnées:</p>
+
+    <%@user.email%><br/>
+    <%@user.phone_number%><br/>
+    <%@user.city%><br/>
+    <%@user.adress%><br/>
+
+     
+    <h1>comment ça se passe ?</h1>
+
+    <h2> Cas numeros 1 : Tu vends une oeuvre ?</h2>
+    <p>Après avoir pris rendez-vous avec ton client, il ne te reste plus cas accrocher l'oeuvre chez lui.</p>
+    <p>vous discutez, vous echanger c'est super, champagne !</p>
+    
+
+    <h2> Cas numeros 2 : tu loue  une oeuvre?</h2>  
+    <p>Après avoir pris rendez-vous avec ton client, il ne te reste plus cas accrocher l'oeuvre chez lui.</p>
+    <p>Important ! une fois l'oeuvre accroché chez ton client, rends toi dans ton espace profil ART
+    FMR, selectionne l'oeuvre que tu viens de deposer chez <%@user.first_name%>, clique sur le bouton comme quoi tu 
+    as bien livré <%@user.first_name%> et tadam la location peut commencer.</p>
+    <p>Tu pourras venir la recuperer dans 30 jours</p>
+    <p> Bravo pour ton talent :) </p>
+    
+
+    <h2> Cas numeros 3 : tu prolonge une location ?</h2> 
+
+    <p>Deja super, tu cartonne ! et ensuite ba tu n'as rien a faire .. check juste ton compte en banque</p>
+    <p>c'est reparti pour 30 jours de plus, suis son evolution dans ton espace profile ART FMR</p>
+    <p> Bravo pour ton talent :) </p>
+
+    <h2> Cas numeros 4 : tu vends ton oeuvre qui etait en location ?</h2>
+    <p>C'est le coup de coeur, tu as sus tranmettre ton art. </p>
+    <p><%@user.first_name%> est ravi, et il viens d'acheter ton oeuvre.</p>
+     <p>Tu n'as rien a faire, on s'occupe de tout et on te fait le virement illico presto </p>
+    <p> Bravo pour ton talent :) </p>
+
+
+
+
+  </body>
+</html>
