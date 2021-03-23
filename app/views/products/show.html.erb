@@ -1,13 +1,13 @@
 <div class="container ">
-<div class="show-product ">
-<% if @product.avatar.attached?%>
-<%= image_tag @product.avatar, class: "show-img"%>
-<% else %>
-<img src="<%= @product.image_url%>" class="show-img">
-<%end %>
+  <div class="show-product ">
+    <% if @product.avatar.attached?%>
+      <%= image_tag @product.avatar, class: "show-img"%>
+    <% else %>
+      <img src="<%= @product.image_url%>" class="show-img">
+  <%end %>
 
-<div class="square">
-<div class="square"></div> 
+  <div class="square">
+  <div class="square"></div> 
 
 
 
@@ -18,9 +18,8 @@
         <% end %>
       <% end %>
                  
-      <h5 class=" font-weight-bold ml-2"> <%=@product.title%></h5>
-      <p class=" font-italic box-text ml-2 mt-3">"<%=@product.description%>"</p>
-
+      <h5 class=" title-text-sp ml-2"> <%=@product.title%></h5>
+      <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
 
       <% if @product.status == "available" %>
         <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
@@ -30,36 +29,35 @@
         <%= link_to "Vendu", @product.status , class:"btn-sm btn-danger card-status"%>
       <%end%>
 
-      <div class="box-price float-right">
-        <p>Prix de vente : <span class="font-weight-bold"><%=@product.price%>€</span></p>
-        <p>Prix de location : <span class="font-weight-bold">50€/mois</span></p>
-      </div>
 
       <div class="ul-show-product d-flex flex-column ml-2">
-        <ul class="del-li">
-          <li>Categorie : <%=@product.category%></li>
-          <li><img src="https://img.icons8.com/fluent-systems-filled/24/000000/weight-kg.png"/>Poids : <%=@product.weight%> kg</li>
-          <% if @product.border_product == true%>
-            <li>Encadrée</li>
-          <%else%>
-            <li><img src="https://img.icons8.com/material-sharp/24/000000/frame.png"/> non encadré</li>
-          <%end%>
-        </ul>
-        <ul class="del-li ">
-          <li><img class="png-min" src="https://img.icons8.com/ios/50/000000/height.png"/><%=@product.height%> cm
-           <img class="png-min" src="https://img.icons8.com/ios/50/000000/width.png"/><%=@product.width%>cm
-          <img class="png-min" src="https://img.icons8.com/fluent-systems-regular/24/000000/depth.png"/><%=@product.depth%>cm</li>
-          <% if @product.authenticable_product == false %>
-          <li> <img class="png-min" src="https://img.icons8.com/ios/50/000000/check--v1.png"/> Non Certifié  </li>
-          <% elsif @product.authenticable_product == true%>
-           <li><img class="png-min " src="https://img.icons8.com/ios/50/000000/check--v1.png"/> Tableau Certifié  </li>
-          <%end%>
-        </ul>
-      
+        <h6>Fiche technique de l'oeuvre : </h6>
+          <ul class="del-li">
+            <li><span class="font-weight-bold">Catégorie: </span> <%=@product.category%></li>
+            <li><span class="font-weight-bold">Poids: </span> <%=@product.weight%> kg</li>
+            <li><span class="font-weight-bold">Hauteur: </span><%=@product.height%>cm</li>
+            <li><span class="font-weight-bold">Largeur: </span><%=@product.width%>cm</li>
+            <li><span class="font-weight-bold">Prodondeur: </span><%=@product.depth%>cm</li>
+            <% if @product.border_product == true%>
+              <li><span class="font-weight-bold">Encadrée: </span>Oui</li>
+            <%else%>
+              <li><span class="font-weight-bold">Encadrée: </span>Non</li>
+            <%end%>
+            <% if @product.authenticable_product == false %>
+            <li><span class="font-weight-bold">Certifié:</span> Non</li>
+            <% elsif @product.authenticable_product == true%>
+              <li><span class="font-weight-bold">Certifié:</span> Oui</li>
+            <%end%>
+          </ul>
+
+      <div class="box-price float-right">
+        <p>Prix de vente : <span class="price-p font-weight-bold"><%=@product.price%>€</span></p>
+        <p>Prix de location : <span class=" price-p font-weight-bold">50€/mois</span></p>
+      </div>
       </div>
       
-      <div class="btn-show-product btns float-right ">
-        <div><%= link_to "retour", products_path, class:"btn btn-dark"%></div>
+      <div class="btn-show-product float-right ">
+        <div><%= link_to "retour", products_path, class:"btn btn-dark mr-2"%></div>
         <% if @product.status == "available" %>
         <div><%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn btn-primary", :method => 'POST' %></div>
       <%end%>

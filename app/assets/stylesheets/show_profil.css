@@ -116,3 +116,10 @@
   height: 300px;
   overflow-x: scroll;
 }
+
+/*Artiste page profil*/
+
+.artist-profil-for-artlover {
+  width: 300px;
+  align-self: center;
+}

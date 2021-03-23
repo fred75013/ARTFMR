@@ -11,5 +11,7 @@ class Order < ApplicationRecord
 
   def order_confirmation
     UserMailer.order_confirmation(self).deliver_now
+    ArtistMailer.order_confirmation(self).deliver_now
+
   end
 end
