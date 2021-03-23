@@ -32,9 +32,11 @@
       <%= f.password_field :current_password,  class:" phone box-mdp mb-4", placeholder:"Mot de passe actuel"%>
     </div> 
     
-    <div class=" mt-3">
+    <div class=" d-flex flex-column mt-3">
        <%= f.submit "Modifier", id:"form_button"%>
-        <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class: "btn btn-danger float-right btn-delete " %>
+       <div class="mt-3">
+          <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sure ?" }, method: :delete, class:" link-del " %>
+        </div>
     </div> 
   </form>
   <% end %>
