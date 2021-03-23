@@ -7,7 +7,7 @@ class CreateOrderProducts < ActiveRecord::Migration[6.1]
       t.datetime :end_date
       t.integer :renting_time
       t.string :artist_confirmation
-      t.string :customer_confirmation
+      t.string :status
       t.belongs_to :order, index: true
       t.belongs_to :product, index: true
       t.timestamps
