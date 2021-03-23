@@ -47,6 +47,7 @@ User.destroy_all
 @admin = User.create!(
   email: "coucou@yopmail.com",
   password: "coucou!",
+  nickname: "Picalo",
   first_name: "Coucou",
   last_name: "oucouc",
   adress: "12 rue du chacal",
@@ -69,6 +70,6 @@ User.destroy_all
     status: @statut,
     price: rand(400..1000),
     image_url: @images.sample,
-    admin_id: @u.id
+    admin_id: rand(@u.id..@admin.id)
   )
 end
