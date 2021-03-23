@@ -1,45 +1,60 @@
+<div class="containt-taker">
+    <div class="jumbotron jumbotron-fluid jumbotron-image shadow"  style="background-image: url(<%= asset_path 'artist.jpg' %>); ">
+      <div class="container text-jumbo text-white">
+       <p >Créez, partagez ... </p><br/>
+        <h1 class="text-white hone-jumbo"> VOS OEUVRES À L'HONNEUR SUR ARTFMR</h1>       
+    </div>
+  </div>
+  <div class=" py-3">
+    <h2 class="mb-4 text-center text-white"> UNE COMMAUNTAUTÉ PASSIONÉE ET CONNECTÉE</h2>
+    <p class="text-center  mb-4 text-white">Chez ART FMR, notre état d'esprit est de mettre en avant nos artistes et leurs oeuvres d'une manière inédite. Nous avons mis en place une offre <br>
+    unique consistant à vous mettre en relation avec utilsateurs de la plateforme, par le biais d'un service de location ou d'achat.
+    </p>
+  </div>
 
-<div class="cont-blue pt-3">
-
-        <div class="box-video-owner bottom: 20px; ">
-            <h3 class="text-light py-4 ">DÉCOUVREZ NOTRE CONCEPT EN VIDÉO</h3>
-            <iframe class="video-owner pb-4" width="700" height="350" src="https://www.youtube.com/embed/L7TADV2Pt5c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="text-center txt-owner col-sm-12 " style="bottom: 20px; top: 20px; ">
+        <div class="card bg-primary text-center card-cont-own ">
+            <div class="card-body">
+                <span class="material-icons">attractions</span>
+                <h4>Prenez en main votre <br> activité </h4>
+                <p>Exposez autant d'oeuvres que vous le <br> souhaitez depuis votre page artiste. <br> 
+                Définissez vos tarifs, si vous souhaitez <br> vendre ou louer. Géo-localisez vous pour <br> 
+                vous rendre visible des clients à proximité. </p>
+            </div>
         </div>
-<br/>
-<br/>
 
-</div>
-
-  
-
-
-    <div class="text-center txt-owner" style="bottom: 20px; top: 20px; ">
-        <div class="text-infos">
-            <span class="material-icons text-white">attractions</span>
-            <h4 class="text-white">Prenez en main votre <br> activité </h4>
-            <p class="text-white">Exposez autant d'oeuvres que vous le <br> souhaitez depuis votre page artiste. <br> 
-            Définissez vos tarifs, si vous souhaitez <br> vendre ou louer. Géo-localisez vous pour <br> 
-            vous rendre visible des clients à proximité. </p>
+            <div class="card bg-primary text-center card-cont-own ">
+            <div class="card-body">
+                <span class="material-icons ">public</span>
+                <h4>Vendez à l'international et <br> louez près de chez vous </h4>
+                <p>Faites vos vente depuis chez vous, envoyez<br> vos oeuvres partout dans le monde. <br> 
+                 Gérez vos locations depuis l'application, <br> programmez vos rencontres.</p>
+            </div>
         </div>
-        <div class="text-infos">
-            <span class="material-icons text-white">public</span>
-            <h4 class="text-white">Vendez à l'international et <br> louez près de chez vous </h4>
-            <p class="text-white">Faites vos vente depuis chez vous, envoyez<br> vos oeuvres partout dans le monde. <br> 
-            Gérez vos locations depuis l'application, <br> programmez vos rencontres et préparezur <br> 
-            vous à faire bonne impression. </p>
-        </div>
-        <div class="text-infos ">
-            <span class="material-icons text-white">wine_bar</span>
-            <h4 class="text-white">Rencontrez votre clientèle </h4>
-            <p class="text-white">Exposez vos oeuvres directement chez vos <br> clients. Il se peut que ce soit pour un <br> 
-            Gévénement, chez un particulier ou encore au <br> sein d'une entreprise.</p>
+        <div class="card bg-primary text-center card-cont-own ">
+            <div class="card-body">
+                <span class="material-icons">wine_bar</span>
+                <h4>Rencontrez votre clientèle </h4>
+                <p>Exposez vos oeuvres directement chez vos <br> clients. Pour événement dans une gallerie, <br> 
+                chez un particulier ou encore au <br> sein d'une entreprise.</p>
+            </div>
         </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+</div>
 
-    
 
+
+
+<div class="youtube" style="bottom: 20px ;top: 40px;">
+
+            <h3 class="text-white text-center">DÉCOUVREZ NOTRE CONCEPT EN VIDÉO</h3><br/>
+            <iframe width="700" height="350" src="https://www.youtube.com/embed/L7TADV2Pt5c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <br/>
+      <br/>
+      
+    <div class="btn-paint py-5">
+      <%= link_to "Ajouter une oeuvre", new_product_path, class:"btn btn-secondary btn-taker btn-bis" %>
+    </div>
+</div>
 
