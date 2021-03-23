@@ -3,7 +3,9 @@
 .cont-blue {
   background-color: #2c3e51;
 }
-
+.txt-owner{
+  display: none;
+}
 @media (max-width: 700px) {
   .video-owner {
     width: 100%;
@@ -36,8 +38,22 @@
 
 .text-infos p {
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 400;
 }
+.btn-bis{
+  bottom: 50px;
+}
+/* ----- Animation cards owner---- */
+
+.card-cont-own{
+ transition: all 250ms ease-in-out;
+ bottom: 0px;
+}
+.card-cont-own:hover{
+  bottom: 15px;
+  cursor: pointer;
+}
+/* ----- Animation cards owner---- */
 
 /*-------Page taker-----*/
 .container-videos {
@@ -64,6 +80,7 @@
     display: none;
   }
 }
+
 @media (max-width: 750px) {
   iframe {
     width: 100%;
@@ -93,10 +110,10 @@
 .jumbotron-image{
   background-image: url('../app/assets/images/kam-idris-_HqHX3LBN18-unsplash.jpg');
   background-size:contain ;
-  background-repeat: repeat-y  ;
-  height: 550px;
+  background-repeat: no-repeat;
+  height: 520px;
   width: auto;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 .text-jumbo{
