@@ -1,26 +1,12 @@
 <div class="containt-conv">
   <div class="containt-mess">
-    <div class="column-top">
-      <h3>En cours</h3>
-      <% @conversations.each do |conversation| %>
-      <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
-        <% if conversation.sender_id == current_user.id %>
-          <% recipient = User.find(conversation.recipient_id) %>
-        <% else %>
-          <% recipient = User.find(conversation.sender_id) %>
-        <% end %>
-        <h5><%= link_to recipient.first_name,   conversation_messages_path(conversation), class:"text-top"%></h5>
-      <% end %>
-      <% end %>
-    </div>
     <div class="column-bottom">
-      <h3>En attente</h3>
+      <h3>Messages</h3>
       <%OrderProduct.all.each do |i|%>
-        <%if i.order.user == current_user%>
+        <%if i.order.user == current_user && current_user.artist == false%>
           <h5><%= link_to i.product.admin.nickname ,conversations_path(sender_id: current_user.id, recipient_id: i.product.admin.id), method: "post", class:"text-bottom" %></h5>
         <% elsif current_user.artist == true %>
           <h5><%= link_to i.order.user.first_name ,conversations_path(sender_id: current_user.id, recipient_id:  i.order.user.id), method: "post", class:"text-bottom" %></h5>        
-          <h5><%= link_to i.product.admin.nickname ,conversations_path(sender_id: current_user.id, recipient_id: i.product.admin.id), method: "post", class:"text-bottom" %></h5>
         <%end%>
       <% end %>
     </div>
