@@ -90,29 +90,16 @@
   padding: 10px;
   margin: 10px;
   background-color: white;
-  overflow: scroll;
-  height: 600px;
+  overflow-y: scroll;
+  height: 480px;
 }
-.my-location {
-  width: 100%;
-
+.my-location,
+.m-location-bis {
   display: flex;
   flex-direction: column;
 }
-.my-location-bis {
+.m-location {
   display: flex;
-  width: 100%;
-
-  margin-top: 7px;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #000000;
-}
-.delay {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 /*My order*/
