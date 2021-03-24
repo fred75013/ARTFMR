@@ -71,7 +71,7 @@
             <% OrderProduct.all.each do |i|%>
               <%if i.order.user.id == @user.id && i.product.status == "rented"%>
                 <% if i.product.avatar.attached?%>
-                  <div class="my-location-bis">
+                
                    <%=link_to product_path(id: i.product.id) do %>
                   <%= image_tag i.product.avatar, class:"img-my-art"%>
                   <%end%>
@@ -85,20 +85,22 @@
                   <%else%>
                     <p> L'artist <%= link_to i.product.admin.nickname, user_path(i.product.admin.id), style: "color:black;"%> vous contactez prochainement</p>  
                   <%end%>  
-                  </div>
+               
                 <% else %>
-                  <div class="my-location-bis">
+             
                    <%=link_to product_path(id: i.product.id) do %>
                   <%=image_tag i.product.image_url, class:"img-my-art"%>
                   <%end%>
                   <%if i.artist_confirmation == "validated"%>
+                  <div class="delay">
                     <p><%=((i.end_date - DateTime.now)/1.day).ceil%> jours restants  </p>
                     <p>Expire le <%= i.end_date.day %>/<%=i.end_date.month%>/<%=i.end_date.year%></p> 
                     <%= link_to "Prolonger/Acheter definitivement", line_products_path(id: i.product.id), class: "btn btn-primary", :method => 'POST' %>
+                    </div>
                   <%else%>
                     
                     <p> L'artist <%= link_to i.product.admin.nickname, user_path(i.product.admin.id), style: "color:black;"%> vous contactez prochainement</p> 
-                  </div>
+              
                   <%end%>
                 <% end %>
               <%end%>
