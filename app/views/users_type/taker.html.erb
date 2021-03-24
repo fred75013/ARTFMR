@@ -58,51 +58,67 @@
       <br/>
 
 
-    <div class="containt-best-artist" >
-      <h3>Les oeuvres les plus convoitées</h3>
+    <%# ------ TEST BEST ARTISTS-------- %>
+    <div class="container">
+    <h1 class="text-white py-4">Nos oeuvres les plus convoitées</h1>
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+
+<%# -----------Users Examples-------------- %>
       <% @user = User.find_by(id: 4)%>
       <% @user1 = User.find_by(id: 3)%>
-      <%@product = Product.find_by(id: 1)%>
-      <%@product1 = Product.find_by(id: 7)%>
-        <div class="containt-product-artist">
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <a><img src="<%= @product.image_url%>" class="product p-0 m-2 mt-2"></a>
-              </div>
-              <div class="flip-card-back">
-                    <h1><%= @user.nickname %></h1> 
-                <p class="product-description"><%= @product.description %></p>
-                
-                <div class="bottom-card">
-                 <p>
-                  <%= link_to "En savoir plus", product_path(id: @product.id), class: "link-show-product" %>
-                </p>
-                </div>
-              </div>
+      <% @user2 = User.find_by(id: 2)%>
+      <% @product = Product.find_by(id: 1)%>
+      <% @product1 = Product.find_by(id: 7)%>
+      <% @product2 = Product.find_by(id: 8)%>
+<%# -----------Users Examples-------------- %>
+        <div class="carousel-inner" role="listbox">
+        <%# --------CAROUSEL ITEM 1------------ %>
+          <div class="carousel-item active">
+          <div class="img-jumbo" style="background-image: url(<%= @product1.image_url%>);"></div>
+            <div class="caption d-flex text-left">
+            <img src="<%= @product1.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product1.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user1.nickname%></span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
             </div>
           </div>
+          <%# --------CAROUSEL ITEM 2------------ %>
+          <div class="carousel-item">
+            <div class="img-jumbo" style="background-image: url(<%= @product.image_url%>);"></div>
+            <div class="caption d-flex text-left ">
+            <img src="<%= @product.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user.nickname%></span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
+            </div>
+          </div>
+          <%# --------CAROUSEL ITEM 3------------ %>
+          
+         <div class="carousel-item">
+            <div class="img-jumbo" style="background-image: url(<%= @product2.image_url%>);"></div>
+            <div class="caption d-flex text-left">
+            <img src="<%= @product2.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product2.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user2.nickname%></span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
+            </div>
+          </div>
+        
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
 
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <a><img src="<%= @product1.image_url%>" class="product p-0 m-2 mt-2"></a>
-              </div>
-              <div class="flip-card-back">
-                    <h1><%= @user1.nickname %></h1> 
-                <p class="product-description"><%= @product1.description %></p>
-                
-                <div class="bottom-card">
-                 <p>
-                  <%= link_to "En savoir plus", product_path(id: @product1.id), class: "link-show-product" %>
-                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
-    <div class="btn-paint">
-      <%= link_to "Voir dans la galerie d'autre oeuvres",  products_path, class:"btn btn-secondary btn-taker" %>
-    </div>
-</div>
+    <%# ------ TEST BEST ARTISTS-------- %>
