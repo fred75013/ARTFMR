@@ -30,6 +30,15 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+/*test debug fred pour mac  */
+.flip-card:hover .flip-card-front {
+  display: none;
+}
+.flip-card {
+  transition: transform 0.6s;
+  -webkit-transition: transform 0.8s;
+}
+/*fintest */
 
 .flip-card-front {
   color: black;
