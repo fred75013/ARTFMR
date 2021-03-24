@@ -2,7 +2,7 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :edit_profil, only: [:new, :create]
+  
   before_action :authenticate_admin, only: [:edit, :update]
 
   def index
@@ -24,6 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def create
+    if current_user.check_profile_completed?
+      redirect_to edit_user_registration_path
+    else
     @product = Product.create(product_params)
     @product.admin = current_user
     if @product.save
@@ -35,6 +38,7 @@ class ProductsController < ApplicationController
       puts "$" * 30
       render :new
     end
+  end
   end
 
   def edit
@@ -63,11 +67,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def edit_profil
-    if current_user.first_name.nil? || current_user.last_name.nil? || current_user.adress.nil? || current_user.city.nil? || current_user.phone_number.nil?
-      redirect_to edit_user_registration_path
-    end
-  end
 
   def authenticate_admin
     @product = Product.find(params[:id])
