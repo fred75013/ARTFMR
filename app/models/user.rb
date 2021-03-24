@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
 
+
+  has_one_attached :avatar 
+
+
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates_confirmation_of :password
   
