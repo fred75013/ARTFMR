@@ -35,7 +35,7 @@
                             <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
                           <%end %>
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block"><%=line_product.product.admin.first_name%> <%=line_product.product.admin.last_name%></span>
+                        <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block" ><%=line_product.product.admin.nickname%> </span>
                          <%if line_product.to_buy == false && line_product.product.status == "rented"%>
                           <% i = line_product.product.order_products.last.end_date.advance(days: 30)%>
                           <span>Prolongez d'un mois jusqu'au <%= i.day %>/<%=i.month%>/<%=i.year%> !</span>
