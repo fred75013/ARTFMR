@@ -17,7 +17,6 @@ User.destroy_all
 @style = [@toile, @photo, @dessin]
 @statut = "available"
 
-
 @images = [
   "https://www.tableau-deco.net/wp-content/uploads/2019/10/tableau-deco-joker-street-art-pochoir.jpg",
   "https://www.amalgallery.com/public/img/big/20190210160618jpg_5c6072490e428.jpg",
@@ -71,38 +70,38 @@ User.destroy_all
   phone_number: "0771006523",
   artist: true,
 )
-@u1 = User.create!( 
-  email: "artist@gmail.com", 
-  password: "123456", 
-  nickname: "Picato", 
-  first_name: "artist", 
-  last_name: "artist", 
-  adress: "5 rue des artist", 
-  city: "Paris", 
-  phone_number: 0600000001, 
+@u1 = User.create!(
+  email: "artist@gmail.com",
+  password: "123456",
+  nickname: "Picato",
+  first_name: "artist",
+  last_name: "artist",
+  adress: "5 rue des artist",
+  city: "Paris",
+  phone_number: 0o600000001,
   artist: true
 )
 @u2 = User.create!(
-  email: "artist2@gmail.com", 
-  password: "123456", 
-  nickname: "Picamo", 
-  first_name: "artista", 
-  last_name: "artisto", 
-  adress: "5 rue des artist", 
-  city: "Paris", 
-  phone_number: 0600000001, 
+  email: "artist2@gmail.com",
+  password: "123456",
+  nickname: "Picamo",
+  first_name: "artista",
+  last_name: "artisto",
+  adress: "5 rue des artist",
+  city: "Paris",
+  phone_number: 0o600000001,
   artist: true
 )
 @u3 = User.create!(
-  email: "artist3@gmail.com", 
-  password: "123456", 
-  nickname: "Micaflo", 
-  first_name: "artista", 
-  last_name: "artisto", 
-  adress: "5 rue des artist", 
-  city: "Paris", 
-  phone_number: 0600000001, 
-  artist: true  
+  email: "artist3@gmail.com",
+  password: "123456",
+  nickname: "Micaflo",
+  first_name: "artista",
+  last_name: "artisto",
+  adress: "5 rue des artist",
+  city: "Paris",
+  phone_number: 0o600000001,
+  artist: true
 )
 
 @artist = [@u.id, @u1.id, @u2.id, @u3.id]
@@ -126,14 +125,14 @@ User.destroy_all
 end
 
 @admin = User.create!(
-  email: "admin@gmail.com", 
-  password: "123456", 
-  nickname: "Micaflo", 
-  first_name: "artista", 
-  last_name: "artisto", 
-  adress: "5 rue des artist", 
-  city: "Paris", 
-  phone_number: 0600000001, 
+  email: "admin@gmail.com",
+  password: "123456",
+  nickname: "Micaflo",
+  first_name: "artista",
+  last_name: "artisto",
+  adress: "5 rue des artist",
+  city: "Paris",
+  phone_number: 0o600000001,
   artist: true,
-  admin: true 
+  admin: true
 )

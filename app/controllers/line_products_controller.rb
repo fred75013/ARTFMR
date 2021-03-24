@@ -23,7 +23,7 @@ class LineProductsController < ApplicationController
     if @line_product.save
       redirect_to products_path
       flash[:success] = "Bien ajouté au panier"
-    end 
+    end
     # Save and redirect to cart show path
   end
 
