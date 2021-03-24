@@ -75,7 +75,8 @@ textarea {
 
 #container {
   border: solid 3px #474544;
-  max-width: 768px;
+  width: 50%;
+  height: auto;
   margin: 60px auto;
   position: relative;
   background: #e0e1da;
@@ -234,10 +235,10 @@ textarea {
   color: #f2f3eb;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and ( max-width: 1050px) and ( min-width: 300px) {
   #container {
-    margin: 20px auto;
-    width: 95%;
+    margin-top: 20px auto;
+    width: 85%;
   }
 }
 
@@ -279,4 +280,18 @@ textarea {
 
 .box-container {
   bottom: 20px;
+}
+.link-del{
+  color: #7b8a8b;
+  text-decoration: none;
+  width:auto;
+  transition: all 150ms ease-in-out;
+  top: 10px;
+}
+.link-del:hover{
+  color: #ecf0f1;
+  text-decoration: none;
+  background:#e74c3c ;
+  width: auto;
+  padding: 10px;
 }
