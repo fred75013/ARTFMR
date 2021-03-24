@@ -3,7 +3,11 @@
 
 <div class="first-part">
   <div class="photo-profil">
-    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="200" class="rounded mb-2 img-thumbnail">
+  <% if @user.avatar.attached?%>
+    <a><%= image_tag @user.avatar, class:"product p-0 m-2"%></a>
+  <% else %>
+    <img src="https://mk2films.com/wp-content/uploads/sites/4/2018/01/profil-picture-neutre.jpg"  class="product p-0 m-2">
+  <% end %>
     <div class="number-location-buy-favorites">
       <div class="m-2">
         <p class="mb-0">215</p>
@@ -251,5 +255,8 @@
 
 
         </div>
+      </div>
+      </div>
+      </div>
       </div>
 </div>
