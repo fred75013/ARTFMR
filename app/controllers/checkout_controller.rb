@@ -3,7 +3,6 @@
 class CheckoutController < ApplicationController
   before_action :authenticate_user
 
-
   def create
     if current_user.incomplete_profile?
       redirect_to edit_user_registration_path
@@ -34,9 +33,9 @@ class CheckoutController < ApplicationController
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       flash[:notice] = "Tu peux envoyer un message a l'artiste depuis ton profil"
       @cart = @current_cart
-      
+
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)
-   
+
       @cart.line_products.each do |line|
         if line.to_buy == true && line.product.status == "available"
           line.product.update(status: "sold")

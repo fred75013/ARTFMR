@@ -61,5 +61,4 @@ class Product < ApplicationRecord
   def new_product
     ArtistMailer.new_product(self).deliver_now
   end
-
 end
