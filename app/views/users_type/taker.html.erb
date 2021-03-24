@@ -60,16 +60,14 @@
 
     <%# ------ TEST BEST ARTISTS-------- %>
     <div class="container">
-    <h1 class="text-white py-4">Nos oeuvres les plus convoitées</h1>
+    <h1 class="text-white py-4">Les oeuvres les plus populaires</h1>
       <div id="carousel" class="carousel slide" data-ride="carousel">
 
 <%# -----------Users Examples-------------- %>
-      <% @user = User.find_by(id: 4)%>
-      <% @user1 = User.find_by(id: 3)%>
-      <% @user2 = User.find_by(id: 2)%>
-      <% @product = Product.find_by(id: 1)%>
-      <% @product1 = Product.find_by(id: 7)%>
-      <% @product2 = Product.find_by(id: 8)%>
+      
+      <% @product = Product.all.sample%>
+      <% @product1 = Product.all.sample%>
+      <% @product2 = Product.all.sample%>
 <%# -----------Users Examples-------------- %>
         <div class="carousel-inner" role="listbox">
         <%# --------CAROUSEL ITEM 1------------ %>
@@ -79,7 +77,7 @@
             <img src="<%= @product1.image_url%>" class="product p-0 m-2 mb-3">
             <div class="text-center text-white text-box-t">
               <h1><%= @product1.title %></h1>
-              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user1.nickname%></span></h2>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Fred</span></h2>
                <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
             </div>
             </div>
@@ -91,7 +89,7 @@
             <img src="<%= @product.image_url%>" class="product p-0 m-2 mb-3">
             <div class="text-center text-white text-box-t">
               <h1><%= @product.title %></h1>
-              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user.nickname%></span></h2>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Boris</span></h2>
                <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
             </div>
             </div>
@@ -104,8 +102,8 @@
             <img src="<%= @product2.image_url%>" class="product p-0 m-2 mb-3">
             <div class="text-center text-white text-box-t">
               <h1><%= @product2.title %></h1>
-              <h2>Artist: <span class="text-white font-weight-bold">@ <%= @user2.nickname%></span></h2>
-               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Théo</span></h2>
+               <%= link_to "Découvrez la galerie", new_user_registration_path, class:"btn btn-warning mt-3 btn-call-action"%>
             </div>
             </div>
           </div>

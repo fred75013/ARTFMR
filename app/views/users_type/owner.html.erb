@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class=" py-3">
-    <h2 class="mb-4 text-center text-white"> UNE COMMAUNTAUTÉ PASSIONÉE ET CONNECTÉE</h2>
+    <h2 class="mb-4 text-center text-white"> UNE COMMUNAUTÉ PASSIONÉE ET CONNECTÉE</h2>
     <p class="text-center  mb-4 text-white">Chez ART FMR, notre état d'esprit est de mettre en avant nos artistes et leurs oeuvres d'une manière inédite. Nous avons mis en place une offre <br>
     unique consistant à vous mettre en relation avec utilsateurs de la plateforme, par le biais d'un service de location ou d'achat.
     </p>
@@ -57,4 +57,67 @@
       <%= link_to "Ajouter une oeuvre", new_product_path, class:"btn btn-secondary btn-taker btn-bis" %>
     </div>
 </div>
+
+<%# ------ TEST BEST ARTISTS-------- %>
+    <div class="container">
+    <h1 class="text-white py-4">Les dernières oeuvre en ligne</h1>
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+
+<%# -----------Users Examples-------------- %>
+      
+      <% @product = Product.all.sample%>
+      <% @product1 = Product.all.sample%>
+      <% @product2 = Product.all.sample%>
+<%# -----------Users Examples-------------- %>
+        <div class="carousel-inner" role="listbox">
+        <%# --------CAROUSEL ITEM 1------------ %>
+          <div class="carousel-item active">
+          <div class="img-jumbo" style="background-image: url(<%= @product1.image_url%>);"></div>
+            <div class="caption d-flex text-left">
+            <img src="<%= @product1.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product1.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Fred</span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
+            </div>
+          </div>
+          <%# --------CAROUSEL ITEM 2------------ %>
+          <div class="carousel-item">
+            <div class="img-jumbo" style="background-image: url(<%= @product.image_url%>);"></div>
+            <div class="caption d-flex text-left ">
+            <img src="<%= @product.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Boris</span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
+            </div>
+          </div>
+          <%# --------CAROUSEL ITEM 3------------ %>
+          
+         <div class="carousel-item">
+            <div class="img-jumbo" style="background-image: url(<%= @product2.image_url%>);"></div>
+            <div class="caption d-flex text-left">
+            <img src="<%= @product2.image_url%>" class="product p-0 m-2 mb-3">
+            <div class="text-center text-white text-box-t">
+              <h1><%= @product2.title %></h1>
+              <h2>Artist: <span class="text-white font-weight-bold">@ Théo</span></h2>
+               <%= link_to "Découvrez la galerie", products_path, class:"btn btn-warning mt-3 btn-call-action"%>
+            </div>
+            </div>
+          </div>
+        
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+    <%# ------ TEST BEST ARTISTS-------- %>
 
