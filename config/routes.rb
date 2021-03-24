@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'admin/index'
   root "users_type#taker"
 
+  get "/admin", to: "admin#index"
   get 'users/taker', to: 'users_type#taker'
   get 'users/owner', to: 'users_type#owner'
   get 'carts/show'

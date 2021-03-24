@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
   def show
     @user = User.all
     if current_user.nil?
-      flash[:alert] = "Il faut vous connectez si vous voulez acheter ou louer une oeuvre!"
+      flash.now[:alert] = "Il faut créer un compte si vous voulez acheter ou louer une oeuvre ! #{view_context.link_to("S'inscrire", new_user_registration_path)}".html_safe
     elsif current_user.first_name.nil? || current_user.last_name.nil? || current_user.adress.nil? || current_user.city.nil? || current_user.phone_number.nil?
-      flash[:alert] = "Il faut modifier son profil si vous voulez acheter ou louer une oeuvre!"
+      flash.now[:alert] = "Il faut modifier votre profil pour acheter ou louer une oeuvre ! #{view_context.link_to(' Modifier', edit_user_registration_path)}".html_safe 
     end
   end
 

@@ -1,0 +1,32 @@
+.containt-conv{
+  top: 250px;
+  display: flex;
+  background-color: white; 
+  width: 50%;
+  height: 400px; 
+  left: 25%;
+  border-radius: 20px; 
+
+}
+.containt-mess{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.column-top{
+  top: 20px;
+}
+.column-bottom{
+  border-top:black solid 5px;
+  top: 15%;
+  display: inline-block;
+}
+.text-top{
+  justify-content: center;
+  
+  color: black;
+}
+.text-bottom{
+  display: block;
+  color: black;
+}

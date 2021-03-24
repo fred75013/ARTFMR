@@ -28,7 +28,7 @@
     <p><%=@user.email%></p>
     <div class="btn-profil">
       <%= link_to 'Modifié Mon profile', edit_user_registration_path , class: "btn btn-outline-dark btn-sm m-2"%><br/>
-      <%= link_to "Voir mes messages", conversation_messages_path(1), class: "btn btn-outline-dark btn-sm m-2" %>
+      <%= link_to "Voir mes messages", conversations_path, class: "btn btn-outline-dark btn-sm m-2" %>
     </div>
   </div>
 </div>
