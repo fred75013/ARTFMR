@@ -54,12 +54,15 @@
   box-shadow: 0 0 10px #000000;
   padding: 10px;
   margin: 10px;
-
   background-color: white;
 }
 .one-art {
   display: flex;
   flex-direction: column;
+}
+
+.my-art-bis {
+  display: flex;
 }
 .btn-art {
   align-self: center;
