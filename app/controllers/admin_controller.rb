@@ -11,7 +11,7 @@ class AdminController < ApplicationController
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Vous êtes pas admin"
+      flash[:danger] = "Vous n'êtes pas l'administrateur de ce compte"
       redirect_to new_user_session_path
     end
   end
