@@ -14,19 +14,22 @@ class ProductsController < ApplicationController
     @user = User.all
     if current_user.nil?
       flash.now[:alert] = "Il faut créer un compte si vous voulez acheter ou louer une oeuvre ! #{view_context.link_to("S'inscrire", new_user_registration_path)}".html_safe
-    elsif current_user.first_name.nil? || current_user.last_name.nil? || current_user.adress.nil? || current_user.city.nil? || current_user.phone_number.nil?
+    elsif current_user.incomplete_profile?
       flash.now[:alert] = "Il faut modifier votre profil pour acheter ou louer une oeuvre ! #{view_context.link_to(' Modifier', edit_user_registration_path)}".html_safe 
     end
   end
 
   def new
+    if current_user.incomplete_profile?
+      flash[:alert] = "Veuillez completez votre profil avant d'ajouter un produit :)"  
+      redirect_to edit_user_registration_path
+    else
     @product = Product.new
+    end
   end
 
   def create
-    if current_user.check_profile_completed?
-      redirect_to edit_user_registration_path
-    else
+    
     @product = Product.create(product_params)
     @product.admin = current_user
     if @product.save
@@ -39,7 +42,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
-  end
+  
 
   def edit
     @product = Product.find(params[:id])

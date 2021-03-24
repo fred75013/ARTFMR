@@ -5,7 +5,7 @@ class CheckoutController < ApplicationController
 
 
   def create
-    if current_user.imcomplete_profile?
+    if current_user.incomplete_profile?
       redirect_to edit_user_registration_path
     else
       @user = current_user

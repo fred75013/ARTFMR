@@ -23,7 +23,7 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
-  def imcomplete_profile?
+  def incomplete_profile?
     first_name.nil? || last_name.nil? || adress.nil? || city.nil? || phone_number.nil?
   end
 end
