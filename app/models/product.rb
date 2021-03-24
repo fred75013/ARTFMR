@@ -61,4 +61,9 @@ class Product < ApplicationRecord
   def new_product
     ArtistMailer.new_product(self).deliver_now
   end
+
+  def check_profile_completed?
+    first_name.nil? || last_name.nil? || adress.nil? || city.nil? || phone_number.nil?
+    
+  end
 end
