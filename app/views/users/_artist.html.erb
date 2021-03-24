@@ -3,7 +3,11 @@
 
 <div class="first-part">
   <div class="photo-profil">
+  <% if @user.avatar.attached?%>
     <a><%= image_tag @user.avatar, class:"product p-0 m-2"%></a>
+  <% else %>
+    <img src="https://mk2films.com/wp-content/uploads/sites/4/2018/01/profil-picture-neutre.jpg"  class="product p-0 m-2">
+  <% end %>
     <div class="number-location-buy-favorites">
       <div class="m-2">
         <p class="mb-0">215</p>
