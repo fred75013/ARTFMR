@@ -42,9 +42,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-    @product = Product.find(params[:id])
-  end
+  def edit; end
 
   def update
     if @product.update(product_params)
