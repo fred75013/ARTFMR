@@ -3,9 +3,7 @@
 .cont-blue {
   background-color: #2c3e51;
 }
-.txt-owner {
-  display: none;
-}
+
 @media (max-width: 700px) {
   .video-owner {
     width: 100%;
@@ -48,9 +46,10 @@
 .card-cont-own {
   transition: all 250ms ease-in-out;
   bottom: 0px;
+  text-align: center;
 }
 .card-cont-own:hover {
-  bottom: 15px;
+  bottom: 5px;
   cursor: pointer;
 }
 /* ----- Animation cards owner---- */
