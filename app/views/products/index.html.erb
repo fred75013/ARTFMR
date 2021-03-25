@@ -1,3 +1,19 @@
+
+
+
+<div class="container text-center">
+  <h3>Rechercher par ville :</h3>
+  <div class = 'form-group'>
+    <%= form_tag(products_path, method: :get) do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag ("Rechercher"), class: "btn  btn-outline-primary" %>
+      <% end %>
+    </div>
+</div>
+
+
+
+
 <div class="container-fluid contain-jumbo-index">
   <div class="jumbotron jumbotron-fluid jumbo-index">
     <h2 class="text-center">Oeuvres en vente ou location sur ARTFMR</h2>
@@ -43,10 +59,7 @@
               <%= link_to  product_likes_path(product), class:"btn-heart text-dark",method: :post, remote: true do %>
               <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
             <% end %>
-          <% end %>
-        <% else %>
-        <%= product.likes.count%>   <i class="fa fa-heart" aria-hidden="true" style="color: black;backgound-color: none;float:bottom;" ></i>
-      <% end %>
+
           </div>
           </div>
         </div>
