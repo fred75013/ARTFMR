@@ -87,7 +87,7 @@ User.destroy_all
   first_name: "artista",
   last_name: "artisto",
   adress: "5 rue des artist",
-  city: "paris",
+  city: "lille",
   phone_number: 0600000001,
   artist: true
 )
@@ -98,7 +98,7 @@ User.destroy_all
   first_name: "artista",
   last_name: "artisto",
   adress: "5 rue des artist",
-  city: "paris",
+  city: "toulouse",
   phone_number: 0600000001,
   artist: true
 )
