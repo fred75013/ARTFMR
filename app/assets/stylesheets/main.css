@@ -2,13 +2,11 @@
 body{
   min-height: 100vh;
   overflow-x: hidden;
-  margin-top: 50px;
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background:#fff;
-r
 }
 
 

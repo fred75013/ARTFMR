@@ -99,10 +99,7 @@
                     </ul>
                       
                     <div class="btns-checkout">
-
-                       <% price = @current_cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn btn-primary btn-pay" , remote: true%> 
-
-                    
+                       <% price = @current_cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn-pay-cart" , remote: true%> 
                       </div>
                   </div>
                 </div>
@@ -110,7 +107,3 @@
         </div>
       </div>
     </div>
-
-
-
->
