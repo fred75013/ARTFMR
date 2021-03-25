@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  before_action do
-    @conversation = Conversation.find(params[:conversation_id])
-  end
+  before_action :conversation_find
   def index
     @messages = @conversation.messages
     if @messages.length > 10
@@ -35,5 +33,9 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :user_id)
+  end
+
+  def conversation_find
+    @conversation = Conversation.find(params[:conversation_id])
   end
 end
