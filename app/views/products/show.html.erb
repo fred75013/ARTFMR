@@ -7,8 +7,8 @@
       <img src="<%= @product.image_url%>" class="show-img">
   <%end %>
 
-<div class="card-show">
-  <div class="card-body cont-body d-flex justify-content-center flex-column">
+<div class="card-show ml-6">
+  <div class="card-body  justify-content-center flex-column">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
 
@@ -53,7 +53,7 @@
       <p class=" box-text ml-2 mt-3"><%=@product.title%></p>
     </div>
     <div class="hr-infos d-flex justify-content-between">
-      <p class=" font-weight-bold ml-2 mt-3"> Descritpion</p>
+      <p class=" font-weight-bold ml-2 mt-3"> Descritpion</p><br/><br/>
       <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
     </div>
     <div class="hr-infos d-flex justify-content-between">
