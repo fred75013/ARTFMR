@@ -3,7 +3,6 @@
   transform: scale(0.9);
   bottom: 0px;
   transition: all 150ms ease-in-out;
-  cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
 .card:hover{
@@ -28,6 +27,7 @@
   right: 0;
   color: black;
   transform: scale(0.4);
+  cursor: pointer;
 }
 .contain-jumbo-index{
   font-family: 'Source Serif Pro', serif;
@@ -82,7 +82,8 @@ border: 1px solid black;
   width: 100%;
 }
 .show-img {
-  width: 100%;
+  width: 300px;
+  height: auto;
   box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   transform: scale(0.7);
@@ -209,7 +210,7 @@ border: 1px solid black;
 
 .card-status {
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 30px;
   pointer-events: none;
 }
@@ -286,13 +287,14 @@ border: 1px solid black;
   align-items: center;
   background-color:black;
   color: #FFF;
-  width: 116.5%;
-  height: 50px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 150px;
   text-decoration: none;
-  margin-left: 17px;
-  margin-top: 115px
 }
-
+.cont-body{
+  margin-top: 80px;
+}
 /* à refaire !!!! */
 .btn-pay:hover{
   text-decoration: none;

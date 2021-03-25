@@ -1,13 +1,13 @@
 <div class="container cont-show-product ">
   <div class="show-product ">
     <% if @product.avatar.attached?%>
-      <%= image_tag @product.avatar, class: "show-img "%>
+        <%= image_tag @product.avatar, class:"show-img" %>
     <% else %>
       <img src="<%= @product.image_url%>" class="show-img">
   <%end %>
 
 <div class="card-show">
-  <div class="card-body">
+  <div class="card-body cont-body d-flex justify-content-center flex-column">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
           <h6 class=" font-weight-bold ml-2 mt-3"> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
@@ -19,11 +19,13 @@
        <div class="box-price">
         <p class="price-p font-weight-bold"><%=@product.price%> €<br>50 €/mois</p>
       </div>
-       
-  <% if @product.status == "available" %>
+      <% if @product.status == "available" %>
          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: " btn-pay d-flex", :method => 'POST' %>
-  <%end%>
+      <%end%>
 
+  </div>
+       
+  
 
        
       <% if @product.status == "available" %>
@@ -34,7 +36,7 @@
         <%= link_to "Vendu", @product.status , class:"btn-sm btn-danger card-status"%>
       <%end%>
      
-  </div>     
+       
   </div>
   </div>
 
@@ -65,7 +67,7 @@
       <p class=" font-weight-bold ml-2 mt-3"> Encadrement</p>
       <% if @product.border_product == false %>
         <p class=" box-text ml-2 mt-3"> Non </p>
-          <% elsif @product.aborder_product == true%>
+          <% elsif @product.border_product == true%>
         <p class=" box-text ml-2 mt-3">  Oui</p>
       <% end %>
     </div>
