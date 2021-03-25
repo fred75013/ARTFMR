@@ -11,18 +11,21 @@
   <div class="card-body cont-body d-flex justify-content-center flex-column">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
-          <h6 class=" font-weight-bold ml-2 mt-3"> Par <%= link_to user.nickname, user_path(user), style: "color: black; font-size:20px;"%></h6> 
+
+          <h6 class=" font-weight-bold  "> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
         <% end %>
       <% end %>
                  
-      <h5 class=" title-text-sp ml-2"> <%=@product.title%></h5>
-      <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
-       <div class="box-price">
-        <p class="font-weight-bold"><%=@product.price%> €<br>50 €/mois</p>
-      </div>
-      <% if @product.status == "available" %>
-         <%= link_to "Ajouter au panier", line_products_path(id: @product), class: " btn-pay d-flex", :method => 'POST' %>
-      <%end%>
+      <h5 class=" title-text-sp "> <%=@product.title%></h5>
+      <p class=" box-text "><%=@product.description%></p><br/><br/><br/><br/>
+      <p class=" box-price "><%=@product.price%> €<br>50 €/mois</p><br/>
+      
+       
+    <% if @product.status == "available" %>
+      <%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn-buy btn-pay", :method => 'POST' %>
+    <%end%>
+
+
 
   </div>
        
