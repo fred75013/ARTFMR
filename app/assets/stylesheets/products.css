@@ -309,7 +309,7 @@
 }
 
 .btn-pay:hover {
-  background-color: white!;
+  background-color: white;
   text-decoration: none;
   color: black;
 }
@@ -354,5 +354,8 @@
   }
   .box-text {
     width: 100%;
+  }
+  .box-infos {
+    wrap: break-word;
   }
 }
