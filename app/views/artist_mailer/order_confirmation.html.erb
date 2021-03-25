@@ -49,6 +49,7 @@
         <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
       <% else %>
         <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+        <%end %>
        <p>montant: 50 euros </p>
        <p>Voici les coordonnées de votre acheteur</p>
       <p>Prenez contact, et organisez votre rendez-vous</p>
@@ -63,7 +64,7 @@
       <p>Celle ci enclencheras le date du debut de la location</p>
       <p>Bonne continuation et bravo pour votre location </p>
        
-      <%end %>
+      
      <%end%>
 
 
@@ -73,9 +74,10 @@
         <%= image_tag @order_product.product.avatar, class: "show-img"%></a>
       <% else %>
         <img src="<%= @order_product.product.image_url%>" class="show-img"></a>
+        <%end %>
       <p>montant: 50 euros </p>
       <p><%=@user.first_name%> <%=@user.last_name%> prolonge son mois de location jusqu'au <%=@order_product.end_date%></p>
-      <%end %>
+      
      <%end%>
  
     
