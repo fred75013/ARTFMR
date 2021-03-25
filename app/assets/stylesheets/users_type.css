@@ -237,7 +237,6 @@ a.view-demo:hover {
   filter: blur(5px);
 }
 
-
 .btn-call-action{
   transition: all 250ms ease-in-out;
   transform: scale(1.1);
