@@ -1,6 +1,4 @@
-.first-part {
-  margin-top: 50px;
-}
+
 /*-------Page owner-----*/
 
 .cont-blue {
@@ -112,9 +110,6 @@
   justify-content: center;
 }
 
-.containt-taker {
-  bottom: 30px;
-}
 
 .jumbotron-image {
   background-size: cover;
