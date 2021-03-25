@@ -1,10 +1,10 @@
 <div class="container">
   <div id="container">
-      <h1 style="margin-top: 10px;">&bull; Réinitialiser mot passe &bull;</h1>
-      <p class="text-center mt-3"> Besoin d'aide pour votre mot de passe ?<p/>
-        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-        <form action="#" method="post" id="contact_form">
+    <h1 style="margin-top: 10px;">&bull; Réinitialiser mot passe &bull;</h1>
+    <p class="text-center mt-3"> Besoin d'aide pour votre mot de passe ?<p/>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <form action="#" method="post" id="contact_form">
         <div class=" box-container">
           <div class="app-form-group mb-3">
             <%= f.email_field :email, autofocus: true, placeholder: "EMAIL", autocomplete:"off" ,class:"phone mb-3" %>
@@ -12,8 +12,8 @@
           <div class=" d-flex justify-content-center flex-column">
             <%= f.submit "Envoyer instruction", id:"form_button"%>
           </div> 
-        <%end%>
-       </div> 
+        </div> 
       </form> 
+    <%end%>
   </div> 
 </div>
