@@ -10,7 +10,7 @@
   <div class="card-body">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
-          <h6 class=" font-weight-bold ml-2 mt-3"> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
+          <h6 class=" font-weight-bold ml-2 mt-3"> Par <%= link_to user.nickname, user_path(user), style: "color: black; font-size:20px;"%></h6> 
         <% end %>
       <% end %>
                  
