@@ -25,7 +25,7 @@
       <div class="card" style="width: 18rem;">
         <% if product.avatar.attached?%>
           <a href="<%= product_path(id: product.id)%>">
-            <img class="card-img-top" src="<%= product.avatar%>" alt="Card image cap">
+             <%= image_tag product.avatar, class:"card-img-top" %>
           </a>
         <% else %>
           <a href="<%= product_path(id: product.id)%>">
@@ -50,6 +50,8 @@
           <p class="text-right">
             <%= product.price%> €
           </p>
+          
+ 
           <div class="like-index">
             <% if user_signed_in? %>
               <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>

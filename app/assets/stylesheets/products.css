@@ -3,7 +3,6 @@
   transform: scale(0.9);
   bottom: 0px;
   transition: all 150ms ease-in-out;
-  cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
 .card:hover{
@@ -28,6 +27,7 @@
   right: 0;
   color: black;
   transform: scale(0.4);
+  cursor: pointer;
 }
 .contain-jumbo-index{
   font-family: 'Source Serif Pro', serif;
@@ -82,16 +82,18 @@
   width: 100%;
 }
 .show-img {
-  width: 100%;
+  width: 300px;
+  height: auto;
   box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   transform: scale(0.7);
 }
 
-@media (min-width: 990px) {
+
   .show-product {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .show-img {
     max-width: 600px;
@@ -99,7 +101,7 @@
     margin-right: 20px;
     width: auto;
   }
-}
+
 
 .ul-show-product {
   width: atuo;
@@ -209,7 +211,7 @@
 
 .card-status {
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 30px;
   pointer-events: none;
 }
@@ -229,8 +231,8 @@
   top: 5px;
   font-weight: bold;
 }
-.price-p{
-  font-size: 65px;
+.box-price p{
+  font-size: 20px;
 }
 .btn-search{
   background-color: black;
@@ -299,14 +301,16 @@
 .btn-add-cart{
   background-color: #0000;
 }
-/* à refaire !!!! */
+
 .btn-pay{
   display: flex;
   justify-content: center;
   width: 500px;
 }
+.cont-body{
+  margin-top: 80px;
+}
 
-/* à refaire !!!! */
 .btn-pay:hover{
   background-color: white!;
   text-decoration: none;
@@ -316,3 +320,20 @@
 .box-infos{
   margin-top: 50px;
 }
+
+@media (max-width: 980px){
+  .box-infos{
+    margin-top: 150px;
+  }
+}
+
+.arrow-back{
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  transition: all 250ms ease-in-out;
+  width: 50px;
+}
+.arrow-back:hover{
+  transform: translateX(-10px);
+}  

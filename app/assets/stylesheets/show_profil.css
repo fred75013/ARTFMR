@@ -1,10 +1,9 @@
 .photo-profil {
   border-radius: 5px;
   box-shadow: 0 0 10px #000000;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: white;
 }
@@ -125,7 +124,8 @@
 /*Artiste profil page*/
 
 .artist-profil-for-artlover {
-  width: 300px;
+  width: auto;
+  margin-top: 50px;
   align-self: center;
 }
 

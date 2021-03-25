@@ -1,15 +1,17 @@
-<div class="container cont-show-product ">
+<div class="container cont-show-product col-12">
   <div class="show-product ">
+  <a href="<%= products_path %>" class="arrow-back"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
     <% if @product.avatar.attached?%>
-      <%= image_tag @product.avatar, class: "show-img "%>
+        <%= image_tag @product.avatar, class:"show-img" %>
     <% else %>
       <img src="<%= @product.image_url%>" class="show-img">
   <%end %>
 
 <div class="card-show">
-  <div class="card-body">
+  <div class="card-body cont-body d-flex justify-content-center flex-column">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
+
           <h6 class=" font-weight-bold  "> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
         <% end %>
       <% end %>
@@ -24,6 +26,8 @@
     <%end%>
 
 
+
+  </div>
        
       <% if @product.status == "available" %>
         <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
@@ -33,7 +37,7 @@
         <%= link_to "Vendu", @product.status , class:"btn-sm btn-danger card-status"%>
       <%end%>
      
-  </div>     
+       
   </div>
   </div>
 
@@ -64,12 +68,12 @@
       <p class=" font-weight-bold ml-2 mt-3"> Encadrement</p>
       <% if @product.border_product == false %>
         <p class=" box-text ml-2 mt-3"> Non </p>
-          <% elsif @product.aborder_product == true%>
+          <% elsif @product.border_product == true%>
         <p class=" box-text ml-2 mt-3">  Oui</p>
       <% end %>
     </div>
     <div class="hr-infos d-flex justify-content-between">
-      <p class=" font-weight-bold ml-2 mt-3"> Certifié</p>
+      <p class=" font-weight-bold ml-2 mt-3"> Certifiée</p>
       <% if @product.authenticable_product == false %>
         <p class=" box-text ml-2 mt-3"> Non </p>
           <% elsif @product.authenticable_product == true%>
@@ -79,3 +83,4 @@
   
 </div>
 </div>
+  
