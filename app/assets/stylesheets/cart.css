@@ -5,7 +5,11 @@
 .btn-pay:hover {
   background-color: #18bc9c;
 }
-
+.btn-pay-cart{
+  width: 150px;
+  height: auto;
+  background-color: black;
+}
 .btns-checkout {
   display: flex;
   justify-content: space-between;
