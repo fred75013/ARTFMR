@@ -35,7 +35,7 @@
         <div class="card-body">
           <% @users.each do |user|%>
             <% if user.id == product.admin_id%>
-              <p class="font-weight-bold"><%= link_to user.nickname, user_path(user), style: "color: black; font-size:20px;"%></p>
+              <p class="font-weight-bold"><%= link_to user.nickname, user_path(user), style: "color: red; font-size:25px;"%></p>
             <% end %>
           <% end %>
           <p class="font-italic" >
@@ -50,6 +50,7 @@
           <p class="text-right">
             <%= product.price%> €
           </p>
+          <p class="text-right">ou 50 € / mois en location</p>
           
  
           <div class="like-index">
