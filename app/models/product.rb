@@ -61,4 +61,17 @@ class Product < ApplicationRecord
   def new_product
     ArtistMailer.new_product(self).deliver_now
   end
+
+  def self.search(query)
+    if query
+      user = User.find_by(city: query)
+      if user 
+        self.where(admin_id: user)
+      else
+        Product.all
+      end
+    else
+      Product.all
+    end
+  end
 end

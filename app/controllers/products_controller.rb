@@ -2,11 +2,10 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   before_action :authenticate_admin, only: [:edit, :update]
 
   def index
-    @products = Product.all.with_attached_avatar
+    @products = Product.search(params[:query]) 
     @users = User.all
   end
 

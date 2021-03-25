@@ -52,12 +52,12 @@ User.destroy_all
 ]
 
 @category = [
-  "Contemporain",
-  "Abstrait",
-  "Street-art",
-  "Pop-art",
-  "Réalisme",
-  "Surrealisme"
+  "aontemporain",
+  "abstrait",
+  "street-art",
+  "aop-art",
+  "réalisme",
+  "surrealisme"
 ]
 @u = User.create!(
   email: "coucou@yopmail.com",
@@ -66,7 +66,7 @@ User.destroy_all
   first_name: "Coucou",
   last_name: "oucouc",
   adress: "12 rue du chacal",
-  city: "Fronce",
+  city: "bordeaux",
   phone_number: 0771006523,
   artist: true,
 )
@@ -77,7 +77,7 @@ User.destroy_all
   first_name: "artist",
   last_name: "artist",
   adress: "5 rue des artist",
-  city: "Paris",
+  city: "paris",
   phone_number: 0600000001,
   artist: true
 )
@@ -88,7 +88,7 @@ User.destroy_all
   first_name: "artista",
   last_name: "artisto",
   adress: "5 rue des artist",
-  city: "Paris",
+  city: "paris",
   phone_number: 0600000001,
   artist: true
 )
@@ -99,7 +99,7 @@ User.destroy_all
   first_name: "artista",
   last_name: "artisto",
   adress: "5 rue des artist",
-  city: "Paris",
+  city: "paris",
   phone_number: 0600000001,
   artist: true
 )

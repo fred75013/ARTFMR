@@ -1,5 +1,15 @@
 <span class="mb-0  h1-index text-center">ART FMR</span>
 
+<div class="container text-center">
+  <h3>Rechercher par ville :</h3>
+  <div class = 'form-group'>
+    <%= form_tag(products_path, method: :get) do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag ("Rechercher"), class: "btn  btn-outline-primary" %>
+      <% end %>
+    </div>
+</div>
+
 <div class="row text-center d-flex justify-content-center mt-0">
   <% @products.each do |product| %>
     <div class="product-img all-product">                       

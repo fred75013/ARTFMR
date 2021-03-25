@@ -23,4 +23,5 @@ class User < ApplicationRecord
   def incomplete_profile?
     first_name.nil? || last_name.nil? || adress.nil? || city.nil? || phone_number.nil?
   end
+
 end
