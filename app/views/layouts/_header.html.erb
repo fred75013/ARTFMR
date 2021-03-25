@@ -1,32 +1,26 @@
-
 <nav class="nav-padding navbar navbar-expand-lg navbar-dark bg-primary fixed-top " >
-       <a href="/"> <img src="https://le-cdn.website-editor.net/f85fe6b440cf497d9a264857afbedeec/dms3rep/multi/opt/ArtFMR_Logo_vDef-42e956f6-138w.png" width="100" class="logo navbar-brand logo-image"></a>
-
+  <a href="/"> <img src="https://le-cdn.website-editor.net/f85fe6b440cf497d9a264857afbedeec/dms3rep/multi/opt/ArtFMR_Logo_vDef-42e956f6-138w.png" width="100" class="logo navbar-brand logo-image"></a>
   <button class="navbar-toggler nav-burger" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="nav-home collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto nav-right">
       <li class="nav-item">
         <%= link_to "Galerie",  products_path, class:"nav-link" %>
       </li>
-      
-      
-     <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "Profil", user_path(current_user), class:"nav-link"%>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Profil", user_path(current_user), class:"nav-link"%>
+        </li>
       <%end%>
-
       <% if user_signed_in? %>
         <% if current_user.artist == true %>
-        <li class="nav-item">
-          <%= link_to "Concept", users_owner_path, class:"nav-link"%>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Ajouter une oeuvre", new_product_path, class:"nav-link"%>
-        </li>
+          <li class="nav-item">
+            <%= link_to "Concept", users_owner_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ajouter une oeuvre", new_product_path, class:"nav-link"%>
+          </li>
         <%else%>
           <li class="nav-item">
             <%= link_to "Concept", users_taker_path, class:"nav-link"%>
@@ -35,39 +29,40 @@
       <%end %>
     </ul>
     <ul class="navbar-nav  nav-right mr-4">
-    <div>
-    <%if user_signed_in?%>
-      <li class="nav-item mt-2 mr-2 info-status">
-      <%if current_user.artist == false%>
-            <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
-            <%= link_to "Art lover" ,users_path, class:"btn-sm btn-success pl-4 "%>
-        <% elsif current_user.artist == true%>
+      <div>
+        <%if user_signed_in?%>
+          <li class="nav-item mt-2 mr-2 info-status">
+            <%if current_user.artist == false%>
               <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
-            <%= link_to "Artist" ,users_path, class:"btn-sm btn-info pl-4"%>
+              <%= link_to "Art lover" ,users_path, class:"btn-sm btn-success pl-4 "%>
+            <% elsif current_user.artist == true%>
+              <img class="profil-icn" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>   
+              <%= link_to "Artist" ,users_path, class:"btn-sm btn-info pl-4"%>
             <%end %>
-        </li>
-      <%end %>
-    </div>
-
-     <%if user_signed_in? %>
+          </li>
+        <%end %>
+      </div>
+      <%if user_signed_in? %>
         <li class="nav-item">
-            <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
+          <%= link_to 'Se deconnecter', destroy_user_session_path, method: :delete, class: "nav-link" %> 
         </li>
-     <%else%>
+      <%else%>
         <li class="nav-item">
           <a href="/users/sign_in"  class= "nav-link">Connexion</a>
         </li>
         <li class="nav-item">
           <a href="/users/sign_up"  class= "nav-link">S'inscrire</a>
         </li>
-     <%end%>
-     <li class="nav-item d-flex align-items-center">
+      <%end%>
+      <li class="nav-item d-flex align-items-center">
         <%= link_to "Mon panier", carts_show_path(@current_cart), class:"nav-link"%>
         <% if @current_cart.products.length != 0 %>
-       <div><p class="cart-count"><%= @current_cart.products.count%></div>
-       <% else %>
-       <div></div>
-       <%end%>
+          <div>
+            <p class="cart-count"><%= @current_cart.products.count%>
+          </div>
+        <% else %>
+          <div></div>
+        <%end%>
       </li>
     </ul>
   </div>
