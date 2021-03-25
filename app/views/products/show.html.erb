@@ -1,26 +1,31 @@
-<div class="container ">
+<div class="container cont-show-product ">
   <div class="show-product ">
     <% if @product.avatar.attached?%>
-      <%= image_tag @product.avatar, class: "show-img"%>
+      <%= image_tag @product.avatar, class: "show-img "%>
     <% else %>
       <img src="<%= @product.image_url%>" class="show-img">
   <%end %>
 
-  <div class="square">
-  <div class="square"></div> 
-
-
-
-<div class="container box-content">
+<div class="card-show">
+  <div class="card-body">
       <% @user.each do |user|%>
         <% if user.id == @product.admin_id%>
-          <h6 class=" font-weight-bold ml-2"> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
+          <h6 class=" font-weight-bold ml-2 mt-3"> Par <%= link_to user.nickname, user_path(user), style: "color: black;"%></h6> 
         <% end %>
       <% end %>
                  
       <h5 class=" title-text-sp ml-2"> <%=@product.title%></h5>
       <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
+       <div class="box-price">
+        <p class="price-p font-weight-bold"><%=@product.price%> €<br>50 €/mois</p>
+      </div>
+       
+  <% if @product.status == "available" %>
+         <%= link_to "Ajouter au panier", line_products_path(id: @product), class: " btn-pay d-flex", :method => 'POST' %>
+  <%end%>
 
+
+       
       <% if @product.status == "available" %>
         <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
       <% elsif @product.status == "rented"%>
@@ -28,43 +33,50 @@
       <% else %>
         <%= link_to "Vendu", @product.status , class:"btn-sm btn-danger card-status"%>
       <%end%>
+     
+  </div>     
+  </div>
+  </div>
 
 
-      <div class="ul-show-product d-flex flex-column ml-2">
-        <h6>Fiche technique de l'oeuvre : </h6>
-          <ul class="del-li">
-            <li><span class="font-weight-bold">Catégorie: </span> <%=@product.category%></li>
-            <li><span class="font-weight-bold">Poids: </span> <%=@product.weight%> kg</li>
-            <li><span class="font-weight-bold">Hauteur: </span><%=@product.height%>cm</li>
-            <li><span class="font-weight-bold">Largeur: </span><%=@product.width%>cm</li>
-            <li><span class="font-weight-bold">Prodondeur: </span><%=@product.depth%>cm</li>
-            <% if @product.border_product == true%>
-              <li><span class="font-weight-bold">Encadrée: </span>Oui</li>
-            <%else%>
-              <li><span class="font-weight-bold">Encadrée: </span>Non</li>
-            <%end%>
-            <% if @product.authenticable_product == false %>
-            <li><span class="font-weight-bold">Certifié:</span> Non</li>
-            <% elsif @product.authenticable_product == true%>
-              <li><span class="font-weight-bold">Certifié:</span> Oui</li>
-            <%end%>
-          </ul>
 
-      <div class="box-price float-right">
-        <p>Prix de vente : <span class="price-p font-weight-bold"><%=@product.price%>€</span></p>
-        <p>Prix de location : <span class=" price-p font-weight-bold">50€/mois</span></p>
-      </div>
-      </div>
-      
-      <div class="btn-show-product float-right ">
-        <div><%= link_to "retour", products_path, class:"btn btn-dark mr-2"%></div>
-        <% if @product.status == "available" %>
-        <div><%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn btn-primary", :method => 'POST' %></div>
-      <%end%>
-      </div>
-        
-</div>
-</div>
-</div>
+
+  <div class="box-infos text-right">
+    <div>
+      <h3 class=" font-weight-bold ml-2 mt-3 text-left"> Tout savoir sur l'oeuvre</h3>
+    </div>      
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Titre</p>
+      <p class=" box-text ml-2 mt-3"><%=@product.title%></p>
+    </div>
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Descritpion</p>
+      <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
+    </div>
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Dimension</p>
+      <p class=" box-text ml-2 mt-3"><%= @product.height%> x <%= @product.width%> x <%= @product.depth%></p>
+    </div>
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Type</p>
+      <p class=" box-text ml-2 mt-3"><%=@product.style%></p>
+    </div>
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Encadrement</p>
+      <% if @product.border_product == false %>
+        <p class=" box-text ml-2 mt-3"> Non </p>
+          <% elsif @product.aborder_product == true%>
+        <p class=" box-text ml-2 mt-3">  Oui</p>
+      <% end %>
+    </div>
+    <div class="hr-infos d-flex justify-content-between">
+      <p class=" font-weight-bold ml-2 mt-3"> Certifié</p>
+      <% if @product.authenticable_product == false %>
+        <p class=" box-text ml-2 mt-3"> Non </p>
+          <% elsif @product.authenticable_product == true%>
+        <p class=" box-text ml-2 mt-3">  Oui</p>
+      <% end %>
+    </div>
+  
 </div>
 </div>

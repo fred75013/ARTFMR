@@ -1,84 +1,44 @@
-<span class="mb-0  h1-index text-center">ART FMR</span>
-
-<div class="row text-center d-flex justify-content-center mt-0">
-  <% @products.each do |product| %>
-    <div class="product-img all-product">                       
-      <a href="<%= product_path(id: product.id) %>" class="card-clic">     
-        
-        <% if product.avatar.attached?%>                
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <a><%= image_tag product.avatar, class:"product p-0 m-2"%></a>
-            </div>
-            <div class="flip-card-back">
-              <% @users.each do |user|%>
-                <% if user.id == product.admin_id%>
-                  <h1><%= user.nickname %></h1> 
-                <% end %>
-              <% end %>
-              <p class="product-description"  ><%= product.description%></p>            
-              
-                <p>
-                  <%= link_to "En savoir plus", product_path(id: product.id), class: "link-show-product" %>
-                </p>
-                <br/>
-                <br/>
-                  <% if user_signed_in? %>
-                    <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
-                      <% if pre_like %>
-                        <%= link_to product_like_path(product, pre_like), class:"btn-heart",method: :delete, remote: true do %>
-                        <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: red; backgound-color: none;float:bottom;"></i>
-                      <% end %>
-                      <% else %>
-                        <%= link_to  product_likes_path(product), class:"btn-heart",method: :post, remote: true do %>
-                        <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <p> <%= product.likes.count%>   <i class="fa fa-heart " aria-hidden="true" style="color: black;width: 30px;float:bottom;" ></i></p>
-                  <% end %>
-                </div>
-              </div>
-              </div>
-            </div>
-        <% else %>
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <a><img src="<%= product.image_url%>" class="product p-0 m-2 mt-2"></a>
-              </div>
-              <div class="flip-card-back">
-                <% @users.each do |user|%>
-                  <% if user.id == product.admin_id%>
-                    <h1><%= user.nickname %></h1> 
-                  <% end %>
-                <% end %>
-                <p class="product-description"><%= product.description %></p>
-                
-                <div class="bottom-card">
-                 <p>
-                  <%= link_to "En savoir plus", product_path(id: product.id), class: "link-show-product" %>
-                </p><br/><br/>
-                  <% if user_signed_in? %>
-                    <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
-                      <% if pre_like %>
-                        <%= link_to product_like_path(product, pre_like), class:"btn-heart",method: :delete, remote: true do %>
-                        <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: red; backgound-color: none;float:bottom;"></i>
-                      <% end %>
-                      <% else %>
-                        <%= link_to  product_likes_path(product), class:"btn-heart",method: :post, remote: true do %>
-                        <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
-                      <% end %>
-                    <% end %>
-                  <% else %>
-                    <p> <%= product.likes.count%>   <i class="fa fa-heart " aria-hidden="true" style="color: black;width: 30px;float:bottom;" ></i></p>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+<div class="container-fluid contain-jumbo-index">
+  <div class="jumbotron jumbotron-fluid jumbo-index">
+        <h2 class="text-center">Oeuvres en vente ou location sur ARTFMR</h2>
+    </div>
+    <div class="row d-flex justify-content-center mt-0">
+      <% @products.each do |product| %>
+        <div class="card" style="width: 18rem;">
+          <% if product.avatar.attached?%>
+           <a href="<%= product_path(id: product.id)%>"><img class="card-img-top" src="<%= product.avatar%>" alt="Card image cap"></a>
+            <% else%>
+            <a href="<%= product_path(id: product.id)%>"><img class="card-img-top" src="<%= product.image_url%>" alt="Card image cap"></a>
+        <% end %> 
+          <div class="card-body">
+          <% @users.each do |user|%>
+            <% if user.id == product.admin_id%>
+            <p class="font-weight-bold"><%= user.nickname%></p>
+            <% end %>
+          <% end %>
+            <p class="font-italic" ><%= product.title%></p>
+            <p class="font-italic"><%= product.height%> x <%= product.width%> x <%= product.depth%></p>
+            <p><%= product.style%></p>
+            <p class="text-right"><%= product.price%> €</p>
+            <div class="like-index">
+          <% if user_signed_in? %>
+            <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= link_to product_like_path(product, pre_like), class:"btn-heart text-dark",method: :delete, remote: true do %>
+              <%= product.likes.count %><i class="fa fa-heart " aria-hidden="true" style="color: red; backgound-color: none;float:bottom;"></i>
+            <% end %>
+            <% else %>
+               <%= link_to  product_likes_path(product), class:"btn-heart text-dark",method: :post, remote: true do %>
+               <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
+            <% end %>
+            <% end %>
+            <% else %>
+            <p> <%= product.likes.count%>   <i class="fa fa-heart " aria-hidden="true" style="color: black;width: 30px;float:bottom;" ></i></p>
+            <% end %>
           </div>
-        </div>     
-      <%end %>
-    <%end%>
+          </div>
+          
+        </div>
+      <% end %>
+    </div>
 </div>
