@@ -32,10 +32,11 @@ class ApplicationController < ActionController::Base
       else
         session[:cart_id] = nil
       end
-    else
-      @current_cart = Cart.create
-      session[:cart_id] = @current_cart.id
     end
+      if session[:cart_id].nil?
+        @current_cart = Cart.create
+        session[:cart_id] = @current_cart.id
+      end
   end
 
   def after_sign_in_path_for(_resource_or_scope)
