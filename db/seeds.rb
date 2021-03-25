@@ -67,7 +67,7 @@ User.destroy_all
   last_name: "oucouc",
   adress: "12 rue du chacal",
   city: "Fronce",
-  phone_number: "0771006523",
+  phone_number: 0771006523,
   artist: true,
 )
 @u1 = User.create!(
@@ -78,7 +78,7 @@ User.destroy_all
   last_name: "artist",
   adress: "5 rue des artist",
   city: "Paris",
-  phone_number: 0o600000001,
+  phone_number: 0600000001,
   artist: true
 )
 @u2 = User.create!(
@@ -89,7 +89,7 @@ User.destroy_all
   last_name: "artisto",
   adress: "5 rue des artist",
   city: "Paris",
-  phone_number: 0o600000001,
+  phone_number: 0600000001,
   artist: true
 )
 @u3 = User.create!(
@@ -100,7 +100,7 @@ User.destroy_all
   last_name: "artisto",
   adress: "5 rue des artist",
   city: "Paris",
-  phone_number: 0o600000001,
+  phone_number: 0600000001,
   artist: true
 )
 

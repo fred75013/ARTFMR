@@ -11,6 +11,6 @@ class OrderProductsController < ApplicationController
     @order_product = OrderProduct.find(params[:id])
     @order_product.destroy
     redirect_to request.referrer
-    flash[:notice] = "Commande annulé"
+    flash[:notice] = "Commande annulée"
   end
 end
