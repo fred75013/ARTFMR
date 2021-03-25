@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_user
-  before_action :admin
+  before_action :compute_admin
 
   def index
     @products = Product.all.with_attached_avatar
@@ -16,8 +16,8 @@ class AdminController < ApplicationController
     end
   end
 
-  def admin
-    if current_user.admin == false
+  def compute_admin
+    if !current_user.admin
       redirect_to root_path
     end
   end
