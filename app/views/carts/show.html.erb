@@ -25,7 +25,7 @@
               </thead>
               <%# ------Products infos------- %>
               <tbody>
-              <% @cart.line_products.each do |line_product| %>
+              <% @current_cart.line_products.each do |line_product| %>
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
@@ -90,17 +90,17 @@
            
                     <div class="p-4">
                       <ul class="list-unstyled mb-4">
-                      <% @cart.line_products.each do |line_product| %>
+                      <% @current_cart.line_products.each do |line_product| %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary"><%=line_product.product.title%></strong><strong><%= line_product.price %> €</strong></li>
                       <% end %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary">Total</strong>
-                        <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> </h5>
+                        <h5 class="font-weight-bold"><%= number_to_currency(@current_cart.sub_total) %> </h5>
                       </li>
                     </ul>
                       
                     <div class="btns-checkout">
 
-                       <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn btn-primary btn-pay" , remote: true%> 
+                       <% price = @current_cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn btn-primary btn-pay" , remote: true%> 
 
                     
                       </div>
