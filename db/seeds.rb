@@ -19,7 +19,6 @@ User.destroy_all
 
 @images = [
   "https://www.tableau-deco.net/wp-content/uploads/2019/10/tableau-deco-joker-street-art-pochoir.jpg",
-  "https://www.amalgallery.com/public/img/big/20190210160618jpg_5c6072490e428.jpg",
   "https://cdn.shopify.com/s/files/1/2682/2802/products/tableau-moderne-le-visage-d-une-femme-tableau-moderne-ruedestableaux-com-60x90cm-13749270642731_1200x.jpg?v=1594923800",
   "https://labaleinegraphique.com/wp-content/uploads/2019/05/tableau_tags_graffitis_decoration_street_art_zoom.jpg",
   "https://d2ans0z9s1x1c.cloudfront.net/produits/tableau-pop-art-chien-street-art-5fe23d8d2c177.jpg",
@@ -66,7 +65,7 @@ User.destroy_all
   last_name: "oucouc",
   adress: "12 rue du chacal",
   city: "bordeaux",
-  phone_number: 0771006523,
+  phone_number: 0o771006523,
   artist: true,
 )
 @u1 = User.create!(
@@ -77,7 +76,7 @@ User.destroy_all
   last_name: "artist",
   adress: "5 rue des artist",
   city: "paris",
-  phone_number: 0600000001,
+  phone_number: 0o600000001,
   artist: true
 )
 @u2 = User.create!(
@@ -88,7 +87,7 @@ User.destroy_all
   last_name: "artisto",
   adress: "5 rue des artist",
   city: "lille",
-  phone_number: 0600000001,
+  phone_number: 0o600000001,
   artist: true
 )
 @u3 = User.create!(
@@ -99,7 +98,7 @@ User.destroy_all
   last_name: "artisto",
   adress: "5 rue des artist",
   city: "toulouse",
-  phone_number: 0600000001,
+  phone_number: 0o600000001,
   artist: true
 )
 
@@ -123,7 +122,6 @@ User.destroy_all
   )
 end
 
-
 @admin = User.create!(
   email: "admin@gmail.com",
   password: "123456",
@@ -132,7 +130,7 @@ end
   last_name: "artisto",
   adress: "5 rue des artist",
   city: "Paris",
-  phone_number: 0600000001,
+  phone_number: 0o600000001,
   artist: true,
   admin: true
 )

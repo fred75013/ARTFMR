@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 class CartsController < ApplicationController
   def show
     @current_cart
   end
-  
+
   def update; end
 
   def destroy
