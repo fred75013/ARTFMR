@@ -10,6 +10,7 @@
   border-bottom-right-radius: 20px;
 }
 .content-sms-artist{
+  top: 80px;
   display: flex;
   justify-content: center;
   
@@ -97,4 +98,20 @@
     display: inline-block;
     
   } 
+}
+@media screen and (max-width: 750px) {
+  .item-name{
+    display: none;
+  }
+  .list-conv{
+    display: none;
+  }
+  .container-sms{
+    width: 100%;
+    border-radius: 20px;
+    bottom: 50px;
+  }
+  .group-sms{
+    width: 100%;
+  }
 }
