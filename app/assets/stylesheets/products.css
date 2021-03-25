@@ -15,7 +15,7 @@
 }
 .card-body p{
   margin-top: 10px;
-  width: 250px;
+  width: 100%;
   height: 20px;
   font-size: 16px;
 }
@@ -74,7 +74,7 @@
 }
 /*Show*/
 .card-show{
-border: 1px solid black;
+  border: 1px solid black;
 }
 .show-product {
   border-radius: 5px;
@@ -219,16 +219,15 @@ border: 1px solid black;
   font-weight: 400;
   width: 400px;
   overflow-wrap: break-word;
+  height: 100%;
 }
 
 .title-text-sp {
   font-size: 32px;
 }
 .box-price {
-  width: 50%;
-  top: 70px;
-  margin-left: 7px;
-  height: auto;
+  top: 5px;
+  font-weight: bold;
 }
 .price-p{
   font-size: 65px;
@@ -286,7 +285,7 @@ border: 1px solid black;
 
 .hr-infos{
   width: 100%;
-  height: 100px;
+  height: 100%;
   border-top: 1px solid rgb(196, 196, 196);
 }
 .hr-infos:nth-child(2){
@@ -304,20 +303,14 @@ border: 1px solid black;
 .btn-pay{
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color:black;
-  color: #FFF;
-  width: 116.5%;
-  height: 50px;
-  text-decoration: none;
-  margin-left: 17px;
-  margin-top: 115px
+  width: 500px;
 }
 
 /* à refaire !!!! */
 .btn-pay:hover{
+  background-color: white!;
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
 .box-infos{
