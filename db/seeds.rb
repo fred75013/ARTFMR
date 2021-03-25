@@ -38,7 +38,6 @@ User.destroy_all
   "https://www.atelier-du-soleil.fr/wp-content/uploads/sites/7524/2020/03/restaurer.jpg",
   "https://shop.amaury-dubois.com/wp-content/uploads/2020/04/blue-abstract-painting-5.jpg",
   "https://www.johnbeckley.com/images/2017/03/Explomium-tableau-abstrait-carre-john-beckley-2017.jpg",
-  "https://www.amalgallery.com/public/img/big/IMG08872jpg_5ce01e6c9c45c.jpg",
   "https://www.artmajeur.com/medias/standard/n/a/nathalie-robert/artwork/11942429_9d5cee46-0f5d-40dd-b012-b32df1177c9d.jpg?v=1549706793",
   "https://storage.gra.cloud.ovh.net/v1/AUTH_ca60d77ddd5e42749d7c4c17f753540d/ugm-data/pictures/tableaux-abstraits-et-geometriques-par-marie-vinouse/product-5d5ffc320d9e5-1.jpeg?1566571572",
   "http://www.artgeneration.fr/acatalog/CELINE%20WEBER%20Acrylique%20sur%20toile%20abstrait%20couleur%20TAC061626p.jpg",
