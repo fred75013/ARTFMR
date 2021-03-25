@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -11,12 +10,10 @@ class ApplicationController < ActionController::Base
   def renting_time_over?
     OrderProduct.all.each do |order|
       next if order.end_date.nil?
-
       if order.end_date < Date.today
         order.product.update(status: "available")
       end
     end
-
     # available_products = OrderProduct.where("? > date", :created_at, date: Date.today)
     # available_products.update_all(status: "available")
   end
@@ -33,10 +30,10 @@ class ApplicationController < ActionController::Base
         session[:cart_id] = nil
       end
     end
-      if session[:cart_id].nil?
-        @current_cart = Cart.create
-        session[:cart_id] = @current_cart.id
-      end
+    if session[:cart_id].nil?
+      @current_cart = Cart.create
+      session[:cart_id] = @current_cart.id
+    end
   end
 
   def after_sign_in_path_for(_resource_or_scope)
@@ -51,7 +48,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
-
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:avatar, :nickname, :first_name, :last_name, :adress, :city, :phone_number, :artist, :current_password) }
   end
 end
