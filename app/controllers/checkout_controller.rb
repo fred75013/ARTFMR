@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class CheckoutController < ApplicationController
   before_action :authenticate_user
 
@@ -25,7 +24,6 @@ class CheckoutController < ApplicationController
       respond_to do |format|
         format.js # renders create.js.erb
       end
-
     end
 
     def success

@@ -2,7 +2,7 @@
 
 class LineProductsController < ApplicationController
   before_action :check_product_presence, only: [:create]
-
+  before_action :find_line_product, only: [:destroy, :update]
   def index
     @line_product = LineProduct.all
   end
@@ -15,7 +15,7 @@ class LineProductsController < ApplicationController
     chosen_product = Product.find(params[:id])
 
     @line_product = if chosen_product.status == "rented"
-                      LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price - (50 * chosen_product.order_products.last.renting_time) )
+                      LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price - (LineProduct::RENTING_PRICE * chosen_product.order_products.last.renting_time) )
                     else
                       LineProduct.new(cart: @current_cart, product: chosen_product, price: chosen_product.price )
                     end
@@ -27,12 +27,11 @@ class LineProductsController < ApplicationController
   end
 
   def update
-    @line_product = LineProduct.find(params[:id])
     # @line_product.product.map(&:price)=50
     if @line_product.to_buy
-      @line_product.update(to_buy: false, price: 50)
+      @line_product.update(to_buy: false, price: LineProduct::RENTING_PRICE)
     elsif @line_product.to_buy == false && @line_product.product.status == "rented"
-      @line_product.update(to_buy: true, price: @line_product.product.price - (50 * @line_product.product.order_products.last.renting_time))
+      @line_product.update(to_buy: true, price: @line_product.product.price - (LineProduct::RENTING_PRICE * @line_product.product.order_products.last.renting_time))
     else
       @line_product.update(to_buy: true, price: @line_product.product.price)
     end
@@ -40,7 +39,6 @@ class LineProductsController < ApplicationController
   end
 
   def destroy
-    @line_product = LineProduct.find(params[:id])
     @line_product.destroy
     redirect_to cart_path(@current_cart)
   end
@@ -55,5 +53,9 @@ class LineProductsController < ApplicationController
       redirect_to request.referrer
       flash[:notice] = "Déja ajouté au panier"
     end
+  end
+
+  def find_line_product
+    @line_product = LineProduct.find(params[:id])
   end
 end
