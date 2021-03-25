@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
         order.product.update(status: "available")
       end
     end
+
+    # available_products = OrderProduct.where("? > date", :created_at, date: Date.today)
+    # available_products.update_all(status: "available")
   end
 
   def current_cart
@@ -29,9 +32,7 @@ class ApplicationController < ActionController::Base
       else
         session[:cart_id] = nil
       end
-    end
-
-    if session[:cart_id].nil?
+    else
       @current_cart = Cart.create
       session[:cart_id] = @current_cart.id
     end
@@ -50,6 +51,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :password_confirmation) }
 
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:nickname, :first_name, :last_name, :adress, :city, :phone_number, :artist, :current_password) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:avatar, :nickname, :first_name, :last_name, :adress, :city, :phone_number, :artist, :current_password) }
   end
 end

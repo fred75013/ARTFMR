@@ -4,7 +4,7 @@ class CheckoutController < ApplicationController
   before_action :authenticate_user
 
   def create
-    if current_user.first_name.nil? || current_user.last_name.nil? || current_user.adress.nil? || current_user.city.nil? || current_user.phone_number.nil?
+    if current_user.incomplete_profile?
       redirect_to edit_user_registration_path
     else
       @user = current_user
@@ -35,7 +35,7 @@ class CheckoutController < ApplicationController
       @cart = @current_cart
 
       @order = Order.create(cart_id: @cart.id, amount: @cart.sub_total, user_id: current_user.id)
-   
+
       @cart.line_products.each do |line|
         if line.to_buy == true && line.product.status == "available"
           line.product.update(status: "sold")

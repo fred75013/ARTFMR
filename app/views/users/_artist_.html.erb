@@ -1,128 +1,17 @@
-<!-- ancien code au cas ou il y aurait bug 
-
-
-<div class="row " style="margin: 20px;">
-    <div class="col-md-3 ">
-
-        <div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover1">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0"><%=@user.last_name%> <%=@user.first_name%></h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Artist</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-end text-center">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-					<%sum_like = 0%> 
-         <%Order.all.each do |order_product|%>
-
-
-          <%if order_product.user == current_user%>
-           <% order_product.order_products.each do |i|%>
-            <% if i.order.user == current_user && i.start_date != nil && i.end_date > DateTime.now%>
-			<%i%>
-            <% sum_like += sum_like + 1%>
-          <%end%>
-       <% end%>
-    <%end%>
-<%end%>
-         <% sum_like%>
-         
-					
-					 
-					
-                        <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Mes locations</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Mes achats</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1">Mes favoris</i></small>
-                    </li>
-                </ul>
-            </div>
-            <div class="px-4 py-3">
-                <h5 class="mb-0">Mes informations</h5>
-                <div class="p-4 rounded shadow-sm bg-light">
-				
-                    <p class="font-italic mb-0"><%=@user.last_name%> <%=@user.first_name%></p>
-                    <p class="font-italic mb-0"><%=@user.city%></p>
-
-					
-					<p class="font-italic mb-0"><%=@user.adress%></p>
-					<p class="font-italic mb-0">0<%=@user.phone_number%></p>
-					<p class="font-italic mb-0"><%=@user.email%></p>
-					
-					<br/>
-					
-
-                </div>
-            </div>
-            <div class="bg-light p-2 d-flex justify-content-end text-center">
-                <ul class="list-inline">
-            <div class="img-group">
-            
-            </div>
-            </ul>
-            
-            </div>
-            </div>
-        </div>
-    
-
-<div class="col-md-7 ">
-
-<div class="bg-white shadow rounded overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover2">
-                <div class="media align-items-end profile-head">
-                    
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Oeuvres de <%= @user.first_name%></h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i></p>
-                    </div>
-                </div>
-            </div>
-			</div>
-			<div class="bg-light p-4 d-flex justify-content-end text-center">
-				<div class="row">
-          <% Product.all.each do |i|%>
-              <% if i.admin_id == @user.id%>
-                <% if i.avatar.attached?%>
-							    <li class="col-lg-6 mb-2 pr-lg-1" style="list-style:none;">
-                    <%= image_tag i.avatar, class: "img-fluid rounded shadow-sm"%>
-                  </li>
-								<% else %>
-                <li class="col-lg-6 mb-2 pr-lg-1" style="list-style:none;">
-									<div class="col-lg-4 mb-2 pr-lg-1"><img src="<%=i.image_url%>" alt="" class="img-fluid rounded shadow-sm"></div>
-								</li>
-                <% end %>
-              <% end %>
-            <% end %>  
-				</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!--ARTISTS GESTION-->
-
 <div class="artist-profil-for-artlover">
   <div class="photo-profil pt-4">
-    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="200" class="rounded mb-2 img-thumbnail">
-    <div class="number-location-buy-favorites">
+  <% if @user.avatar.attached?%>
+    <a><%= image_tag @user.avatar, class:"product p-0 m-2"%></a>
+  <% else %>
+    <img src="https://mk2films.com/wp-content/uploads/sites/4/2018/01/profil-picture-neutre.jpg"  class="product p-0 m-2">
+<%end%>
+<div class="number-location-buy-favorites">
       <div class="m-2">
         <%= @user.nickname%>
       </div>
     </div>
-  </div>
 </div>
--->
+
 
 
 <!--Mes oeuvres-->

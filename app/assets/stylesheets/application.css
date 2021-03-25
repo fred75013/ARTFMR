@@ -26,3 +26,7 @@
  *= require conversations
  *= require admin
 */
+
+html, body{
+  font-family: 'Poppins', sans-serif;
+}

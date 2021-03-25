@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_user
-  before_action :admin
+  before_action :compute_admin
 
   def index
     @products = Product.all.with_attached_avatar
@@ -11,15 +11,15 @@ class AdminController < ApplicationController
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Vous êtes pas admin"
+      flash[:error] = "Vous n'êtes pas l'administrateur de ce compte"
       redirect_to new_user_session_path
     end
   end
 
-  def admin
-    if current_user.admin == false
+  def compute_admin
+    if !current_user.admin
+      flash[:error] = "Vous n'êtes pas l'administrateur de ce compte"
       redirect_to root_path
     end
   end
-
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# ApplicationMailer 
-class UserMailer <  Devise::Mailer
+
+# ApplicationMailer
+class UserMailer < Devise::Mailer
   default from: 'artfmr.heroku@gmail.com'
 
   def welcome_email(user)
@@ -41,4 +42,3 @@ class UserMailer <  Devise::Mailer
     user.save
   end
 end
-

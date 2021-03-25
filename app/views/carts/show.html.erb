@@ -25,7 +25,7 @@
               </thead>
               <%# ------Products infos------- %>
               <tbody>
-              <% @cart.line_products.each do |line_product| %>
+              <% @current_cart.line_products.each do |line_product| %>
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
@@ -35,7 +35,7 @@
                             <img src="<%=line_product.product.image_url%>" alt="" width="70" class="img-fluid rounded shadow-sm">
                           <%end %>
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block"><%=line_product.product.admin.first_name%> <%=line_product.product.admin.last_name%></span>
+                        <h5 class="mb-0"> <a href="<%= product_path(line_product.product)%>" class="text-dark d-inline-block align-middle"><%=line_product.product.title%></a></h5><span class="text-muted font-weight-normal font-italic d-block" ><%=line_product.product.admin.nickname%> </span>
                          <%if line_product.to_buy == false && line_product.product.status == "rented"%>
                           <% i = line_product.product.order_products.last.end_date.advance(days: 30)%>
                           <span>Prolongez d'un mois jusqu'au <%= i.day %>/<%=i.month%>/<%=i.year%> !</span>
@@ -90,17 +90,17 @@
            
                     <div class="p-4">
                       <ul class="list-unstyled mb-4">
-                      <% @cart.line_products.each do |line_product| %>
+                      <% @current_cart.line_products.each do |line_product| %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary"><%=line_product.product.title%></strong><strong><%= line_product.price %> €</strong></li>
                       <% end %>
                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-primary">Total</strong>
-                        <h5 class="font-weight-bold"><%= number_to_currency(@cart.sub_total) %> </h5>
+                        <h5 class="font-weight-bold"><%= number_to_currency(@current_cart.sub_total) %> </h5>
                       </li>
                     </ul>
                       
                     <div class="btns-checkout">
 
-                       <% price = @cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn btn-primary btn-pay" , remote: true%> 
+                       <% price = @current_cart.sub_total %> <%= button_to "PASSER COMMANDE", checkout_index_path(total: price) ,class: "btn btn-primary btn-pay" , remote: true%> 
 
                     
                       </div>

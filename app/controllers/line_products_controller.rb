@@ -2,7 +2,6 @@
 
 class LineProductsController < ApplicationController
   before_action :check_product_presence, only: [:create]
-  # before_action :set_create, only: [:create, :index]
 
   def index
     @line_product = LineProduct.all
@@ -23,14 +22,14 @@ class LineProductsController < ApplicationController
     if @line_product.save
       redirect_to products_path
       flash[:success] = "Bien ajouté au panier"
-    end 
+    end
     # Save and redirect to cart show path
   end
 
   def update
     @line_product = LineProduct.find(params[:id])
     # @line_product.product.map(&:price)=50
-    if @line_product.to_buy == true
+    if @line_product.to_buy
       @line_product.update(to_buy: false, price: 50)
     elsif @line_product.to_buy == false && @line_product.product.status == "rented"
       @line_product.update(to_buy: true, price: @line_product.product.price - (50 * @line_product.product.order_products.last.renting_time))
