@@ -1,5 +1,6 @@
-<div class="container cont-show-product ">
+<div class="container cont-show-product col-12">
   <div class="show-product ">
+  <a href="<%= products_path %>" class="arrow-back"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
     <% if @product.avatar.attached?%>
         <%= image_tag @product.avatar, class:"show-img" %>
     <% else %>
@@ -17,16 +18,13 @@
       <h5 class=" title-text-sp ml-2"> <%=@product.title%></h5>
       <p class=" box-text ml-2 mt-3"><%=@product.description%></p>
        <div class="box-price">
-        <p class="price-p font-weight-bold"><%=@product.price%> €<br>50 €/mois</p>
+        <p class="font-weight-bold"><%=@product.price%> €<br>50 €/mois</p>
       </div>
       <% if @product.status == "available" %>
          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: " btn-pay d-flex", :method => 'POST' %>
       <%end%>
 
   </div>
-       
-  
-
        
       <% if @product.status == "available" %>
         <%= link_to "Disponible", @product.status , class:"btn-sm btn-success btn-static card-status "%>
@@ -72,7 +70,7 @@
       <% end %>
     </div>
     <div class="hr-infos d-flex justify-content-between">
-      <p class=" font-weight-bold ml-2 mt-3"> Certifié</p>
+      <p class=" font-weight-bold ml-2 mt-3"> Certifiée</p>
       <% if @product.authenticable_product == false %>
         <p class=" box-text ml-2 mt-3"> Non </p>
           <% elsif @product.authenticable_product == true%>
