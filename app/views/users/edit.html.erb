@@ -1,12 +1,11 @@
-
 <div class="chose">
-    <h2 class="whoareyou">Qui êtes vous ?</h2>
-    <%= form_for (current_user), html: { class: "form-signin", method: :put  } do |f| %>
+  <h2 class="whoareyou">Qui êtes vous ?</h2>
+  <%= form_for (current_user), html: { class: "form-signin", method: :put  } do |f| %>
     <button type="submit" class="btn btn-primary btn-left mr-3"  >
-        <%= f.submit "ART LOVER" ,class:"text-white bg-primary" %>  
+      <%= f.submit "ART LOVER" ,class:"text-white bg-primary" %>  
     </button>    
     <button type="submit" class="btn btn-primary btn-right ml-3" >
-        <%= f.submit "ARTISTE", class:"text-white bg-primary" %>
+      <%= f.submit "ARTISTE", class:"text-white bg-primary" %>
     </button> 
-    <%end%>
+  <%end%>
 </div>

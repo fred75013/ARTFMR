@@ -1,39 +1,32 @@
 <div class="artist-profil-for-artlover">
   <div class="photo-profil pt-4">
-  <% if @user.avatar.attached?%>
-    <a><%= image_tag @user.avatar, class:"product p-0 m-2"%></a>
-  <% else %>
-    <img src="https://mk2films.com/wp-content/uploads/sites/4/2018/01/profil-picture-neutre.jpg"  class="product p-0 m-2">
-<%end%>
-<div class="number-location-buy-favorites">
+    <% if @user.avatar.attached?%>
+      <a><%= image_tag @user.avatar, class:"product p-0 m-2"%></a>
+    <% else %>
+      <img src="https://mk2films.com/wp-content/uploads/sites/4/2018/01/profil-picture-neutre.jpg"  class="product p-0 m-2">
+    <%end%>
+    <div class="number-location-buy-favorites">
       <div class="m-2">
         <%= @user.nickname%>
       </div>
     </div>
 </div>
-
-
-
-<!--Mes oeuvres-->
 <div class="my-art-all">
   <h4 class="text-center">Ses oeuvres</h4>
   <div class="my-art">
-
-            <% Product.all.each do |i|%>
-              <% if i.admin_id == @user.id%>
-                <% if i.avatar.attached?%>
-                  <%=link_to product_path(id: i.id) do %>
-                    <%= image_tag i.avatar, class:"img-my-art "%>
-                  <%end%>
-                <% else %>
-                  <%=link_to product_path(id: i.id) do %>
-                    <%=image_tag i.image_url , class:"img-my-art "%>
-                  <%end%>
-                <% end %>
-              <% end %>
-            <% end %>  
-
-
+    <% Product.all.each do |i|%>
+      <% if i.admin_id == @user.id%>
+        <% if i.avatar.attached?%>
+          <%=link_to product_path(id: i.id) do %>
+            <%= image_tag i.avatar, class:"img-my-art "%>
+          <%end%>
+        <% else %>
+          <%=link_to product_path(id: i.id) do %>
+            <%=image_tag i.image_url , class:"img-my-art "%>
+          <%end%>
+        <% end %>
+      <% end %>
+    <% end %>  
   </div>
 </div>
 
