@@ -1,8 +1,13 @@
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 body {
   min-height: 100vh;
   overflow-x: hidden;
   margin-top: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Quando);
