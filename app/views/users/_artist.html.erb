@@ -42,7 +42,7 @@
       <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-g-artwort" role="tab" aria-controls="nav-home" aria-selected="true">Toute mes oeuvres en ligne</a>
         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-g-rent" role="tab" aria-controls="nav-profile" aria-selected="false">Mes oeuvres en location</a>
-        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">Mes oeuvres vendus</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-g-sold" role="tab" aria-controls="nav-contact" aria-selected="false">Mes oeuvres vendus</a>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -157,14 +157,49 @@
               <% end %>
             <%end%>
           <%end%>
-
-
         </div>
+    
+       <div class="tab-pane fade" id="nav-g-sold" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="my-art-all">
+        <div>
+          <%OrderProduct.all.each do |i|%>
+            <% if i.product.status == "sold" && i.product.admin == current_user%>
+              <% if i.product.avatar.attached?%>
+                <div class="m-location mt-5">
+                <%= image_tag i.product.avatar, class:"img-my-art"%>
+                <div class="m-location-bis ml-5">
+                <p>Oeuvre commandé par : <%=i.order.user.first_name%> <%=i.order.user.first_name%></p>
+                <p>Status : <span class="badge badge-danger">Vendu</span></p>
+                0<%=i.order.user.phone_number%><br/>
+                <%=i.order.user.email%><br/>
+                <%=i.order.user.city%><br/>
+                <%=i.order.user.adress%><br/>
+                <%= link_to "je confirme avoir bien livrer cette oeuvre", order_product_path(i), method: :patch, data: {confirm: "Avez vous bien livré l'oeuvre chez le client ?"} , class: "btn btn-outline-dark btn-sm m-2 " %>
+                </div>
+                </div>         
+             
+              <% else %>
+               
+                <div class="m-location mt-5">
+                <img src="<%=i.product.image_url%>" alt="" class="img-my-art">
+                <div class="m-location-bis ml-5">
+                <p>Oeuvre commandé par : <%=i.order.user.first_name%> <%=i.order.user.first_name%></p>
+                <p>Status : <span class="badge badge-danger">Vendu</span></p>
+                0<%=i.order.user.phone_number%><br/>
+                <%=i.order.user.email%><br/>
+                <%=i.order.user.city%><br/>
+                <%=i.order.user.adress%><br/>
+                 </div>
+                </div>
+             <% end %>
+             </div>
+            <%end%>
+          <%end%>
       </div>
       </div>
       </div>
-      </div>
-</div>
+
+
 <!------ Include the above in your HEAD tag ---------->
 <div class="nav-tab-home-made">
   <div>
