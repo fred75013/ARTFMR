@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_path
+    redirect_to request.referrer
   end
 
   private
