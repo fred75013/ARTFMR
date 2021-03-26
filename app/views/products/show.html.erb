@@ -14,10 +14,11 @@
           <% end %>
         <% end %>              
         <h5 class=" title-text-sp "> <%=@product.title%></h5>
-        <p class=" box-text "><%=@product.description%></p><br/><br/><br/><br/>
+        <p class=" box-text mb-5"><%=@product.description%></p>
+        <hr>
         <p class=" box-price "><%=@product.price%> €<br>50 €/mois</p><br/> 
         <% if @product.status == "available" %>
-          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn-buy btn-pay ml-3", :method => 'POST' %>
+          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn-buy btn-pay ml-4 mt-5", :method => 'POST' %>
         <%end%>
       </div>
       <% if @product.status == "available" %>
@@ -29,7 +30,7 @@
       <%end%>    
     </div>
   </div>
-  <div class="box-infos text-right">
+  <div class="box-infos text-right mb-5">
     <div>
       <h3 class=" font-weight-bold ml-2 mt-3 text-left"> Tout savoir sur l'oeuvre</h3>
     </div>      

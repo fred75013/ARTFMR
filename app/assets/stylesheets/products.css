@@ -73,9 +73,7 @@
   width: auto;
 }
 /*Show*/
-.card-show {
-  border: 1px solid black;
-}
+
 .show-product {
   border-radius: 5px;
   padding: 10px;
@@ -314,7 +312,9 @@
 }
 
 .box-infos {
-  margin-top: 50px;
+  margin: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 @media (max-width: 980px) {
