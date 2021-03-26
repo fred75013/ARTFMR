@@ -1,28 +1,23 @@
-.container-sms{
-  /* margin: 30px; */
-   width: 50%; 
-  /* left: 25%; */
-  /* display: inline-block; */
-  background-color: #D8E5EC; 
-  
+.container-sms {
+  width: 50%;
+  background-color: #d8e5ec;
   padding: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.content-sms-artist{
+.content-sms-artist {
   top: 80px;
   display: flex;
   justify-content: center;
-  
 }
-.list-conv{
-  background-color:#d0dfe7;
+.list-conv {
+  background-color: #d0dfe7;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   width: 15%;
 }
 
-.item-name{
+.item-name {
   display: flex;
   justify-content: center;
   color: black;
@@ -33,21 +28,20 @@
   text-transform: uppercase;
 }
 
-.item-name:hover{
+.item-name:hover {
   text-decoration: none;
   color: black;
- 
 }
-.scroll-sms{
+.scroll-sms {
   overflow-y: scroll;
   height: 500px;
 }
-.current_user-sms{
+.current_user-sms {
   float: right;
 }
 
-.list-sms{
-  background-color: #41B2CB;
+.list-sms {
+  background-color: #41b2cb;
   height: 40px;
   top: 10px;
   bottom: 10px;
@@ -55,7 +49,7 @@
   text-align: center;
   border-radius: 12px;
 }
-.list{
+.list {
   background-color: #358293;
   height: 40px;
   top: 10px;
@@ -64,28 +58,27 @@
   text-align: center;
   border-radius: 12px;
 }
-.sms-body{
+.sms-body {
   font-size: 18px;
   top: 25%;
 }
 
-.group-sms-current_user{
+.group-sms-current_user {
   margin: 10px;
 }
 
-.group-sms{
+.group-sms {
   display: flex;
 }
 
-.group-sms-user{
+.group-sms-user {
   margin: 10px;
 }
 
-.btn-sms{
+.btn-sms {
   margin-left: 10px;
   height: 100%;
 }
-
 
 @media screen and (max-width: 990px) {
   .list {
@@ -94,24 +87,23 @@
   .list-sms {
     height: 100%;
   }
-  .group-sms{
+  .group-sms {
     display: inline-block;
-    
-  } 
+  }
 }
 @media screen and (max-width: 750px) {
-  .item-name{
+  .item-name {
     display: none;
   }
-  .list-conv{
+  .list-conv {
     display: none;
   }
-  .container-sms{
+  .container-sms {
     width: 100%;
     border-radius: 20px;
     bottom: 50px;
   }
-  .group-sms{
+  .group-sms {
     width: 100%;
   }
 }
