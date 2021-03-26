@@ -259,13 +259,12 @@
   transform: scale(0.5);
 }
 .field_avatar {
-  background-color: #e0e1da;
   border: none;
   right: 2%;
 }
 .field_price {
-  background-color: #e0e1da;
   border-bottom: 2px solid #282828;
+  width: 220px;
 }
 
 .btn-new {

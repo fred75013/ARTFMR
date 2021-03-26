@@ -14,7 +14,7 @@
       <p>
         <%= f.file_field :avatar,  class:'form-control input-normal field_avatar' %>
       </p><br/>
-      <p>
+      <p> 
         <%= f.text_field :title, autofocus: true, placeholder: "Titre de votre oeuvre ( entre 5 et 140 caractères )" %>
       </p><br/>
       <p>
@@ -50,16 +50,16 @@
         <%= f.text_field :weight, placeholder: "Poids" %>
       </p><br/>
       <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre est elle encadrée ?
-          <p><%= f.radio_button :border_product, false %> Non 
-          <%= f.radio_button :border_product, true %> Oui</p><br/>
+          <p><%= f.radio_button :border_product, false %> Oui 
+          <%= f.radio_button :border_product, true %> Non</p><br/>
       </div><br/>
        
       <div class="radio-btn" style="display: inline-block;"><p style="font-size: 0.9375rem;">Votre oeuvre possède un certificat d'authentification ?
-          <p><%= f.radio_button :authenticable_product, false %> Non 
-          <%= f.radio_button :authenticable_product, true %> Oui</p><br/>
+          <p><%= f.radio_button :authenticable_product, false %> Oui 
+          <%= f.radio_button :authenticable_product, true %> Non</p><br/>
       </div>
       <p>
-        <%= f.number_field :price, placeholder: "Prix ( minimum 400 )", class: "field_price " %>
+        <%= f.number_field :price, placeholder: "Prix ( minimum 400 € )", class: "field_price " %>
       </p><br/>
       <p>
         <%= f.submit "Déposez votre oeuvre", class: "btn-new btn" %>
