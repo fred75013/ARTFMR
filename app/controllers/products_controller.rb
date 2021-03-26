@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_admin, only: [:edit, :update]
 
   def index
-    @products = Product.search(params[:query]) 
+    @products = Product.search(params[:query])
     @users = User.all
   end
 

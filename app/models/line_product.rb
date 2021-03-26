@@ -6,6 +6,5 @@ class LineProduct < ApplicationRecord
   belongs_to :order, optional: true
 
   # Globals
-  RENTING_PRICE=50
-
+  RENTING_PRICE = 50
 end

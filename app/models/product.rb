@@ -65,8 +65,8 @@ class Product < ApplicationRecord
   def self.search(query)
     if query
       user = User.all.where(city: query.downcase)
-      if user 
-        self.where(admin_id: user)
+      if user
+        where(admin_id: user)
       else
         Product.all
       end
