@@ -2,9 +2,9 @@
  <%= render 'artlover' %>
 <% else %>
 <% if user_signed_in? && @user.id == current_user.id || current_user.admin == true %>
-	<%= render 'artist' %>
+	<%= render 'artist_admin' %>
 	<% else %>
-	<%= render 'artist_' %>
+	<%= render 'artist_profil' %>
 	<%end%>
 <% end %>
 

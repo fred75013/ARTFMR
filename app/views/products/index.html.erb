@@ -2,18 +2,19 @@
   <div class="jumbotron jumbotron-fluid jumbo-index">
     <h2 class="text-center">Oeuvres en vente ou location sur ARTFMR</h2>
   </div>
-  
-    <div class='form-search'>  
-      <%= form_tag(products_path, method: :get) do %>
+  <div class='form-search'>  
+    <%= form_tag(products_path, method: :get) do %>
       <div class="form-query">
-      <h5>Chercher par ville: </h5>
+        <h5>Chercher par ville: </h5>
         <%= text_field_tag :query%>
+
         </div>
         <%= submit_tag ("Rechercher"), class: "btn-search" %>
       <% end %>
     </div>
   
   <div class="row d-flex justify-content-center">
+
     <% @products.each do |product| %>
       <div class="card" style="width: 18rem;">
         <% if product.avatar.attached?%>
@@ -45,25 +46,24 @@
           </p>
           <p class="text-right">ou <span class="font-weight-bold">50 €</span> / mois en location</p>
           
- 
           <div class="like-index">
             <% if user_signed_in? %>
               <% pre_like = product.likes.find { |like| like.user_id == current_user.id} %>
               <% if pre_like %>
                 <%= link_to product_like_path(product, pre_like), class:"btn-heart text-dark",method: :delete, remote: true do %>
                 <%= product.likes.count %><i class="fa fa-heart " aria-hidden="true" style="color: red; backgound-color: none;float:bottom;"></i>
+                <% end %>
+              <% else %>
+                <%= link_to  product_likes_path(product), class:"btn-heart text-dark",method: :post, remote: true do %>
+                <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
+                <% end %>
               <% end %>
             <% else %>
-              <%= link_to  product_likes_path(product), class:"btn-heart text-dark",method: :post, remote: true do %>
-              <%= product.likes.count %>   <i class="fa fa-heart " aria-hidden="true" style="color: black;backgound-color: none;float:bottom;"></i>
+              <%= product.likes.count%>   <i class="fa fa-heart" aria-hidden="true" style="color: black;backgound-color: none;float:bottom;" ></i>
             <% end %>
-          <% end %>
-        <% else %>
-        <%= product.likes.count%>   <i class="fa fa-heart" aria-hidden="true" style="color: black;backgound-color: none;float:bottom;" ></i>
-      <% end %>
-          </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>
