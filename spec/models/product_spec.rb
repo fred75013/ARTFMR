@@ -7,7 +7,7 @@ RSpec.describe Product, type: :model do
     @u = User.create( email: "artist2@gmail.com", password: "123456", encrypted_password: "123456", first_name: "artist2", last_name: "artist2", adress: "5 rue des artist", city: "Paris", phone_number: 0o600000001, artist: true)
     @product = Product.create!(
       title: "New title",
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into elec",
+      description: "Lorem bled it to make a type specimen book. It has survived not only five centuries, but also the leap into elec",
       category: "Caramel",
       style: "toile sur chassis",
       height: 90,
