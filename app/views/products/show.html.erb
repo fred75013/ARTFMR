@@ -1,4 +1,4 @@
-<div class="container cont-show-product col-12">
+<div class="m-5">
   <div class="show-product ">
     <a href="<%= products_path %>" class="arrow-back"><img src="https://img.icons8.com/windows/32/000000/long-arrow-left.png"/></a>
     <% if @product.avatar.attached?%>
@@ -6,7 +6,7 @@
     <% else %>
       <img src="<%= @product.image_url%>" class="show-img">
     <%end %>
-    <div class="card-show ml-6">
+    <div class="card-show">
       <div class="card-body  justify-content-center flex-column">
         <% @user.each do |user|%>
           <% if user.id == @product.admin_id%>
@@ -17,7 +17,7 @@
         <p class=" box-text "><%=@product.description%></p><br/><br/><br/><br/>
         <p class=" box-price "><%=@product.price%> €<br>50 €/mois</p><br/> 
         <% if @product.status == "available" %>
-          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn-buy btn-pay", :method => 'POST' %>
+          <%= link_to "Ajouter au panier", line_products_path(id: @product), class: "btn-buy btn-pay ml-3", :method => 'POST' %>
         <%end%>
       </div>
       <% if @product.status == "available" %>
