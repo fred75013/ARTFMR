@@ -41,7 +41,6 @@
   }
 }
 
-/* pastille user status */
 .info-status {
   pointer-events: none;
 }
@@ -51,4 +50,3 @@
   z-index: 1;
   bottom: 1px;
 }
-/* pastille user status */

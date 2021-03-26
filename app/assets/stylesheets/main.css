@@ -1,16 +1,18 @@
-
-body{
+html {
+  font-family: "Montserrat", Arial, sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background:#fff;
+  background: #fff;
   margin-top: 50px;
 }
-
-
 @import url(https://fonts.googleapis.com/css?family=Quando);
 *,
 *:after,
@@ -24,7 +26,4 @@ body{
   border: 0 none;
   position: relative;
   outline: none;
-}
-body {
-
 }

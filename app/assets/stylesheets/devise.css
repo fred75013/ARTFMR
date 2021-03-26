@@ -1,43 +1,4 @@
-/* h2 {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.field {
-  padding: 30px;
-  margin-top: -30px;
-  left: 25%;
-}
-
-.button-update {
-  padding: 30px;
-  margin-top: -100px;
-  left: 40%;
-  width: 30%;
-}
-
-.text-field {
-  background-color: #fdcfa8;
-  width: 50%;
-  border-radius: 5px;
-  height: 30px;
-  padding: 5px;
-}
-
-.actions {
-  padding: 30px;
-  margin-top: 100px;
-  width: 20%;
-} */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-html {
-  font-family: "Montserrat", Arial, sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-
 
 button {
   overflow: visible;
@@ -159,7 +120,7 @@ select::-ms-expand {
 
 .phone {
   width: 100%;
-  
+
   border-bottom: 2.5px solid #474544;
 }
 
@@ -226,7 +187,7 @@ textarea {
   color: #f2f3eb;
 }
 
-@media screen and ( max-width: 1050px) and ( min-width: 300px) {
+@media screen and (max-width: 1050px) and (min-width: 300px) {
   #container {
     margin-top: 20px auto;
     width: 85%;
@@ -272,17 +233,17 @@ textarea {
 .box-container {
   bottom: 20px;
 }
-.link-del{
+.link-del {
   color: #7b8a8b;
   text-decoration: none;
-  width:auto;
+  width: auto;
   transition: all 150ms ease-in-out;
   top: 10px;
 }
-.link-del:hover{
+.link-del:hover {
   color: #ecf0f1;
   text-decoration: none;
-  background:#e74c3c ;
+  background: #e74c3c;
   width: auto;
   padding: 10px;
 }
