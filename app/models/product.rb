@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   after_create :new_product
 
   validates :avatar,
-            presence: false
+            presence: true
 
   validates :title,
             presence: true,
@@ -41,12 +41,6 @@ class Product < ApplicationRecord
   validates :weight,
             presence: true,
             numericality: { only_integer: true }
-
-  # validates :border_product,
-  # presence: false
-
-  # validates :authenticable_product,
-  # presence: false
 
   validates :status,
             presence: true
