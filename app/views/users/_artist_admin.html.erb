@@ -41,7 +41,10 @@
                     <%= image_tag i.avatar, class:"img-my-art"%>
                     <br/>
                     <%if i.status == "available"%>
+                    <div class="text-center">
                       <%= link_to "Modifier", edit_product_path(i.id) , class: "btn btn-dark btn-sm btn-art"%>
+                      <%= link_to "Supprimer",product_path(i), data: { confirm: "Êtes vous sure de vouloir supprimer cette oeuvre ?" } , method: :delete , class: "btn btn-danger btn-sm btn-art"%>
+                      </div>
                     <%elsif i.status == "sold"%>
                       <span class="badge badge-danger btn-art">Vendu</span>
                     <%elsif i.status == "rented"%>
@@ -50,7 +53,11 @@
                   </div>
                 <% else %>
                   <div class="one-art">
+                  <%if i.image_url? %>
                     <%=image_tag i.image_url , class:"img-my-art"%>
+                    <%else%>
+                    <img src="https://assistance.leboncoin.info/hc/article_attachments/360003604980/ajouter_des_photos.PNG"  class="product p-0 m-2">
+                    <%end%>
                     <br/>
                     <%if i.status == "available"%>
                       <div class="text-center">

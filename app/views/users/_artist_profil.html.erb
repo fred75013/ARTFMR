@@ -22,9 +22,15 @@
             <%= image_tag i.avatar, class:"img-my-art "%>
           <%end%>
         <% else %>
+        <%if i.image_url?%>
           <%=link_to product_path(id: i.id) do %>
             <%=image_tag i.image_url , class:"img-my-art "%>
-          <%end%>
+            <%end%>
+            <%else%>
+            <%=link_to product_path(id: i.id) do %>
+            <img src="https://assistance.leboncoin.info/hc/article_attachments/360003604980/ajouter_des_photos.PNG"  class="product p-0 m-2">
+            <%end%>
+            <%end%>
         <% end %>
       <% end %>
     <% end %>  
