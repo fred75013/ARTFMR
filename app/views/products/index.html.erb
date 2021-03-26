@@ -7,12 +7,14 @@
       <div class="form-query">
         <h5>Chercher par ville: </h5>
         <%= text_field_tag :query%>
-      </div>
-      <%= submit_tag ("Rechercher"), class: "btn-search" %>
-    <% end %>
-  </div>
 
-  <div class="row d-flex justify-content-center mt-0">
+        </div>
+        <%= submit_tag ("Rechercher"), class: "btn-search" %>
+      <% end %>
+    </div>
+  
+  <div class="row d-flex justify-content-center">
+
     <% @products.each do |product| %>
       <div class="card" style="width: 18rem;">
         <% if product.avatar.attached?%>
@@ -39,10 +41,10 @@
           <p>
             <%= product.style%>
           </p>
-          <p class="text-right">
-            <%= product.price%> €
+          <p class="text-right font-weight-bold">
+            <%= product.price %> €
           </p>
-          <p class="text-right">ou 50 € / mois en location</p>
+          <p class="text-right">ou <span class="font-weight-bold">50 €</span> / mois en location</p>
           
           <div class="like-index">
             <% if user_signed_in? %>
