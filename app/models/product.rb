@@ -66,7 +66,7 @@ class Product < ApplicationRecord
     if query
       user = User.all.where(city: query.downcase)
       if user
-        where(admin_id: user)
+        self.where(admin_id: user)
       else
         Product.all
       end

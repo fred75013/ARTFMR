@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     @product = Product.create(product_params)
     @product.admin = current_user
     if @product.save
-      flash[:notice] = "Votre oeuvre est en ligne"
+      flash[:notice] = "Votre oeuvre est en ligne vous allez recevoir un mail de confirmation"
       redirect_to products_path
     else
       puts "$" * 30

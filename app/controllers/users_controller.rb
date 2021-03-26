@@ -3,6 +3,7 @@
 class UsersController < ApplicationController
   before_action :is_it_you?, only: [:show, :edit, :update]
   before_action :set_user
+  before_action :authenticate_user!, only: [:show, :update]
 
   def show; end
 
