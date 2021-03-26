@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   after_create :new_product
 
   validates :avatar,
-            presence: true
+            presence: false
 
   validates :title,
             presence: true,

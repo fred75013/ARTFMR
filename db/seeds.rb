@@ -112,7 +112,7 @@ User.destroy_all
     authenticable_product: false,
     status: @statut,
     price: rand(400..1000),
-    avatar: @images.sample,
+    image_url: @images.sample,
     admin_id: @artist.sample
   )
 end
