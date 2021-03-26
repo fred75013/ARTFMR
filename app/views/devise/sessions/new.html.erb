@@ -11,7 +11,7 @@
           <%= f.password_field :password, placeholder: "MOT DE PASSE", class:"phone" %>
         </div>
         <div class=" d-flex justify-content-center flex-column">
-          <%= f.submit "Connexion", id:"form_button"%>
+          <%= f.submit  "Connexion", id:"form_button"%>
           <div class="mdp-recovery">
             <%-if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
               <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"text-dark"  %><br />
