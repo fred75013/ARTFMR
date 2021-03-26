@@ -1,10 +1,3 @@
-
-
-
-
-    
-
-
 <div class="container-fluid contain-jumbo-index">
   <div class="jumbotron jumbotron-fluid jumbo-index">
     <h2 class="text-center">Oeuvres en vente ou location sur ARTFMR</h2>
@@ -20,7 +13,7 @@
       <% end %>
     </div>
   
-  <div class="row d-flex justify-content-center mt-0">
+  <div class="row d-flex justify-content-center">
     <% @products.each do |product| %>
       <div class="card" style="width: 18rem;">
         <% if product.avatar.attached?%>
@@ -47,10 +40,10 @@
           <p>
             <%= product.style%>
           </p>
-          <p class="text-right">
-            <%= product.price%> €
+          <p class="text-right font-weight-bold">
+            <%= product.price %> €
           </p>
-          <p class="text-right">ou 50 € / mois en location</p>
+          <p class="text-right">ou <span class="font-weight-bold">50 €</span> / mois en location</p>
           
  
           <div class="like-index">
