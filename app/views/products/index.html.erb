@@ -22,9 +22,15 @@
              <%= image_tag product.avatar, class:"card-img-top" %>
           </a>
         <% else %>
+        <%if product.image_url?%>
           <a href="<%= product_path(id: product.id)%>">
             <img class="card-img-top" src="<%= product.image_url%>" alt="Card image cap">
           </a>
+          <%else%>
+          <a href="<%= product_path(id: product.id)%>">
+            <img class="card-img-top" src="https://assistance.leboncoin.info/hc/article_attachments/360003604980/ajouter_des_photos.PNG" alt="Card image cap">
+          </a>
+          <%end%>
         <% end %> 
         <div class="card-body">
           <% @users.each do |user|%>
